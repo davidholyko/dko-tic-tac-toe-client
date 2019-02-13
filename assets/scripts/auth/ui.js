@@ -2,7 +2,13 @@
 
 const store = require('../store')
 
-const failure = () => $('#user-message').text('SOMETHING WRONG')
+jQuery.fn.reset = function () {
+  $(this).each(function () { this.reset() })
+}
+
+const failure = () => {
+  $('#user-message').text('SOMETHING WRONG')
+}
 
 const signInSuccess = responseData => {
   $('#user-message').text('SIGN UP')
@@ -13,8 +19,9 @@ const signInSuccess = responseData => {
 const signUpSuccess = () => $('#user-message').text('SIGN UP')
 
 const signOutSuccess = () => {
+  $('form').trigger('reset')
   store.user = null
-  $('#user-message').text('SIGN OUT')
+  $('#user-message').text('SIGNED OUT')
 }
 
 module.exports = {
