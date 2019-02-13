@@ -1,17 +1,45 @@
 <!DOCTYPE html>
 <html>
-    <head>
-      <title>Example</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `link` tags-->
-      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+<head>
+  <title>Example</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-      <!-- Do not add `script` tags-->
-      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
-      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
-    </head>
-    <body>
-      <h1>Browser Template</h1>
-    </body>
+  <!-- Do not add `link` tags-->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Do not add `script` tags-->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+</head>
+
+<body>
+  <h1>TIC TAC TOE</h1>
+
+  <h1 id="user-message"></h1>
+
+  <form id="sign-up-form">
+    <input type="email" placeholder="email" name="credentials[email]">
+    <input type="password" placeholder="password" name="credentials[password]">
+    <input type="password" placeholder="password_confirmation" name="credentials[password_confirmation]">
+    <input type="submit" value="sign-up">
+  </form>
+
+  <form id="sign-in-form">
+    <input type="email" placeholder="email" name="credentials[email]">
+    <input type="password" placeholder="password" name="credentials[password]">
+    <input type="submit" value="sign-in">
+  </form>
+
+  <form id="change-password-form">
+    <input type="password" placeholder="old password" name="passwords[old]">
+    <input type="password" placeholder="new password" name="passwords[new]">
+    <input type="submit" value="Change Password">
+  </form>
+
+  <button id="sign-out-button">Sign Out</button>
+
+  <div id="response-data"></div>
+</body>
+
 </html>
