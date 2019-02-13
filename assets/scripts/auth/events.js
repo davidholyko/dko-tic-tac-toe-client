@@ -5,33 +5,37 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onSignUp = event => {
+  console.log('onSignUp')
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.onSignUp(data)
+  api.signUp(data)
     .then(ui.signUpSuccess)
     .catch(ui.failure)
 }
 
 const onSignIn = event => {
+  console.log('onSignIn')
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.onSignIn(data)
-    .then(ui.signUpSuccess)
+  api.signIn(data)
+    .then(ui.signInSuccess)
     .catch(ui.failure)
 }
 
 const onChangePassword = event => {
+  console.log('onChangePassword')
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.onChangePassword(data)
+  api.changePassword(data)
     .then(ui.signUpSuccess)
     .catch(ui.failure)
 }
 
 const onSignOut = event => {
+  console.log('onSignOut')
   event.preventDefault()
-  api.onSignOut()
-    .then(ui.signUpSuccess)
+  api.signOut()
+    .then(ui.signOutSuccess)
     .catch(ui.failure)
 }
 
@@ -39,7 +43,7 @@ const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
   $('#change-password-form').on('submit', onChangePassword)
-  $('#onSignOut').on('submit', onSignOut)
+  $('#sign-out-button').on('click', onSignOut)
 }
 
 module.exports = { addHandlers }
