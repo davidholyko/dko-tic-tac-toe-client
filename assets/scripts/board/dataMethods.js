@@ -7,14 +7,9 @@ const switchPlayer = () => {
 
 const morph = element => {
   console.log('morph')
-  console.log('element')
-  console.log(element)
 
   const index = $(element).data('cell-index')
   const value = store.player
-
-  console.log(`value ${value}`)
-  console.log(`index ${index}`)
 
   const data = {
     game: {
@@ -43,6 +38,7 @@ const resetBoard = () => {
 }
 
 const resetStore = () => {
+  console.log('resetStore')
   store.game = null
   store.user = null
   store.player = null
@@ -64,12 +60,36 @@ const replaceBoard = data => {
 }
 
 const updateInfo = () => {
+  console.log('updateInfo')
   $('#user-message').text(`SIGNED IN AS ${store.user.email.toUpperCase()}`)
   $('#current-game').text(`Current Game ID: ${store.game.id}`)
   $('#current-player').text(`Current Player's Turn: ${store.player}`)
   $('#current-turn').text(`Current Turn Number: ${store.game.turn}`)
   $('#current-over').text(`Is the game over? ${store.game.progress}`)
   $('#game-state').text(`Who won? ${store.game.winner}`)
+}
+
+const staticInfo = () => {
+  $('#user-message').text(`SIGNED IN AS ${store.user.email.toUpperCase()}`)
+  $('#current-game').text(`Current Game ID: ${store.game.id}`)
+}
+
+const clearGames = () => {
+  $('#get-games').html('')
+}
+
+const displayGame = game => {
+  const gameHTML =
+    `<h2>Board: ${game.cells}</h2>
+     <h2>Completed: ${game.over}</h2>
+     <h2>ID: ${game.id}</h2>
+     <br>`
+  $('#get-games').append(gameHTML)
+}
+
+const startGame = data => {
+  store.game = data.game
+  store.player = 'X'
 }
 
 module.exports = {
@@ -80,5 +100,9 @@ module.exports = {
   resetUserInfo,
   resetStore,
   replaceBoard,
-  updateInfo
+  updateInfo,
+  staticInfo,
+  clearGames,
+  displayGame,
+  startGame
 }

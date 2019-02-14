@@ -4,6 +4,7 @@ const store = require('../store')
 const logic = require('./logic')
 
 const calcAll = element => {
+  console.log('updateStore')
   updateStore(element)
   calcTurn()
   calcOver()
@@ -12,6 +13,7 @@ const calcAll = element => {
 }
 
 const updateStore = element => {
+  console.log('updateStore')
   store.game.cells[$(element).data('cell-index')] = $(element).text()
 }
 
