@@ -5,7 +5,7 @@ const store = require('../store')
 // array board -> [X,X,X,X,X,X,X,X,X]
 
 const checkWin = () => {
-  const board = store.user.game.cells
+  const board = store.game.cells
   const winner = []
   const checkLine = (x, y, z) => {
     const check = [board[x], board[y], board[z]]
@@ -23,7 +23,9 @@ const checkWin = () => {
   checkLine(0, 4, 8)
   checkLine(6, 4, 2)
 
-  return winner.length ? winner[0] : 'tie'
+  winner.length ? store.game.winner = winner[0] : store.game.winner = 'tie'
+
+  return store.game.winner
 }
 
 module.exports = {

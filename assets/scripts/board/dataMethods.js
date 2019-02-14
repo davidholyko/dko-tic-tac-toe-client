@@ -4,6 +4,7 @@ const logic = require('./logic')
 const switchPlayer = () => {
   console.log('switchPlayer')
   store.player === 'X' ? store.player = 'O' : store.player = 'X'
+  console.log(store.player)
 }
 
 const morph = (element, state = false) => {
@@ -26,7 +27,7 @@ const morph = (element, state = false) => {
 const valueChanger = element => {
   console.log('valueChanger')
   if ($(element.target).text()) { return }
-  store.player === 'X' ? $(element.target).text('X') : $(element.target).text('O')
+  $(element.target).text(store.player)
   switchPlayer()
 }
 
@@ -34,6 +35,7 @@ const resetBoard = () => {
   console.log('resetBoard')
   $('#board').children().each(function (index) {
     $(this).html('')
+    $(this).on('click')
   })
 }
 
@@ -41,23 +43,34 @@ const resetUserInfo = () => {
   console.log('resetUserInfo')
   $('#user-message').html('')
   $('#current-game').html('')
-  $('#current-player').html('')
-  $('#current-turn').html('')
+  $('#feedback>*').html('')
+  $('#get-games').html('')
 }
 
 const replaceBoard = data => {
   console.log('replaceBoard')
   $('#board').children().each(function (index) {
     $(this).html(data.cells[index])
+    $(this).on('click')
   })
 }
 
 const closeBoard = () => {
+  console.log(logic.checkWin())
   if (logic.checkWin().length === 1) {
-    $('#board').children().each(function () {
+    $('#board').children().each(function (index) {
       $(this).off('click')
     })
   }
+}
+
+const updateInfo = () => {
+  $('#user-message').text(`SIGNED IN AS ${store.user.email.toUpperCase()}`)
+  $('#current-game').text(`Current Game ID: ${store.game.id}`)
+  $('#current-player').text(`Current Player's Turn: ${store.player}`)
+  $('#current-turn').text(`Current Turn Number: ${store.game.turn}`)
+  $('#current-over').text(`Is the game over? ${store.game.progress}`)
+  $('#game-state').text(`Who won? ${store.game.winner}`)
 }
 
 module.exports = {
@@ -67,5 +80,6 @@ module.exports = {
   resetBoard,
   resetUserInfo,
   replaceBoard,
-  closeBoard
+  closeBoard,
+  updateInfo
 }
