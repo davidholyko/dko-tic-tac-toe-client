@@ -72,7 +72,7 @@ const onUpdateGame = event => {
   dataMethods.valueChanger(event)
   const data = dataMethods.morph(event)
   api.updateGame(data) // update board
-    .then(ui.updateGameSuccess)
+    .then(ui.updateGameSuccess(event.target))
     .catch(ui.failure)
 }
 

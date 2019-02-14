@@ -1,14 +1,14 @@
 const store = require('../store')
 
 const switchPlayer = () => {
-  console.log(store.player)
-  console.log(store.player === 'X')
+  console.log(`store.player: ${store.player}`)
   store.player === 'X' ? store.player = 'O' : store.player = 'X'
 }
 
 const morph = (element, state = false) => {
   const value = $(element.target).text()
   const index = $(event.target).data('cell-index')
+
   const data = {
     game: {
       cell: {
@@ -21,10 +21,12 @@ const morph = (element, state = false) => {
   return data
 }
 
-const valueChanger = (element) => {
+const valueChanger = element => {
   console.log('valueChanger')
+  console.log($(element.target).text())
   if ($(element.target).text()) { return }
   store.player === 'X' ? $(element.target).text('X') : $(element.target).text('O')
+  switchPlayer()
 }
 
 const resetBoard = () => {

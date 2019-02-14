@@ -57,13 +57,15 @@ const getGamesSuccess = responseData => {
 const getGameSuccess = responseData => {
 // replace board with previous Board
 // make datamethod to alter board
+
   console.log(getGameSuccess)
   console.log(responseData)
   store.user.game = responseData.game
 }
-const updateGameSuccess = () => {
+
+const updateGameSuccess = element => {
   console.log('updateGameSuccess')
-  dataMethods.switchPlayer()
+  $(this).off('click')
   $('#current-player').text(`Current Player's Turn: ${store.player}`)
 }
 
