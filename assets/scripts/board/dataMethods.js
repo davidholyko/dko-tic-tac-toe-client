@@ -33,16 +33,15 @@ const morph = (index, value, state = false) => {
   return data
 }
 
-const boxValueChanger = (element, value) => {
-  if (value) {
-    return
-  }
+const valueChanger = (element, value) => {
+  console.log('valueChanger')
+  if (value) { return }
   store.player === 'X' ? $(element.target).text('X') : $(element.target).text('O')
   $(element.target).attr('data-XO', $(element.target).text())
 }
 
 module.exports = {
   morph,
-  boxValueChanger,
+  valueChanger,
   switchPlayer
 }

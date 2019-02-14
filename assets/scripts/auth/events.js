@@ -68,14 +68,16 @@ const onNewGame = event => {
 const onUpdateGame = event => {
   console.log('onUpdateGame')
   event.preventDefault()
-  console.log(event.target)
-  dataMethods.boxValueChanger(event, $(event.target).data('data-XO'))
+  console.log('1')
+  $(event.target).text('X')
+  console.log('2')
+  dataMethods.valueChanger(event, $(event.target).data('data-XO'))
   const index = $(event.target).data('cell-index')
   const value = $(event.target).data('data-XO')
   const data = dataMethods.morph(index, value)
   api.updateGame(data) // update board
     .then(ui.updateGameSuccess)
-    .catch()
+    .catch(ui.failure)
 }
 
 const addHandlers = () => {

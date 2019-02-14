@@ -52,6 +52,7 @@ const getGamesSuccess = responseData => {
 }
 
 const updateGameSuccess = () => {
+  console.log('updateGameSuccess')
   dataMethods.switchPlayer()
   $('#current-player').text(`Current Player's Turn: ${store.player}`)
 }
