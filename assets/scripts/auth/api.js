@@ -38,9 +38,41 @@ const signOut = () => {
   })
 }
 
+const getGames = () => {
+  console.log('getGames')
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    headers: {Authorization: `Token token=${store.user.token}`},
+    method: 'GET'
+  })
+}
+
+const newGame = () => {
+  console.log('New Game')
+  return $.ajax({
+    url: config.apiUrl + '/games',
+    headers: {Authorization: `Token token=${store.user.token}`},
+    method: 'POST'
+  })
+}
+
+const updateGame = data => {
+  console.log('updateGame')
+  console.log(data)
+  return $.ajax({
+    url: config.apiUrl + `/games/${store.currentGame}`, // id is supposed to represent current game ID
+    headers: {Authorization: `Token token=${store.user.token}`},
+    method: 'PATCH',
+    data: {}
+  })
+}
+
 module.exports = {
   signUp,
   signIn,
   changePassword,
-  signOut
+  signOut,
+  getGames,
+  newGame,
+  updateGame
 }

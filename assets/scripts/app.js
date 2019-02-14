@@ -11,5 +11,4 @@ const events = require('./auth/events')
 $(() => {
   // your JS code goes here
   events.addHandlers()
-  $('form').trigger('reset')
 })

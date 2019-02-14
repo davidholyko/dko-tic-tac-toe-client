@@ -39,11 +39,49 @@ const onSignOut = event => {
     .catch(ui.failure)
 }
 
+const onGetGames = event => {
+  console.log('onGetGames')
+  event.preventDefault()
+  api.getGames()
+    .then(ui.getGamesSuccess) // return array of games
+    .catch()
+}
+
+const onGetGame = event => {
+  console.log('onGetGame')
+  event.preventDefault()
+  api.getGame()
+    .then() // changes board to that game
+    .catch()
+}
+
+const onNewGame = event => {
+  console.log('onNewGame')
+  console.log(event)
+  event.preventDefault()
+  api.newGame() // reset board
+    .then(ui.newGameSuccess)
+    .catch()
+}
+
+const onUpdateGame = event => {
+  console.log('onUpdateGame')
+  event.preventDefault()
+  api.updateGame() // update board
+    .then()
+    .catch()
+}
+
 const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
   $('#sign-in-form').on('submit', onSignIn)
   $('#change-password-form').on('submit', onChangePassword)
   $('#sign-out-button').on('click', onSignOut)
+
+  $('#new-game-button').on('click', onNewGame)
+  $('#get-games-button').on('click', onGetGames)
+  $('#get-game-form').on('submit', onGetGame)
+  $('.box').on('click', onUpdateGame)
 }
 
 module.exports = { addHandlers }
