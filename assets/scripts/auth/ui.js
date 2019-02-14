@@ -34,6 +34,7 @@ const signOutSuccess = () => {
 const newGameSuccess = responseData => {
   store.user.game = responseData.game
   $('#current-game').text(`Current Game ID: ${store.user.game.id}`)
+  dataMethods.resetBoard()
 }
 
 const getGamesSuccess = responseData => {

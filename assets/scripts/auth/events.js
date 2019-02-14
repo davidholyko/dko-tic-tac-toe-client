@@ -51,7 +51,8 @@ const onGetGames = event => {
 const onGetGame = event => {
   console.log('onGetGame')
   event.preventDefault()
-  api.getGame()
+  const data = getFormFields(event.target)
+  api.getGame(data)
     .then() // changes board to that game
     .catch()
 }
@@ -68,11 +69,11 @@ const onNewGame = event => {
 const onUpdateGame = event => {
   console.log('onUpdateGame')
   event.preventDefault()
-  console.log('1')
-  $(event.target).text('X')
-  console.log('2')
   dataMethods.valueChanger(event, $(event.target).data('data-XO'))
   const index = $(event.target).data('cell-index')
+
+  console.log($(event.target).data('data-XO'))
+
   const value = $(event.target).data('data-XO')
   const data = dataMethods.morph(index, value)
   api.updateGame(data) // update board
@@ -82,7 +83,6 @@ const onUpdateGame = event => {
 
 const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
-  // $('#sign-in-form').on('submit', (e) => { onSignIn(e); onNewGame(e) })
   $('#sign-in-form').on('submit', onSignIn)
   $('#change-password-form').on('submit', onChangePassword)
   $('#sign-out-button').on('click', onSignOut)
