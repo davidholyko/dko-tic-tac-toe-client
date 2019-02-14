@@ -1,4 +1,5 @@
 const store = require('../store')
+const logic = require('./logic')
 
 const switchPlayer = () => {
   console.log('switchPlayer')
@@ -51,11 +52,20 @@ const replaceBoard = data => {
   })
 }
 
+const closeBoard = () => {
+  if (logic.checkWin().length === 1) {
+    $('#board').children().each(function () {
+      $(this).off('click')
+    })
+  }
+}
+
 module.exports = {
   morph,
   valueChanger,
   switchPlayer,
   resetBoard,
   resetUserInfo,
-  replaceBoard
+  replaceBoard,
+  closeBoard
 }

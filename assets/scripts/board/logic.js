@@ -4,11 +4,12 @@ const store = require('../store')
 
 // array board -> [X,X,X,X,X,X,X,X,X]
 
-const checkWin = board => {
-  let winCondition = 0
+const checkWin = () => {
+  const board = store.user.game.cells
+  const winner = []
   const checkLine = (x, y, z) => {
-    const check = board[x] + board[y] + board[z]
-    if (check.every(letter => letter === check[0])) { winCondition++ }
+    const check = [board[x], board[y], board[z]]
+    if (check.every(letter => letter === check[0])) { winner.push(check[0]) }
   }
 
   checkLine(0, 1, 2)
@@ -22,7 +23,7 @@ const checkWin = board => {
   checkLine(0, 4, 8)
   checkLine(6, 4, 2)
 
-  return winCondition
+  return winner.length ? winner[0] : 'tie'
 }
 
 module.exports = {

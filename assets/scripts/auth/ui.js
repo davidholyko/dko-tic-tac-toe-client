@@ -3,6 +3,7 @@
 const store = require('../store')
 const dataMethods = require('../board/dataMethods')
 const boardGame = require('../board/boardGame')
+const logic = require('../board/logic')
 
 jQuery.fn.reset = function () {
   $(this).each(function () { this.reset() })
@@ -65,6 +66,7 @@ const getGameSuccess = responseData => {
   $('#current-game').text(`Current Game ID: ${store.user.game.id}`)
   $('#current-player').text(`Current Player's Turn: ${boardGame.calcPlayer()}`)
   $('#current-turn').text(`Current Turn Number: ${boardGame.calcTurn()}`)
+  $('#state-game').text(`Who won? ${logic.checkWin()}`)
 }
 
 const updateGameSuccess = element => {
@@ -76,6 +78,10 @@ const updateGameSuccess = element => {
   $('#current-player').text(`Current Player's Turn: ${boardGame.calcPlayer()}`)
   $('#current-turn').text(`Current Turn Number: ${boardGame.calcTurn()}`)
   $('#current-over').text(`Is the game over? ${boardGame.calcOver()}`)
+  $('#game-state').text(`Who won? ${logic.checkWin()}`)
+  console.log(`store: ${store}`)
+  console.log(store)
+  dataMethods.closeBoard()
 }
 
 module.exports = {
