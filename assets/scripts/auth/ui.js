@@ -11,6 +11,7 @@ const failure = () => {
 }
 
 const signInSuccess = responseData => {
+  console.log('signInSuccess')
   $('#user-message').text(`SIGNED IN AS ${responseData.user.email.toUpperCase()}`)
   $('form').trigger('reset')
   console.log(responseData)
@@ -30,7 +31,6 @@ const signOutSuccess = () => {
 
 const newGameSuccess = responseData => {
   store.user.game = responseData.game
-  console.log(store.user.game)
   $('#current-game').text(`Current Game ID: ${store.user.game.id}`)
 }
 

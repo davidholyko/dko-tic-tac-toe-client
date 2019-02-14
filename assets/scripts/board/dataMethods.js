@@ -11,14 +11,20 @@
 //   }
 // }
 //
-//
-// update
-// {
-//   "game": {
-//     "cell": {
-//       "index": 0,
-//       "value": "x"
-//     },
-//     "over": false
-//   }
-// }
+
+const morph = (index, value, state = false) => {
+  const data = {
+    game: {
+      cell: {
+        index: index,
+        value: value
+      },
+      over: state
+    }
+  }
+  return data
+}
+
+module.exports = {
+  morph
+}

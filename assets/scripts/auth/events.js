@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
+const dataMethods = require('../board/dataMethods')
 
 const onSignUp = event => {
   console.log('onSignUp')
@@ -67,13 +68,18 @@ const onNewGame = event => {
 const onUpdateGame = event => {
   console.log('onUpdateGame')
   event.preventDefault()
-  api.updateGame() // update board
+  console.log(event.target)
+  const index = $(event.target).data('cell-index')
+  const value = $(event.target).data('XO')
+  const data = dataMethods.morph(index, value)
+  api.updateGame(data) // update board
     .then()
     .catch()
 }
 
 const addHandlers = () => {
   $('#sign-up-form').on('submit', onSignUp)
+  // $('#sign-in-form').on('submit', (e) => { onSignIn(e); onNewGame(e) })
   $('#sign-in-form').on('submit', onSignIn)
   $('#change-password-form').on('submit', onChangePassword)
   $('#sign-out-button').on('click', onSignOut)
