@@ -60,6 +60,7 @@ const getGameSuccess = responseData => {
 
   console.log(getGameSuccess)
   console.log(responseData)
+
   store.user.game = responseData.game
 }
 

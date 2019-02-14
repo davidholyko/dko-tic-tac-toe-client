@@ -6,6 +6,7 @@ const switchPlayer = () => {
 }
 
 const morph = (element, state = false) => {
+  console.log('morph')
   const value = $(element.target).text()
   const index = $(event.target).data('cell-index')
 
@@ -30,15 +31,22 @@ const valueChanger = element => {
 }
 
 const resetBoard = () => {
+  console.log('resetBoard')
   $('#board').children().each(function (index) {
     $(this).html('')
   })
 }
 
 const resetUserInfo = () => {
+  console.log('resetUserInfo')
   $('#user-message').html('')
   $('#current-game').html('')
   $('#current-player').html('')
+}
+
+const replaceBoard = data => {
+  console.log('replaceBoard')
+  console.log(data)
 }
 
 module.exports = {
@@ -46,5 +54,6 @@ module.exports = {
   valueChanger,
   switchPlayer,
   resetBoard,
-  resetUserInfo
+  resetUserInfo,
+  replaceBoard
 }
