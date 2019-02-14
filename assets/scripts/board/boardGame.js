@@ -5,10 +5,10 @@ const logic = require('./logic')
 
 const calcAll = element => {
   updateStore(element)
-  logic.checkWin()
   calcTurn()
   calcOver()
   calcPlayer()
+  logic.checkWin()
 }
 
 const updateStore = element => {
@@ -19,7 +19,6 @@ const calcTurn = () => {
   console.log('calcTurn')
 
   const board = store.game.cells
-
   let turn = 0
   board.forEach(square => { if (square) { turn++ } })
   store.game.turn = turn
@@ -37,7 +36,12 @@ const calcOver = () => {
   console.log('calcOver')
 
   let output
-  store.game.turn === 9 || store.game.winner ? output = 'Game Ended' : output = 'Game In Progress'
+  if (store.game.turn === 9 || store.game.winner) {
+    output = 'Game Ended'
+    store.game.winner = 'tie'
+  } else {
+    output = 'Game In Progress'
+  }
   store.game.progress = output
 }
 

@@ -74,6 +74,9 @@ const updateGameSuccess = function (element) {
     dataMethods.valueChanger(element)
     boardGame.calcAll(element)
     dataMethods.updateInfo()
+  } else {
+    boardGame.calcAll(element)
+    dataMethods.updateInfo()
   }
   console.log(`store`)
   console.log(store)
