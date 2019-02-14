@@ -26,8 +26,10 @@ const signUpSuccess = () => {
 }
 
 const signOutSuccess = () => {
-  $('form').trigger('reset')
   store.user = null
+  $('form').trigger('reset')
+  dataMethods.resetUserInfo()
+  dataMethods.resetBoard()
   $('#user-message').text('SIGNED OUT')
 }
 
@@ -52,6 +54,13 @@ const getGamesSuccess = responseData => {
   })
 }
 
+const getGameSuccess = responseData => {
+// replace board with previous Board
+// make datamethod to alter board
+  console.log(getGameSuccess)
+  console.log(responseData)
+  store.user.game = responseData.game
+}
 const updateGameSuccess = () => {
   console.log('updateGameSuccess')
   dataMethods.switchPlayer()
@@ -65,5 +74,6 @@ module.exports = {
   signInSuccess,
   newGameSuccess,
   getGamesSuccess,
+  getGameSuccess,
   updateGameSuccess
 }

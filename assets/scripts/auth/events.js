@@ -53,7 +53,7 @@ const onGetGame = event => {
   event.preventDefault()
   const data = getFormFields(event.target)
   api.getGame(data)
-    .then() // changes board to that game
+    .then(ui.getGameSuccess) // changes board to that game
     .catch()
 }
 
@@ -69,13 +69,8 @@ const onNewGame = event => {
 const onUpdateGame = event => {
   console.log('onUpdateGame')
   event.preventDefault()
-  dataMethods.valueChanger(event, $(event.target).data('data-XO'))
-  const index = $(event.target).data('cell-index')
-
-  console.log($(event.target).data('data-XO'))
-
-  const value = $(event.target).data('data-XO')
-  const data = dataMethods.morph(index, value)
+  dataMethods.valueChanger(event)
+  const data = dataMethods.morph(event)
   api.updateGame(data) // update board
     .then(ui.updateGameSuccess)
     .catch(ui.failure)

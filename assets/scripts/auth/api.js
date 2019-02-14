@@ -52,7 +52,7 @@ const getGame = data => {
   console.log('getGame')
   console.log(data)
   return $.ajax({
-    url: config.apiUrl + `/games/${data.game.id}/watch`,
+    url: config.apiUrl + `/games/${data.game.id}`,
     headers: {Authorization: `Token token=${store.user.token}`},
     method: 'GET'
   })

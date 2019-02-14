@@ -6,7 +6,9 @@ const switchPlayer = () => {
   store.player === 'X' ? store.player = 'O' : store.player = 'X'
 }
 
-const morph = (index, value, state = false) => {
+const morph = (element, state = false) => {
+  const value = $(element.target).text()
+  const index = $(event.target).data('cell-index')
   const data = {
     game: {
       cell: {
@@ -19,22 +21,22 @@ const morph = (index, value, state = false) => {
   return data
 }
 
-const valueChanger = (element, value) => {
+const valueChanger = (element) => {
   console.log('valueChanger')
-  if (value) { return }
+  if ($(element.target).text()) { return }
   store.player === 'X' ? $(element.target).text('X') : $(element.target).text('O')
-  linkDataToText(element)
-}
-
-const linkDataToText = element => {
-  $(element.target).attr('data-XO', $(element.target).text())
 }
 
 const resetBoard = () => {
   $('#board').children().each(function (index) {
     $(this).html('')
-    linkDataToText($(this))
   })
+}
+
+const resetUserInfo = () => {
+  $('#user-message').html('')
+  $('#current-game').html('')
+  $('#current-player').html('')
 }
 
 module.exports = {
@@ -42,5 +44,5 @@ module.exports = {
   valueChanger,
   switchPlayer,
   resetBoard,
-  linkDataToText
+  resetUserInfo
 }
