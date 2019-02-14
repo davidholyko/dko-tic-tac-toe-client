@@ -36,8 +36,10 @@ const signOutSuccess = () => {
 const newGameSuccess = responseData => {
   console.log('newGameSuccess')
   store.user.game = responseData.game
-  $('#current-game').text(`Current Game ID: ${store.user.game.id}`)
+  dataMethods.resetUserInfo()
   dataMethods.resetBoard()
+  $('#user-message').text(`SIGNED IN AS ${store.user.email.toUpperCase()}`)
+  $('#current-game').text(`Current Game ID: ${store.user.game.id}`)
 }
 
 const getGamesSuccess = responseData => {
@@ -59,20 +61,21 @@ const getGameSuccess = responseData => {
   console.log(getGameSuccess)
   dataMethods.replaceBoard(responseData.game)
   store.user.game = responseData.game
-
-  console.log(store)
-  $('#current-turn').text(`Current Turn Number: ${dataMethods.calcTurn(store.user.game.cells)}`)
+  $('#user-message').text(`SIGNED IN AS ${store.user.email.toUpperCase()}`)
+  $('#current-game').text(`Current Game ID: ${store.user.game.id}`)
+  $('#current-player').text(`Current Player's Turn: ${boardGame.calcPlayer()}`)
+  $('#current-turn').text(`Current Turn Number: ${boardGame.calcTurn()}`)
 }
 
 const updateGameSuccess = element => {
   console.log('updateGameSuccess')
   $(this).off('click')
   boardGame.updateBoard(element)
-
-  console.log(`store: ${store}`)
-
-  $('#current-player').text(`Current Player's Turn: ${store.player}`)
+  $('#user-message').text(`SIGNED IN AS ${store.user.email.toUpperCase()}`)
+  $('#current-game').text(`Current Game ID: ${store.user.game.id}`)
+  $('#current-player').text(`Current Player's Turn: ${boardGame.calcPlayer()}`)
   $('#current-turn').text(`Current Turn Number: ${boardGame.calcTurn()}`)
+  $('#current-over').text(`Is the game over? ${boardGame.calcOver()}`)
 }
 
 module.exports = {

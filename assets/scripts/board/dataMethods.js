@@ -41,6 +41,7 @@ const resetUserInfo = () => {
   $('#user-message').html('')
   $('#current-game').html('')
   $('#current-player').html('')
+  $('#current-turn').html('')
 }
 
 const replaceBoard = data => {
