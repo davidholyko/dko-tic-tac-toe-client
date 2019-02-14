@@ -1,6 +1,7 @@
 'use strict'
 
 const store = require('../store')
+const dataMethods = require('../board/dataMethods')
 
 jQuery.fn.reset = function () {
   $(this).each(function () { this.reset() })
@@ -16,6 +17,7 @@ const signInSuccess = responseData => {
   $('form').trigger('reset')
   console.log(responseData)
   store.user = responseData.user
+  store.player = 'X'
 }
 
 const signUpSuccess = () => {
@@ -49,11 +51,17 @@ const getGamesSuccess = responseData => {
   })
 }
 
+const updateGameSuccess = () => {
+  dataMethods.switchPlayer()
+  $('#current-player').text(`Current Player's Turn: ${store.player}`)
+}
+
 module.exports = {
   failure,
   signUpSuccess,
   signOutSuccess,
   signInSuccess,
   newGameSuccess,
-  getGamesSuccess
+  getGamesSuccess,
+  updateGameSuccess
 }

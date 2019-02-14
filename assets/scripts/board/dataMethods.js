@@ -12,6 +12,14 @@
 // }
 //
 
+const store = require('../store')
+
+const switchPlayer = () => {
+  console.log(store.player)
+  console.log(store.player === 'X')
+  store.player === 'X' ? store.player = 'O' : store.player = 'X'
+}
+
 const morph = (index, value, state = false) => {
   const data = {
     game: {
@@ -25,6 +33,16 @@ const morph = (index, value, state = false) => {
   return data
 }
 
+const boxValueChanger = (element, value) => {
+  if (value) {
+    return
+  }
+  store.player === 'X' ? $(element.target).text('X') : $(element.target).text('O')
+  $(element.target).attr('data-XO', $(element.target).text())
+}
+
 module.exports = {
-  morph
+  morph,
+  boxValueChanger,
+  switchPlayer
 }
