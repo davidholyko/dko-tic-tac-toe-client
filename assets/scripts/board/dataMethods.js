@@ -47,6 +47,10 @@ const resetUserInfo = () => {
 const replaceBoard = data => {
   console.log('replaceBoard')
   console.log(data)
+
+  $('#board').children().each(function (index) {
+    $(this).html(data.cells[index])
+  })
 }
 
 module.exports = {

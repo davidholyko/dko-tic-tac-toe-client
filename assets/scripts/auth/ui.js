@@ -59,7 +59,9 @@ const getGameSuccess = responseData => {
 // make datamethod to alter board
 
   console.log(getGameSuccess)
-  console.log(responseData)
+  console.log(`responseData: ${responseData}`)
+
+  dataMethods.replaceBoard(responseData.game)
 
   store.user.game = responseData.game
 }
