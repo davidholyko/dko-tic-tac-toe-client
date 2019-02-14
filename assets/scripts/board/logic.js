@@ -24,8 +24,6 @@ const checkWin = () => {
   checkLine(6, 4, 2)
 
   winner.length ? store.game.winner = winner[0] : store.game.winner = 'tie'
-
-  return store.game.winner
 }
 
 module.exports = {

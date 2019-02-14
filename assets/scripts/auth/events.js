@@ -68,7 +68,7 @@ const onNewGame = event => {
 const onUpdateGame = event => {
   console.log('onUpdateGame')
   event.preventDefault()
-  dataMethods.valueChanger(event)
+
   const data = dataMethods.morph(event)
   api.updateGame(data) // update board
     .then(ui.updateGameSuccess(event.target))

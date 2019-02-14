@@ -1,19 +1,18 @@
 'use strict'
 
 const store = require('../store')
+const logic = require('./logic')
 
-const updateBoard = element => {
-  console.log('updateBoard')
-
-  store.game.cells[$(element).data('cell-index')] = $(element).text()
-
-  console.log(store.game)
-}
-
-const calcAll = () => {
+const calcAll = element => {
+  updateStore(element)
+  logic.checkWin()
   calcTurn()
   calcOver()
   calcPlayer()
+}
+
+const updateStore = element => {
+  store.game.cells[$(element).data('cell-index')] = $(element).text()
 }
 
 const calcTurn = () => {
@@ -35,15 +34,15 @@ const calcPlayer = () => {
 }
 
 const calcOver = () => {
-  console.log('calcPlayer')
+  console.log('calcOver')
 
-  let output = ''
+  let output
   store.game.turn === 9 || store.game.winner ? output = 'Game Ended' : output = 'Game In Progress'
   store.game.progress = output
 }
 
 module.exports = {
-  updateBoard,
+  updateStore,
   calcTurn,
   calcPlayer,
   calcOver,

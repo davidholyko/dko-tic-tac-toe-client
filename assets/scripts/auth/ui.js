@@ -3,7 +3,6 @@
 const store = require('../store')
 const dataMethods = require('../board/dataMethods')
 const boardGame = require('../board/boardGame')
-const logic = require('../board/logic')
 
 jQuery.fn.reset = function () {
   $(this).each(function () { this.reset() })
@@ -28,17 +27,19 @@ const signUpSuccess = () => {
 const signOutSuccess = () => {
   store.user = null
   $('form').trigger('reset')
+  $('#user-message').text('SIGNED OUT')
   dataMethods.resetUserInfo()
   dataMethods.resetBoard()
-  $('#user-message').text('SIGNED OUT')
+  dataMethods.resetStore()
 }
 
 const newGameSuccess = responseData => {
   console.log('newGameSuccess')
-  store.game = responseData.game
-  store.player = 'X'
   dataMethods.resetUserInfo()
   dataMethods.resetBoard()
+  store.game = responseData.game
+  store.player = 'X'
+
   $('#user-message').text(`SIGNED IN AS ${store.user.email.toUpperCase()}`)
   $('#current-game').text(`Current Game ID: ${store.game.id}`)
 }
@@ -66,14 +67,17 @@ const getGameSuccess = responseData => {
   dataMethods.updateInfo()
 }
 
-const updateGameSuccess = element => {
+const updateGameSuccess = function (element) {
   console.log('updateGameSuccess')
-  boardGame.updateBoard(element)
-  boardGame.calcAll()
-  dataMethods.updateInfo()
+  $(element).addClass('disable-click')
+  if (!store.game.winner) {
+    dataMethods.valueChanger(element)
+    boardGame.calcAll(element)
+    dataMethods.updateInfo()
+  }
   console.log(`store`)
   console.log(store)
-  dataMethods.closeBoard()
+  // dataMethods.closeBoard()
 }
 
 module.exports = {

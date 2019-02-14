@@ -1,10 +1,8 @@
 const store = require('../store')
-const logic = require('./logic')
 
 const switchPlayer = () => {
   console.log('switchPlayer')
   store.player === 'X' ? store.player = 'O' : store.player = 'X'
-  console.log(store.player)
 }
 
 const morph = (element, state = false) => {
@@ -26,8 +24,8 @@ const morph = (element, state = false) => {
 
 const valueChanger = element => {
   console.log('valueChanger')
-  if ($(element.target).text()) { return }
-  $(element.target).text(store.player)
+  if ($(element).text()) { return }
+  $(element).text(store.player)
   switchPlayer()
 }
 
@@ -35,8 +33,13 @@ const resetBoard = () => {
   console.log('resetBoard')
   $('#board').children().each(function (index) {
     $(this).html('')
-    $(this).on('click')
   })
+}
+
+const resetStore = () => {
+  store.game = null
+  store.user = null
+  store.player = null
 }
 
 const resetUserInfo = () => {
@@ -56,12 +59,12 @@ const replaceBoard = data => {
 }
 
 const closeBoard = () => {
-  console.log(logic.checkWin())
-  if (logic.checkWin().length === 1) {
-    $('#board').children().each(function (index) {
-      $(this).off('click')
-    })
-  }
+//   console.log(store.game.winner)
+//   if (logic.checkWin().length === 1) {
+//     $('#board').children().each(function (index) {
+//       $(this).off('click')
+//     })
+//   }
 }
 
 const updateInfo = () => {
@@ -79,6 +82,7 @@ module.exports = {
   switchPlayer,
   resetBoard,
   resetUserInfo,
+  resetStore,
   replaceBoard,
   closeBoard,
   updateInfo
