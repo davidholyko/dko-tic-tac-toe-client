@@ -2,6 +2,7 @@
 
 const store = require('../store')
 const dataMethods = require('../board/dataMethods')
+const boardGame = require('../board/boardGame')
 
 jQuery.fn.reset = function () {
   $(this).each(function () { this.reset() })
@@ -15,7 +16,6 @@ const signInSuccess = responseData => {
   console.log('signInSuccess')
   $('#user-message').text(`SIGNED IN AS ${responseData.user.email.toUpperCase()}`)
   $('form').trigger('reset')
-  console.log(responseData)
   store.user = responseData.user
   store.player = 'X'
 }
@@ -34,13 +34,14 @@ const signOutSuccess = () => {
 }
 
 const newGameSuccess = responseData => {
+  console.log('newGameSuccess')
   store.user.game = responseData.game
   $('#current-game').text(`Current Game ID: ${store.user.game.id}`)
   dataMethods.resetBoard()
 }
 
 const getGamesSuccess = responseData => {
-  console.log(responseData)
+  console.log('getGamesSuccess')
   $('#get-games').html('')
 
   responseData.games.forEach(game => {
@@ -55,21 +56,23 @@ const getGamesSuccess = responseData => {
 }
 
 const getGameSuccess = responseData => {
-// replace board with previous Board
-// make datamethod to alter board
-
   console.log(getGameSuccess)
-  console.log(`responseData: ${responseData}`)
-
   dataMethods.replaceBoard(responseData.game)
-
   store.user.game = responseData.game
+
+  console.log(store)
+  $('#current-turn').text(`Current Turn Number: ${dataMethods.calcTurn(store.user.game.cells)}`)
 }
 
 const updateGameSuccess = element => {
   console.log('updateGameSuccess')
   $(this).off('click')
+  boardGame.updateBoard(element)
+
+  console.log(`store: ${store}`)
+
   $('#current-player').text(`Current Player's Turn: ${store.player}`)
+  $('#current-turn').text(`Current Turn Number: ${boardGame.calcTurn()}`)
 }
 
 module.exports = {

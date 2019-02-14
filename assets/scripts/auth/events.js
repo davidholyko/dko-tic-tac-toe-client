@@ -59,7 +59,6 @@ const onGetGame = event => {
 
 const onNewGame = event => {
   console.log('onNewGame')
-  console.log(event)
   event.preventDefault()
   api.newGame() // reset board
     .then(ui.newGameSuccess)

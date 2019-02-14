@@ -69,8 +69,6 @@ const newGame = () => {
 
 const updateGame = data => {
   console.log('updateGame')
-  console.log(data)
-  console.log(store)
   return $.ajax({
     url: config.apiUrl + `/games/${store.user.game.id}`, // id is supposed to represent current game ID
     headers: {Authorization: `Token token=${store.user.token}`},
