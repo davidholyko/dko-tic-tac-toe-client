@@ -5,10 +5,16 @@ const switchPlayer = () => {
   store.player === 'X' ? store.player = 'O' : store.player = 'X'
 }
 
-const morph = (element, state = false) => {
+const morph = element => {
   console.log('morph')
-  const value = $(element.target).text()
-  const index = $(event.target).data('cell-index')
+  console.log('element')
+  console.log(element)
+
+  const index = $(element).data('cell-index')
+  const value = store.player
+
+  console.log(`value ${value}`)
+  console.log(`index ${index}`)
 
   const data = {
     game: {
@@ -17,7 +23,7 @@ const morph = (element, state = false) => {
         value: value
       }
     },
-    over: state
+    over: false
   }
   return data
 }
@@ -54,17 +60,7 @@ const replaceBoard = data => {
   console.log('replaceBoard')
   $('#board').children().each(function (index) {
     $(this).html(data.cells[index])
-    $(this).on('click')
   })
-}
-
-const closeBoard = () => {
-//   console.log(store.game.winner)
-//   if (logic.checkWin().length === 1) {
-//     $('#board').children().each(function (index) {
-//       $(this).off('click')
-//     })
-//   }
 }
 
 const updateInfo = () => {
@@ -84,6 +80,5 @@ module.exports = {
   resetUserInfo,
   resetStore,
   replaceBoard,
-  closeBoard,
   updateInfo
 }

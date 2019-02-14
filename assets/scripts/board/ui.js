@@ -12,27 +12,6 @@ const failure = () => {
   $('#user-message').text('SOMETHING WRONG')
 }
 
-const signInSuccess = responseData => {
-  console.log('signInSuccess')
-  $('#user-message').text(`SIGNED IN AS ${responseData.user.email.toUpperCase()}`)
-  $('form').trigger('reset')
-  store.user = responseData.user
-}
-
-const signUpSuccess = () => {
-  $('form').trigger('reset')
-  $('#user-message').text('SIGN UP')
-}
-
-const signOutSuccess = () => {
-  store.user = null
-  $('form').trigger('reset')
-  $('#user-message').text('SIGNED OUT')
-  dataMethods.resetUserInfo()
-  dataMethods.resetBoard()
-  dataMethods.resetStore()
-}
-
 const newGameSuccess = responseData => {
   console.log('newGameSuccess')
   dataMethods.resetUserInfo()
@@ -95,9 +74,6 @@ const updateGameSuccess = function (element) {
 
 module.exports = {
   failure,
-  signUpSuccess,
-  signOutSuccess,
-  signInSuccess,
   newGameSuccess,
   getGamesSuccess,
   getGameSuccess,

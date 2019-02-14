@@ -35,14 +35,12 @@ const calcPlayer = () => {
 const calcOver = () => {
   console.log('calcOver')
 
-  let output
   if (store.game.turn === 9 || store.game.winner) {
-    output = 'Game Ended'
+    store.game.progress = 'Game Ended'
     store.game.winner = 'tie'
   } else {
-    output = 'Game In Progress'
+    store.game.progress = 'Game In Progress'
   }
-  store.game.progress = output
 }
 
 module.exports = {
