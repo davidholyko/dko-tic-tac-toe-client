@@ -27,7 +27,6 @@ const getGamesSuccess = responseData => {
 const getLastGameSuccess = responseData => {
   console.log('getLastGameSuccess')
   dataMethods.clearGames()
-
   const game = responseData.games.slice(-2, -1)[0]
   dataMethods.displayGame(game)
 }

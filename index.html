@@ -3,12 +3,12 @@
 
 <head>
   <title>Tic-Tac-Toe made by DKO</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <!-- Do not add `link` tags-->
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+  <!-- Do not add `link` tags -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
 
-  <!-- Do not add `script` tags-->
+  <!-- Do not add `script` tags -->
   <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
 </head>
@@ -28,44 +28,51 @@
     <h1 id="game-state"></h1>
   </div>
 
-  <div class="sign-in-page">
+  <div class="landing-page">
+    <button id="sign-in-button" class="big-button">
+      <h1>Sign In</h1>
+    </button>
+    <button id="sign-up-button" class="big-button">
+      <h1>Sign Out</h1>
+    </button>
+  </div>
 
+  <div class="sign-in-page">
     <form id="sign-up-form">
-      <input type="email" placeholder="email" name="credentials[email]">
-      <input type="password" placeholder="password" name="credentials[password]">
-      <input type="password" placeholder="password_confirmation" name="credentials[password_confirmation]">
-      <input type="submit" value="sign-up">
+      <input type="email" placeholder="email" name="credentials[email]" />
+      <input type="password" placeholder="password" name="credentials[password]" />
+      <input type="password" placeholder="password_confirmation" name="credentials[password_confirmation]" />
+      <input type="submit" value="sign-up" />
     </form>
 
     <form id="sign-in-form">
-      <input type="email" placeholder="email" name="credentials[email]">
-      <input type="password" placeholder="password" name="credentials[password]">
-      <input type="submit" value="sign-in">
+      <input type="email" placeholder="email" name="credentials[email]" />
+      <input type="password" placeholder="password" name="credentials[password]" />
+      <input type="submit" value="sign-in" />
     </form>
   </div>
 
   <div id="settings">
     <form id="change-password-form">
-      <input type="password" placeholder="old password" name="passwords[old]">
-      <input type="password" placeholder="new password" name="passwords[new]">
-      <input type="submit" value="Change Password">
+      <input type="password" placeholder="old password" name="passwords[old]" />
+      <input type="password" placeholder="new password" name="passwords[new]" />
+      <input type="submit" value="Change Password" />
     </form>
 
     <button id="sign-out-button">Sign Out</button>
   </div>
 
-
-  <div class="container my-5" id="big-board">
+  <div class="container my-5" id="board-container">
     <div class="row col-12" id="board">
-      <div class="col-4 box" data-cell-index='0'></div>
-      <div class="col-4 box" data-cell-index='1'></div>
-      <div class="col-4 box" data-cell-index='2'></div>
-      <div class="col-4 box" data-cell-index='3'></div>
-      <div class="col-4 box" data-cell-index='4'></div>
-      <div class="col-4 box" data-cell-index='5'></div>
-      <div class="col-4 box" data-cell-index='6'></div>
-      <div class="col-4 box" data-cell-index='7'></div>
-      <div class="col-4 box" data-cell-index='8'></div>
+      <div class="col-4 box" data-cell-index="0"></div>
+      <div class="col-4 box" data-cell-index="1"></div>
+      <div class="col-4 box" data-cell-index="2"></div>
+      <div class="col-4 box" data-cell-index="3"></div>
+      <div class="col-4 box" data-cell-index="4"></div>
+      <div class="col-4 box" data-cell-index="5"></div>
+      <div class="col-4 box" data-cell-index="6"></div>
+      <div class="col-4 box" data-cell-index="7"></div>
+      <div class="col-4 box" data-cell-index="8"></div>
     </div>
   </div>
 
@@ -75,23 +82,23 @@
     <button id="get-last-game-button">Get Last Game</button>
 
     <form id="get-game-form">
-      <input type="number" placeholder="Game ID" name="game[id]">
-      <input type="submit" value="Get Game">
+      <input type="number" placeholder="Game ID" name="game[id]" />
+      <input type="submit" value="Get Game" />
     </form>
 
     <button id="new-game-button">New Game</button>
 
-    <button id="multiplayer-game-button">Current Game to Multiplayer Game</button>
+    <button id="multiplayer-game-button">
+      Current Game to Multiplayer Game
+    </button>
 
     <form id="multiplayer-game-id-form">
-      <input type="number" placeholder="GAME ID" name="game[id]">
-      <input type="submit" value="Connect to Game">
+      <input type="number" placeholder="GAME ID" name="game[id]" />
+      <input type="submit" value="Connect to Game" />
     </form>
 
     <div id="get-games"></div>
-
   </div>
-
 </body>
 
 </html>

@@ -55,7 +55,7 @@ const onPlayMultiPlayer = event => {
   const data = getFormFields(event.target)
   api.playMultiPlayer(data)
     .then(ui.playMultiPlayer)
-    .catch(ui.failure)
+    .catch(() => { console.log('multi failure') })
 }
 
 const addHandlers = () => {
