@@ -8,9 +8,11 @@
 
 const authEvents = require('./auth/events')
 const boardEvents = require('./board/events')
+const view = require('./board/view')
 
 $(() => {
   // your JS code goes here
   authEvents.addHandlers()
   boardEvents.addHandlers()
+  view.addHandlers()
 })

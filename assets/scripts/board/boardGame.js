@@ -4,7 +4,7 @@ const store = require('../store')
 const logic = require('./logic')
 
 const calcAll = element => {
-  console.log('updateStore')
+  console.log('calcAll')
   updateStore(element)
   calcTurn()
   calcOver()

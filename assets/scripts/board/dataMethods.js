@@ -18,7 +18,7 @@ const morph = element => {
         value: value
       }
     },
-    over: false
+    over: store.game.over // link value of over to actual end state value
   }
   return data
 }

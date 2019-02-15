@@ -47,11 +47,16 @@ const updateGameSuccess = function (element) {
   dataMethods.updateInfo()
 }
 
+const playMultiPlayerSuccess = function (element) {
+  console.log('playMultiPlayerSuccess')
+  console.log(element)
+}
 module.exports = {
   failure,
   newGameSuccess,
   getGamesSuccess,
   getGameSuccess,
   updateGameSuccess,
-  getLastGameSuccess
+  getLastGameSuccess,
+  playMultiPlayerSuccess
 }

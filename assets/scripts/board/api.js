@@ -37,7 +37,18 @@ const updateGame = data => {
     url: config.apiUrl + `/games/${store.game.id}`,
     headers: {Authorization: `Token token=${store.user.token}`},
     method: 'PATCH',
-    data: data
+    data
+  })
+}
+
+const playMultiPlayer = data => {
+  console.log('playMultiPlayer')
+  let id = store.game.id
+  if (data.game) { id = data.game.id }
+  return $.ajax({
+    url: config.apiUrl + `/games/${id}`,
+    headers: {Authorization: `Token token=${store.user.token}`},
+    method: 'PATCH'
   })
 }
 
@@ -45,5 +56,6 @@ module.exports = {
   getGames,
   getGame,
   newGame,
-  updateGame
+  updateGame,
+  playMultiPlayer
 }

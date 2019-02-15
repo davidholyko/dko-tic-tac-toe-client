@@ -48,12 +48,24 @@ const onUpdateGame = event => {
     .catch(ui.failure)
 }
 
+const onPlayMultiPlayer = event => {
+  console.log('onPlayMultiPlayer')
+  event.preventDefault()
+
+  const data = getFormFields(event.target)
+  api.playMultiPlayer(data)
+    .then(ui.playMultiPlayer)
+    .catch(ui.failure)
+}
+
 const addHandlers = () => {
   $('#new-game-button').on('click', onNewGame)
   $('#get-games-button').on('click', onGetGames)
   $('#get-last-game-button').on('click', onGetLastGame)
   $('#get-game-form').on('submit', onGetGame)
   $('.box').on('click', onUpdateGame)
+  $('#multiplayer-game-button').on('click', onPlayMultiPlayer)
+  $('#multiplayer-game-id-form').on('submit', onPlayMultiPlayer)
 }
 
 module.exports = { addHandlers }

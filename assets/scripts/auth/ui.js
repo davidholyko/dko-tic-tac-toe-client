@@ -5,6 +5,7 @@ const dataMethods = require('../board/dataMethods')
 
 const failure = () => {
   $('#user-message').text('SOMETHING WRONG')
+  $('form').trigger('reset')
 }
 
 const signInSuccess = responseData => {
@@ -19,6 +20,10 @@ const signUpSuccess = () => {
   $('#user-message').text('SIGN UP')
 }
 
+const changePassword = () => {
+  $('form').trigger('reset')
+  $('#user-message').text('PASSWORD CHANGED')
+}
 const signOutSuccess = () => {
   store.user = null
   $('form').trigger('reset')
@@ -32,5 +37,6 @@ module.exports = {
   failure,
   signUpSuccess,
   signOutSuccess,
-  signInSuccess
+  signInSuccess,
+  changePassword
 }

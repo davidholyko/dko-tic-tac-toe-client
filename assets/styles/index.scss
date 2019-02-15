@@ -36,6 +36,18 @@ body {
   height: 100%;
 }
 
+.nav {
+  border: 5px solid black;
+  text-align: center;
+  display: block;
+  color: white;
+  background-color: green;
+
+  & > * {
+    text-align: center;
+  }
+}
+
 .row {
   height: 100%;
 }
