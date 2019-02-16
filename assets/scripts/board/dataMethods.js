@@ -11,16 +11,14 @@ const morph = element => {
   const index = $(element).data('cell-index')
   const value = store.player
 
-  console.log(`store.game.progress: ${store.game.progress}`)
-
   const data = {
     game: {
       cell: {
         index: index,
         value: value
       },
-      over: store.game.progress, // link value of over to actual end state value
-      progress: 'testing if i get something bac'
+      over: store.game.progress // link value of over to actual end state value
+
     }
 
   }

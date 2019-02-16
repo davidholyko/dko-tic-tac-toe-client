@@ -51,6 +51,7 @@ const getGameSuccess = responseData => {
 
 const updateGameSuccess = element => {
   console.log('updateGameSuccess')
+  console.log(element)
   if (!store.game.winner) { dataMethods.valueChanger(element) }
   boardGame.calcAll(element)
   dataMethods.updateInfo()
@@ -59,6 +60,7 @@ const updateGameSuccess = element => {
   console.log(store)
 
   const gameWatcher = multiplayer.makeGameWatcher()
+  console.log('gameWatcher')
   console.log(gameWatcher)
   gameWatcher.on('change', multiplayer.onGameChange)
   gameWatcher.on('error', function (e) {
