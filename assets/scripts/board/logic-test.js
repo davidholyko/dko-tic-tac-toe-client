@@ -1,6 +1,6 @@
 'use strict'
 
-const checkWin = board => {
+const checkForWinner = board => {
   // can calculate tic tac toe for any size board
 
   if (!board) {
@@ -54,6 +54,6 @@ const checkWin = board => {
 }
 
 console.log('checking...')
-console.log(checkWin())
+console.log(checkForWinner())
 
-module.exports = checkWin
+module.exports = checkForWinner

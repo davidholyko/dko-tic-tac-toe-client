@@ -6,7 +6,7 @@ const userFeedback = require('./userFeedback')
 const boardGame = require('./boardGame')
 const boardGenerator = require('./boardGenerator')
 
-const failure = () => { $('#user-message').text('SOMETHING WRONG') }
+const failure = () => { userFeedback.failure() }
 
 const newGameSuccess = responseData => {
   console.log('newGameSuccess')
@@ -37,7 +37,7 @@ const getLastGameSuccess = responseData => {
 const updateGameSuccess = element => {
   console.log('updateGameSuccess')
   if (!store.game.winner) {
-    userFeedback.changeOneValue(element)
+    userFeedback.addOneValue(element)
     boardGame.updateOneCell(element)
     storePusher.addMove(element)
   }
@@ -46,14 +46,16 @@ const updateGameSuccess = element => {
 }
 
 const undoMoveSuccess = element => {
-  console.log('updateGameSuccess')
+  console.log('undoMoveSuccess')
+  console.log(store)
   if (!store.game.winner) {
-    userFeedback.changeOneValue(element)
+    userFeedback.removeOneValue(element)
     boardGame.updateOneCell(element)
     storePusher.removeMove(element)
   }
   boardGame.calcAll()
   userFeedback.updateInfo()
+  console.log(store)
 }
 
 const playMultiPlayerSuccess = responseData => {

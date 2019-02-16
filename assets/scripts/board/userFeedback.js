@@ -5,11 +5,16 @@ const switchPlayer = () => {
   store.player === 'X' ? store.player = 'O' : store.player = 'X'
 }
 
-const changeOneValue = element => {
-  console.log('changeOneValue')
+const addOneValue = element => {
+  console.log('addOneValue')
   if ($(element).text()) { return }
   $(element).text(store.player)
   switchPlayer()
+}
+
+const removeOneValue = (element) => {
+  console.log('removeOneValue')
+  $(element).text('')
 }
 
 const replaceBoard = (data = store.game.cells) => {
@@ -45,7 +50,7 @@ const updateInfo = () => {
 
 const updateStaticInfo = () => {
   console.log('updateStaticInfo')
-  $('#user-message').text(`SIGNED IN AS ${store.user.email.toUpperCase()}`)
+  $('#user-message').text(`${store.user.email.toUpperCase()}`)
   $('#current-game').text(`Current Game ID: ${store.game.id}`)
 }
 
@@ -59,13 +64,30 @@ const formReset = () => {
   $('form').trigger('reset')
 }
 
+const failure = () => {
+  $('#user-feedback').html('UNHELPFUL ERROR MESSAGE!')
+  $('#user-feedback').toggleClass('error')
+  for (let i = 0; i < 3000; i += 200) {
+    setTimeout(() => { $('#user-feedback').toggleClass('error-toggle') }, i)
+  }
+  setTimeout(() => { $('#user-feedback').remove() }, 3000)
+  $('#user-feedback').toggleClass('error')
+}
+
+const updateUserFeedback = (message, extra = '') => {
+  $('#user-message').text(`${message} ${extra}`)
+}
+
 module.exports = {
-  changeOneValue,
+  addOneValue,
   resetBoard,
   resetUserInfo,
   replaceBoard,
   updateInfo,
   updateStaticInfo,
   clearGames,
-  formReset
+  formReset,
+  removeOneValue,
+  failure,
+  updateUserFeedback
 }

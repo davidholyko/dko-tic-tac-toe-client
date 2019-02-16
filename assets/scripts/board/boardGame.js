@@ -1,14 +1,14 @@
 'use strict'
 
 const store = require('../store')
-const logic = require('./logic')
+const checkForWinner = require('./logic')
 
 const calcAll = () => {
   console.log('calcAll')
   calcTurn()
   calcPlayer()
   calcOver()
-  logic.checkWin()
+  checkForWinner()
 }
 
 const updateOneCell = element => {

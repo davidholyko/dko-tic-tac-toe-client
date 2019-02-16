@@ -4,28 +4,28 @@ const userFeedback = require('../board/userFeedback')
 const storePusher = require('../board/storePusher')
 
 const failure = () => {
-  console.log('FAILURE')
+  console.log('failure')
   userFeedback.formReset()
-  $('#user-message').text('SOMETHING WRONG')
+  userFeedback.failure()
 }
 
 const signInSuccess = responseData => {
   console.log('signInSuccess')
   userFeedback.formReset()
   storePusher.initSignIn(responseData)
-  $('#user-message').text(`SIGNED IN AS ${responseData.user.email.toUpperCase()}`)
+  userFeedback.updateUserFeedback('YOU HAVE BEEN SIGNED IN AS', responseData.user.email.toUpperCase())
 }
 
 const signUpSuccess = () => {
   console.log('signUpSuccess')
   userFeedback.formReset()
-  $('#user-message').text('SIGN UP')
+  userFeedback.updateUserFeedback('YOU HAVE SIGNED UP')
 }
 
 const changePassword = () => {
   console.log('changePassword')
   userFeedback.formReset()
-  $('#user-message').text('PASSWORD CHANGED')
+  userFeedback.updateUserFeedback('PASSWORD HAS BEEN CHANGED')
 }
 const signOutSuccess = () => {
   console.log('signOutSuccess')
@@ -33,7 +33,7 @@ const signOutSuccess = () => {
   userFeedback.resetUserInfo()
   userFeedback.resetBoard()
   storePusher.resetStore()
-  $('#user-message').text('SIGNED OUT')
+  userFeedback.updateUserFeedback('YOU HAVE BEEN SIGNED OUT')
 }
 
 module.exports = {

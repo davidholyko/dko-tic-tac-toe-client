@@ -82,7 +82,7 @@ const addGames = games => {
 }
 
 const addMove = element => {
-  console.log('adMove')
+  console.log('addMove')
   const index = $(element).data('cell-index')
   const value = $(element).text()
   const move = {}

@@ -146,3 +146,15 @@ body {
     height: 90vw;
   }
 }
+
+.error {
+  display: flex;
+  color: red;
+  font-weight: bold;
+  height: 100px;
+}
+
+.error-toggle {
+  background: red;
+  color: white;
+}

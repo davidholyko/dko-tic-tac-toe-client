@@ -2,8 +2,8 @@
 
 const store = require('../store')
 
-const checkWin = (board = store.game.cells) => {
-  console.log('checkWin')
+const checkForWinner = (board = store.game.cells) => {
+  console.log('checkForWinner')
   // checks for tic tac toe of any size square grid
 
   const winner = []
@@ -15,7 +15,7 @@ const checkWin = (board = store.game.cells) => {
 
     for (let i = 0; i < boardSize; i++) { check.push(board[initialValue + difference * i]) }
     // push values of board at indexes * difference onto check array
-    // console.log(`checking indexes: ${check}`) // uncomment to check which indexes are checked
+    // console.log(`checking indexes: ${check}`) // <----- uncomment to check which indexes are checked
     if (check.every(letter => letter === check[0])) {
       // if every value in line is the same, push that value onto winner array
       // exit checkLine recursion
@@ -51,6 +51,4 @@ const checkWin = (board = store.game.cells) => {
   if (store.game.turn === board.length) { store.game.over = true }
 }
 
-module.exports = {
-  checkWin
-}
+module.exports = checkForWinner
