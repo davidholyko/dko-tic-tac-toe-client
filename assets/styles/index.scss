@@ -1,9 +1,6 @@
 @import '~bootstrap/scss/bootstrap';
 $body-bg-color: $gray-200;
 $third: calc(100%/3);
-@media (max-width: 576px) {}
-@media (max-width: 720px) {}
-@media (max-width: 960px) {}
 
 html {
   height: 100%;
@@ -94,4 +91,22 @@ body {
 
 .mini-board {
   text-align: center;
+}
+@media (max-width: 960px) {
+  #board-container {
+    max-height: calc(100%/3);
+    max-width: calc(100%/3);
+  }
+}
+@media (max-width: 720px) {
+  #board-container {
+    max-height: calc(200%/3);
+    max-width: calc(200%/3);
+  }
+}
+@media (max-width: 576px) {
+  #board-container {
+    max-height: 100%;
+    max-width: 100%;
+  }
 }

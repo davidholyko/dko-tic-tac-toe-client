@@ -32,8 +32,7 @@ const onNewGame = event => {
 const onUpdateGame = event => {
   console.log('onUpdateGame')
   event.preventDefault()
-
-  const data = storePusher.morph(event.target)
+  const data = storePusher.morphData(event.target)
   api.updateGame(data)
     .then(ui.updateGameSuccess(event.target))
     .catch(ui.failure)

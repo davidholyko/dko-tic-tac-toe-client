@@ -16,10 +16,11 @@ const checkWin = (board = store.game.cells) => {
     // push values of board at indexes * difference onto check array
     // console.log(`checking indexes: ${check}`) // uncomment to check which indexes are checked
     if (check.every(letter => letter === check[0])) {
+      // if every value in line is the same, push that value onto winner array
+      // exit checkLine recursion
       winner.push(check[0])
       return
     }
-    // if every value in line is the same, push that value onto winner array
     if (initialValue === difference) { return checkLine(initialValue - difference, difference + 2) }
     // if initialValue and difference are the same (its a diagonal), check the other diagonal
     if (!cycle) { return }

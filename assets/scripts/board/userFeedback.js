@@ -5,8 +5,10 @@ const switchPlayer = () => {
   store.player === 'X' ? store.player = 'O' : store.player = 'X'
 }
 
-const valueChanger = element => {
-  console.log('valueChanger')
+const changeValue = element => {
+  console.log('changeValue')
+  console.log(element)
+  console.log(store)
   if ($(element).text()) { return }
   $(element).text(store.player)
   switchPlayer()
@@ -58,7 +60,7 @@ const formReset = () => {
 }
 
 module.exports = {
-  valueChanger,
+  changeValue,
   resetBoard,
   resetUserInfo,
   replaceBoard,

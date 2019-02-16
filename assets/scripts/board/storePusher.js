@@ -1,9 +1,8 @@
 const store = require('../store')
 const config = require('../config')
 
-const morph = element => {
-  console.log('morph')
-
+const morphData = element => {
+  console.log('morphData')
   const index = $(element).data('cell-index')
   const value = store.player
 
@@ -13,11 +12,10 @@ const morph = element => {
         index: index,
         value: value
       },
-      over: store.game.progress // link value of over to actual end state value
-
+      over: store.game.over
     }
-
   }
+
   return data
 }
 
@@ -62,7 +60,7 @@ const addGames = games => {
 }
 
 module.exports = {
-  morph,
+  morphData,
   resetStore,
   initStore,
   initSignIn,

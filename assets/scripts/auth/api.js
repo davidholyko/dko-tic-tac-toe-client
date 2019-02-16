@@ -4,6 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const signUp = data => {
+  console.log('signUp')
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -21,7 +22,7 @@ const signIn = data => {
 }
 
 const changePassword = data => {
-  console.log(data)
+  console.log('changePassword')
   return $.ajax({
     url: config.apiUrl + '/change-password',
     headers: {Authorization: `Token token=${store.user.token}`},
