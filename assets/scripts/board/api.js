@@ -14,7 +14,7 @@ const getGames = () => {
 
 const getGame = data => {
   console.log('getGame')
-  console.log(data)
+
   return $.ajax({
     url: config.apiUrl + `/games/${data.game.id}`,
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -24,6 +24,7 @@ const getGame = data => {
 
 const newGame = () => {
   console.log('newGame')
+
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -41,14 +42,15 @@ const updateGame = data => {
   })
 }
 
-const playMultiPlayer = data => {
+const playMultiPlayer = (id = store.game.id) => {
   console.log('playMultiPlayer')
-  let id = store.game.id
-  if (data.game) { id = data.game.id }
+
+  if (id.game) { id = id.game.id }
+
   return $.ajax({
-    url: config.apiUrl + `/games/${id}`,
+    url: config.apiUrl + `/games/${id}/watch`,
     headers: {Authorization: `Token token=${store.user.token}`},
-    method: 'PATCH'
+    method: 'GET'
   })
 }
 

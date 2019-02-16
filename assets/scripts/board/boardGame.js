@@ -5,6 +5,7 @@ const logic = require('./logic')
 
 const calcAll = element => {
   console.log('calcAll')
+
   updateStore(element)
   calcTurn()
   calcOver()
@@ -14,6 +15,7 @@ const calcAll = element => {
 
 const updateStore = element => {
   console.log('updateStore')
+
   store.game.cells[$(element).data('cell-index')] = $(element).text()
 }
 
@@ -24,14 +26,12 @@ const calcTurn = () => {
   let turn = 0
   board.forEach(square => { if (square) { turn++ } })
   store.game.turn = turn
-  return turn
 }
 
 const calcPlayer = () => {
   console.log('calcPlayer')
 
   store.game.turn % 2 ? store.player = 'O' : store.player = 'X'
-  return store.game.turn % 2 ? 'O' : 'X'
 }
 
 const calcOver = () => {

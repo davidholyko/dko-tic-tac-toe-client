@@ -54,8 +54,8 @@ const onPlayMultiPlayer = event => {
 
   const data = getFormFields(event.target)
   api.playMultiPlayer(data)
-    .then(ui.playMultiPlayer)
-    .catch(() => { console.log('multi failure') })
+    .then(ui.playMultiPlayerSuccess)
+    .catch(() => { console.log('multiplayer failure') })
 }
 
 const addHandlers = () => {
@@ -64,7 +64,6 @@ const addHandlers = () => {
   $('#get-last-game-button').on('click', onGetLastGame)
   $('#get-game-form').on('submit', onGetGame)
   $('.box').on('click', onUpdateGame)
-  $('#multiplayer-game-button').on('click', onPlayMultiPlayer)
   $('#multiplayer-game-id-form').on('submit', onPlayMultiPlayer)
 }
 

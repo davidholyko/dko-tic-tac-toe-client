@@ -20,7 +20,7 @@ const squareBox = () => {
 // }
 
 const addHandlers = () => {
-  hideOther()
+  // hideOther()
   squareBox()
   $(window).resize(squareBox)
 }

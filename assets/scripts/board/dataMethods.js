@@ -19,7 +19,8 @@ const morph = element => {
         index: index,
         value: value
       },
-      over: store.game.progress // link value of over to actual end state value
+      over: store.game.progress, // link value of over to actual end state value
+      progress: 'testing if i get something bac'
     }
 
   }
@@ -64,7 +65,6 @@ const replaceBoard = data => {
 
 const updateInfo = () => {
   console.log('updateInfo')
-  $('#user-message').text(`SIGNED IN AS ${store.user.email.toUpperCase()}`)
   $('#current-game').text(`Current Game ID: ${store.game.id}`)
   $('#current-player').text(`Current Player's Turn: ${store.player}`)
   $('#current-turn').text(`Current Turn Number: ${store.game.turn}`)
@@ -74,7 +74,6 @@ const updateInfo = () => {
 
 const staticInfo = () => {
   $('#user-message').text(`SIGNED IN AS ${store.user.email.toUpperCase()}`)
-  $('#current-game').text(`Current Game ID: ${store.game.id}`)
 }
 
 const clearGames = () => {

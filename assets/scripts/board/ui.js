@@ -1,8 +1,10 @@
 'use strict'
 
 const store = require('../store')
+const config = require('../config')
 const dataMethods = require('../board/dataMethods')
 const boardGame = require('../board/boardGame')
+const multiplayer = require('./multiplayer')
 
 const failure = () => {
   $('#user-message').text('SOMETHING WRONG')
@@ -11,11 +13,14 @@ const failure = () => {
 const newGameSuccess = responseData => {
   console.log('newGameSuccess')
 
+  console.log(responseData)
+
   dataMethods.resetUserInfo()
   dataMethods.resetBoard()
-
   dataMethods.startGame(responseData)
   dataMethods.staticInfo()
+
+  store.game.url = `${config.apiUrl}/games/${responseData.game.id}`
 }
 
 const getGamesSuccess = responseData => {
@@ -26,9 +31,12 @@ const getGamesSuccess = responseData => {
 
 const getLastGameSuccess = responseData => {
   console.log('getLastGameSuccess')
-  dataMethods.clearGames()
   const game = responseData.games.slice(-2, -1)[0]
+  dataMethods.clearGames()
   dataMethods.displayGame(game)
+  dataMethods.updateInfo()
+
+  store.game.url = `${config.apiUrl}/games/${responseData.game.id}`
 }
 
 const getGameSuccess = responseData => {
@@ -37,18 +45,37 @@ const getGameSuccess = responseData => {
   dataMethods.replaceBoard(responseData.game)
   boardGame.calcAll()
   dataMethods.updateInfo()
+
+  store.game.url = `${config.apiUrl}/games/${responseData.game.id}`
 }
 
-const updateGameSuccess = function (element) {
+const updateGameSuccess = element => {
   console.log('updateGameSuccess')
   if (!store.game.winner) { dataMethods.valueChanger(element) }
   boardGame.calcAll(element)
   dataMethods.updateInfo()
+
+  console.log('multiplayer is updating')
+  console.log(store)
+
+  const gameWatcher = multiplayer.makeGameWatcher()
+  console.log(gameWatcher)
+  gameWatcher.on('change', multiplayer.onGameChange)
+  gameWatcher.on('error', function (e) {
+    console.error('an error has occurred with the stream', e)
+  })
 }
 
-const playMultiPlayerSuccess = function (element) {
+const playMultiPlayerSuccess = responseData => {
   console.log('playMultiPlayerSuccess')
-  console.log(element)
+
+  store.multiplayer = true
+  store.game = responseData.game
+  dataMethods.replaceBoard(responseData.game)
+  boardGame.calcAll()
+  dataMethods.updateInfo()
+
+  store.game.url = `${config.apiUrl}/games/${responseData.game.id}`
 }
 module.exports = {
   failure,

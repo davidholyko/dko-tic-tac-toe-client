@@ -4,10 +4,9 @@ const store = require('../store')
 
 // array board -> ['X','X','O','X','O','X',,,]
 
-const checkWin = () => {
+const checkWin = (board = store.game.cells) => {
   // checks for tic tac toe of any size square grid
 
-  const board = store.game.cells
   const winner = []
   const boardSize = Math.sqrt(board.length) | 0
 
@@ -46,7 +45,7 @@ const checkWin = () => {
     store.game.over = true
   }
 
-  if (store.game.turn === 9) { store.game.over = true }
+  if (store.game.turn === board.length) { store.game.over = true }
 }
 
 module.exports = {
