@@ -4,13 +4,14 @@ const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
 const storePusher = require('./storePusher')
+const store = require('../store')
 
 const onGetGames = () => {
   console.log('onGetGames')
   event.preventDefault()
   api.getGames()
     .then(ui.getGamesSuccess) // return array of games
-    .catch()
+    .catch(ui.failure)
 }
 
 const onGetLastGame = () => {
@@ -26,15 +27,26 @@ const onNewGame = event => {
   event.preventDefault()
   api.newGame() // reset board
     .then(ui.newGameSuccess)
-    .catch()
+    .catch(ui.failure)
 }
 
 const onUpdateGame = event => {
   console.log('onUpdateGame')
   event.preventDefault()
   const data = storePusher.morphData(event.target)
+  if (store.game.over) { return }
   api.updateGame(data)
     .then(ui.updateGameSuccess(event.target))
+    .catch(ui.failure)
+}
+
+const onUndoMove = event => {
+  console.log('onUndoMove')
+  event.preventDefault()
+  const previousMove = store.game.moves.slice(-1)[0]
+  const data = storePusher.morphUndoData(previousMove)
+  api.updateGame(data)
+    .then(ui.undoMoveSuccess)
     .catch(ui.failure)
 }
 
@@ -44,7 +56,7 @@ const onPlayMultiPlayer = event => {
   const data = getFormFields(event.target)
   api.playMultiPlayer(data)
     .then(ui.playMultiPlayerSuccess)
-    .catch(() => { console.log('multiplayer failure') })
+    .catch(ui.failure)
 }
 
 const onDisplayGame = event => {
@@ -57,10 +69,12 @@ const addHandlers = () => {
   $('#new-game-button').on('click', onNewGame)
   $('#get-games-button').on('click', onGetGames)
   $('#get-last-game-button').on('click', onGetLastGame)
+  $('#undo-button').on('click', onUndoMove)
   $('.box').on('click', onUpdateGame)
   $('#multiplayer-game-id-form').on('submit', onPlayMultiPlayer)
+  $('.secret-box').on('click', onUpdateGame)
   $('.display').on('click', onDisplayGame)
-  $('.game-selector').on('click', onDisplayGame)
+  $('.game-selector').on('click', () => { console.log('game selected') })
 }
 
 module.exports = { addHandlers }

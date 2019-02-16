@@ -11,7 +11,6 @@ const failure = () => { $('#user-message').text('SOMETHING WRONG') }
 const newGameSuccess = responseData => {
   console.log('newGameSuccess')
   storePusher.initStore(responseData)
-  storePusher.resetGameWatcher()
   userFeedback.resetUserInfo()
   userFeedback.resetBoard()
   userFeedback.updateStaticInfo()
@@ -20,7 +19,7 @@ const newGameSuccess = responseData => {
 const getGamesSuccess = responseData => {
   console.log('getGamesSuccess')
   userFeedback.clearGames()
-  const games = responseData.games.slice(-10)
+  const games = responseData.games.slice(-9)
   storePusher.addGames(games)
   boardGenerator.generateMiniBoard()
 }
@@ -29,27 +28,36 @@ const getLastGameSuccess = responseData => {
   console.log('getLastGameSuccess')
   const game = responseData.games.slice(-2, -1)[0]
   storePusher.updateStoreGame(game)
-  boardGame.calcAll(game)
-  storePusher.resetGameWatcher()
-  userFeedback.clearGames()
-  boardGenerator.generateMiniBoard([game])
+  boardGame.calcAll()
   userFeedback.replaceBoard()
+  userFeedback.clearGames()
   userFeedback.updateInfo()
 }
 
 const updateGameSuccess = element => {
   console.log('updateGameSuccess')
-  if (!store.game.winner) { userFeedback.changeValue(element) }
-  boardGame.updateOneCell(element)
+  if (!store.game.winner) {
+    userFeedback.changeOneValue(element)
+    boardGame.updateOneCell(element)
+    storePusher.addMove(element)
+  }
+  boardGame.calcAll()
+  userFeedback.updateInfo()
+}
+
+const undoMoveSuccess = element => {
+  console.log('updateGameSuccess')
+  if (!store.game.winner) {
+    userFeedback.changeOneValue(element)
+    boardGame.updateOneCell(element)
+    storePusher.removeMove(element)
+  }
   boardGame.calcAll()
   userFeedback.updateInfo()
 }
 
 const playMultiPlayerSuccess = responseData => {
   console.log('playMultiPlayerSuccess')
-  console.log('game data')
-  console.log(responseData)
-  storePusher.resetGameWatcher()
   storePusher.updateStoreGame(responseData.game)
   storePusher.updateStoreUrl(responseData.game.id)
   userFeedback.replaceBoard(responseData.game.cells)
@@ -68,5 +76,6 @@ module.exports = {
   updateGameSuccess,
   getLastGameSuccess,
   playMultiPlayerSuccess,
-  displayGame
+  displayGame,
+  undoMoveSuccess
 }

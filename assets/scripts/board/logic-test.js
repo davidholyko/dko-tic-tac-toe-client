@@ -1,15 +1,18 @@
 'use strict'
 
-const checkWin = () => {
+const checkWin = board => {
   // can calculate tic tac toe for any size board
-  const board = []
-  const generateBoard = size => {
-    for (let i = 0; i < size; i++) {
-      board.push(i)
-    }
-  }
 
-  generateBoard(16) // generate board to test in node
+  if (!board) {
+    board = []
+    const generateBoard = size => {
+      for (let i = 0; i < size; i++) {
+        board.push(i)
+      }
+    }
+
+    generateBoard(16) // generate board to test in node
+  }
 
   const winner = []
   const boardSize = Math.sqrt(board.length) | 0
@@ -52,3 +55,5 @@ const checkWin = () => {
 
 console.log('checking...')
 console.log(checkWin())
+
+module.exports = checkWin

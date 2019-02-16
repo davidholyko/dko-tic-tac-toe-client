@@ -3,7 +3,7 @@
 const store = require('../store')
 const logic = require('./logic')
 
-const calcAll = element => {
+const calcAll = () => {
   console.log('calcAll')
   calcTurn()
   calcPlayer()

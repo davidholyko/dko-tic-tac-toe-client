@@ -1,10 +1,14 @@
 const store = require('../store')
 const config = require('../config')
 
-const morphData = element => {
+const morphData = (element, override = false) => {
   console.log('morphData')
-  const index = $(element).data('cell-index')
-  const value = store.player
+  let index = $(element).data('cell-index')
+  let value = store.player
+  if (override) {
+    index = ''
+    value = ''
+  }
 
   const data = {
     game: {
@@ -15,7 +19,22 @@ const morphData = element => {
       over: store.game.over
     }
   }
+  return data
+}
 
+const morphUndoData = (move) => {
+  console.log('morphUndoData')
+  if (!move) { return }
+
+  const data = {
+    game: {
+      cell: {
+        index: move.index,
+        value: move.value
+      },
+      over: store.game.over
+    }
+  }
   return data
 }
 
@@ -36,8 +55,11 @@ const resetStore = () => {
 const initStore = data => {
   console.log('initStore')
   store.game = data.game
-  store.player = 'X'
+  store.game.over = ''
+  store.game.winner = ''
   store.game.url = `${config.apiUrl}/games/${data.game.id}`
+  store.game.moves = []
+  store.player = 'X'
 }
 
 const initSignIn = data => {
@@ -59,13 +81,32 @@ const addGames = games => {
   store.games = games
 }
 
+const addMove = element => {
+  console.log('adMove')
+  const index = $(element).data('cell-index')
+  const value = $(element).text()
+  const move = {}
+  move[index] = value
+  store.game.moves.push(move)
+  console.log(store)
+}
+
+const removeMove = () => {
+  console.log('removeMove')
+  store.game.moves.pop()
+  console.log(store)
+}
+
 module.exports = {
   morphData,
+  morphUndoData,
   resetStore,
   initStore,
   initSignIn,
   updateStoreGame,
   updateStoreUrl,
   resetGameWatcher,
-  addGames
+  addGames,
+  addMove,
+  removeMove
 }

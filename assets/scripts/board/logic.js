@@ -3,6 +3,7 @@
 const store = require('../store')
 
 const checkWin = (board = store.game.cells) => {
+  console.log('checkWin')
   // checks for tic tac toe of any size square grid
 
   const winner = []
@@ -40,7 +41,7 @@ const checkWin = (board = store.game.cells) => {
     // checks both diagonal lines
   }
 
-  checkLines(board)
+  if (store.game.turn >= boardSize * 2 - 1) { checkLines(board) }
 
   if (winner.length) {
     store.game.winner = winner[0]

@@ -44,9 +44,7 @@ const updateGame = data => {
 
 const playMultiPlayer = (id = store.game.id) => {
   console.log('playMultiPlayer')
-
   if (id.game) { id = id.game.id }
-
   return $.ajax({
     url: config.apiUrl + `/games/${id}`,
     headers: {Authorization: `Token token=${store.user.token}`},
