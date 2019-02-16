@@ -3,7 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const api = require('./api')
 const ui = require('./ui')
-const dataMethods = require('./dataMethods')
+const storePusher = require('./storePusher')
 
 const onGetGames = () => {
   console.log('onGetGames')
@@ -42,7 +42,7 @@ const onUpdateGame = event => {
   console.log('onUpdateGame')
   event.preventDefault()
 
-  const data = dataMethods.morph(event.target)
+  const data = storePusher.morph(event.target)
   api.updateGame(data)
     .then(ui.updateGameSuccess(event.target))
     .catch(ui.failure)

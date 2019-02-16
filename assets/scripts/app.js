@@ -6,6 +6,8 @@
 const authEvents = require('./auth/events')
 const boardEvents = require('./board/events')
 const view = require('./board/view')
+// const multiplayer = require('./board/multiplayer')
+// const store = require('./store')
 
 $(() => {
   authEvents.addHandlers()

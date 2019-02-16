@@ -5,7 +5,9 @@ const makeGameWatcher = () => {
   const gameWatcher = resourceWatcher(`${store.game.url}/watch`, {
     Authorization: `Token token=${store.user.token}`
   })
+  addOnChange(gameWatcher)
   store.gameWatcher = gameWatcher
+
   return gameWatcher
 }
 
@@ -34,7 +36,15 @@ const onGameChange = function (data) {
   }
 }
 
+const addOnChange = game => {
+  game.on('change', onGameChange)
+  game.on('error', function (e) {
+    console.error('an error has occurred with the stream', e)
+  })
+}
+
 module.exports = {
   makeGameWatcher,
-  onGameChange
+  onGameChange,
+  addOnChange
 }

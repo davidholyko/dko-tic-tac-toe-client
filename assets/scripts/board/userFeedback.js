@@ -5,26 +5,6 @@ const switchPlayer = () => {
   store.player === 'X' ? store.player = 'O' : store.player = 'X'
 }
 
-const morph = element => {
-  console.log('morph')
-
-  const index = $(element).data('cell-index')
-  const value = store.player
-
-  const data = {
-    game: {
-      cell: {
-        index: index,
-        value: value
-      },
-      over: store.game.progress // link value of over to actual end state value
-
-    }
-
-  }
-  return data
-}
-
 const valueChanger = element => {
   console.log('valueChanger')
   if ($(element).text()) { return }
@@ -39,13 +19,6 @@ const resetBoard = () => {
   })
 }
 
-const resetStore = () => {
-  console.log('resetStore')
-  store.game = null
-  store.user = null
-  store.player = null
-}
-
 const resetUserInfo = () => {
   console.log('resetUserInfo')
   $('#user-message').html('')
@@ -54,10 +27,11 @@ const resetUserInfo = () => {
   $('#get-games').html('')
 }
 
-const replaceBoard = data => {
+const replaceBoard = (data = store.game.cells) => {
   console.log('replaceBoard')
+  console.log(data)
   $('#board').children().each(function (index) {
-    $(this).html(data.cells[index])
+    $(this).html(data[index])
   })
 }
 
@@ -70,8 +44,9 @@ const updateInfo = () => {
   $('#game-state').text(`Who won? ${store.game.winner}`)
 }
 
-const staticInfo = () => {
+const updateStaticInfo = () => {
   $('#user-message').text(`SIGNED IN AS ${store.user.email.toUpperCase()}`)
+  $('#current-game').text(`Current Game ID: ${store.game.id}`)
 }
 
 const clearGames = () => {
@@ -87,22 +62,18 @@ const displayGame = game => {
   $('#get-games').append(gameHTML)
 }
 
-const startGame = data => {
-  store.game = data.game
-  store.player = 'X'
+const formReset = () => {
+  $('form').trigger('reset')
 }
 
 module.exports = {
-  morph,
   valueChanger,
-  switchPlayer,
   resetBoard,
   resetUserInfo,
-  resetStore,
   replaceBoard,
   updateInfo,
-  staticInfo,
+  updateStaticInfo,
   clearGames,
   displayGame,
-  startGame
+  formReset
 }

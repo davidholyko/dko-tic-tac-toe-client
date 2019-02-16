@@ -48,7 +48,7 @@ const playMultiPlayer = (id = store.game.id) => {
   if (id.game) { id = id.game.id }
 
   return $.ajax({
-    url: config.apiUrl + `/games/${id}/watch`,
+    url: config.apiUrl + `/games/${id}`,
     headers: {Authorization: `Token token=${store.user.token}`},
     method: 'GET'
   })

@@ -1,36 +1,39 @@
 'use strict'
 
-const store = require('../store')
-const dataMethods = require('../board/dataMethods')
+const userFeedback = require('../board/userFeedback')
+const storePusher = require('../board/storePusher')
 
 const failure = () => {
+  console.log('FAILURE')
+  userFeedback.formReset()
   $('#user-message').text('SOMETHING WRONG')
-  $('form').trigger('reset')
 }
 
 const signInSuccess = responseData => {
   console.log('signInSuccess')
+  userFeedback.formReset()
+  storePusher.initSignIn(responseData)
   $('#user-message').text(`SIGNED IN AS ${responseData.user.email.toUpperCase()}`)
-  $('form').trigger('reset')
-  store.user = responseData.user
 }
 
 const signUpSuccess = () => {
-  $('form').trigger('reset')
+  console.log('signUpSuccess')
+  userFeedback.formReset()
   $('#user-message').text('SIGN UP')
 }
 
 const changePassword = () => {
-  $('form').trigger('reset')
+  console.log('changePassword')
+  userFeedback.formReset()
   $('#user-message').text('PASSWORD CHANGED')
 }
 const signOutSuccess = () => {
-  store.user = null
-  $('form').trigger('reset')
+  console.log('signOutSuccess')
+  userFeedback.formReset()
+  userFeedback.resetUserInfo()
+  userFeedback.resetBoard()
+  storePusher.resetStore()
   $('#user-message').text('SIGNED OUT')
-  dataMethods.resetUserInfo()
-  dataMethods.resetBoard()
-  dataMethods.resetStore()
 }
 
 module.exports = {
