@@ -22,16 +22,16 @@ const newGameSuccess = responseData => {
   userFeedback.resetUserInfo()
   userFeedback.resetBoard()
   userFeedback.updateStaticInfo()
-
-  const gameWatcher = multiplayer.makeGameWatcher()
-  console.log('gameWatcher')
-  console.log(gameWatcher)
+  //
+  // const gameWatcher = multiplayer.makeGameWatcher()
+  // console.log('gameWatcher')
+  // console.log(gameWatcher)
 }
 
 const getGamesSuccess = responseData => {
   console.log('getGamesSuccess')
   userFeedback.clearGames()
-  responseData.games.slice(-10).forEach(game => userFeedback.displayGame(game))
+  responseData.games.slice(-10).forEach(game => userFeedback.displayGetGame(game))
 }
 
 const getLastGameSuccess = responseData => {
@@ -39,27 +39,18 @@ const getLastGameSuccess = responseData => {
   console.log(responseData)
 
   const game = responseData.games.slice(-2, -1)[0]
-  console.log(game)
+
   storePusher.updateStoreGame(game)
-  console.log(store)
   boardGame.calcAll(game)
   storePusher.resetGameWatcher()
   userFeedback.clearGames()
-  userFeedback.displayGame(game)
+  userFeedback.displayGetGame(game)
   userFeedback.replaceBoard()
   userFeedback.updateInfo()
   //
   // const gameWatcher = multiplayer.makeGameWatcher()
   // console.log('gameWatcher')
   // console.log(gameWatcher)
-}
-
-const getGameSuccess = responseData => {
-  // console.log('getGameSuccess')
-  // store.game = responseData.game
-  // userFeedback.replaceBoard(responseData.game)
-  // boardGame.calcAll()
-  // userFeedback.updateInfo()
 }
 
 const updateGameSuccess = element => {
@@ -91,7 +82,6 @@ module.exports = {
   failure,
   newGameSuccess,
   getGamesSuccess,
-  getGameSuccess,
   updateGameSuccess,
   getLastGameSuccess,
   playMultiPlayerSuccess

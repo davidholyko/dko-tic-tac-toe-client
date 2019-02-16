@@ -12,6 +12,14 @@ const valueChanger = element => {
   switchPlayer()
 }
 
+const replaceBoard = (data = store.game.cells) => {
+  console.log('replaceBoard')
+  console.log(data)
+  $('#board').children().each(function (index) {
+    $(this).html(data[index])
+  })
+}
+
 const resetBoard = () => {
   console.log('resetBoard')
   $('#board').children().each(function (index) {
@@ -25,14 +33,6 @@ const resetUserInfo = () => {
   $('#current-game').html('')
   $('#feedback>*').html('')
   $('#get-games').html('')
-}
-
-const replaceBoard = (data = store.game.cells) => {
-  console.log('replaceBoard')
-  console.log(data)
-  $('#board').children().each(function (index) {
-    $(this).html(data[index])
-  })
 }
 
 const updateInfo = () => {
@@ -53,11 +53,13 @@ const clearGames = () => {
   $('#get-games').html('')
 }
 
-const displayGame = game => {
+const displayGetGame = game => {
   const gameHTML =
-    `<h2>Board: ${game.cells}</h2>
+    `<div class="display">
+     <h2>Board: ${game.cells}</h2>
      <h2>Completed: ${game.over}</h2>
      <h2>ID: ${game.id}</h2>
+     </div>
      <br>`
   $('#get-games').append(gameHTML)
 }
@@ -74,6 +76,6 @@ module.exports = {
   updateInfo,
   updateStaticInfo,
   clearGames,
-  displayGame,
+  displayGetGame,
   formReset
 }

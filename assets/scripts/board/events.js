@@ -13,15 +13,6 @@ const onGetGames = () => {
     .catch()
 }
 
-const onGetGame = event => {
-  console.log('onGetGame')
-  event.preventDefault()
-  const data = getFormFields(event.target)
-  api.getGame(data)
-    .then(ui.getGameSuccess) // changes board to that game
-    .catch()
-}
-
 const onGetLastGame = () => {
   console.log('onGetLastGame')
   event.preventDefault()
@@ -51,7 +42,6 @@ const onUpdateGame = event => {
 const onPlayMultiPlayer = event => {
   console.log('onPlayMultiPlayer')
   event.preventDefault()
-
   const data = getFormFields(event.target)
   api.playMultiPlayer(data)
     .then(ui.playMultiPlayerSuccess)
@@ -62,7 +52,6 @@ const addHandlers = () => {
   $('#new-game-button').on('click', onNewGame)
   $('#get-games-button').on('click', onGetGames)
   $('#get-last-game-button').on('click', onGetLastGame)
-  $('#get-game-form').on('submit', onGetGame)
   $('.box').on('click', onUpdateGame)
   $('#multiplayer-game-id-form').on('submit', onPlayMultiPlayer)
 }
