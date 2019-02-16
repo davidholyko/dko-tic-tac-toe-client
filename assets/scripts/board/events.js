@@ -48,12 +48,20 @@ const onPlayMultiPlayer = event => {
     .catch(() => { console.log('multiplayer failure') })
 }
 
+const onDisplayGame = event => {
+  console.log('onDisplayGame')
+  event.preventDefault()
+  ui.displayGame(event.target)
+}
+
 const addHandlers = () => {
   $('#new-game-button').on('click', onNewGame)
   $('#get-games-button').on('click', onGetGames)
   $('#get-last-game-button').on('click', onGetLastGame)
   $('.box').on('click', onUpdateGame)
   $('#multiplayer-game-id-form').on('submit', onPlayMultiPlayer)
+  $('.display').on('click', onDisplayGame)
+  $('.game-selector').on('click', onDisplayGame)
 }
 
 module.exports = { addHandlers }

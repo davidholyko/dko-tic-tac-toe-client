@@ -1,14 +1,3 @@
-// // const displayGetGame = game => {
-// //   const gameHTML =
-// //     `<div class="display">
-// //      <h2>Board: ${game.cells}</h2>
-// //      <h2>Completed: ${game.over}</h2>
-// //      <h2>ID: ${game.id}</h2>
-// //      </div>
-// //      <br>`
-// //   $('#get-games').append(gameHTML)
-// // }
-
 const store = require('../store')
 
 const generateBoard = (boardSize, boardID = 0, cells = []) => {
@@ -23,19 +12,22 @@ const generateBoard = (boardSize, boardID = 0, cells = []) => {
   return elements
 }
 
-const generateMiniBoard = () => {
+const generateMiniBoard = (games = store.games) => {
   console.log('generateMiniBoard')
-  const games = store.games
 
   games.forEach(game => {
     console.log(game)
     $('#get-games').append(`
-      <div class="container col-12 display">
-        <div class="row" id=board-${game.id}></div>
+      <div class="mini-board m-0">
+        <button class="game-selector">Game ID: ${game.id}</button>
+        <div class="container display">
+          <div class="row col-12 m-0" id=board-${game.id}></div>
+        </div>
       </div>`)
-    generateBoard(9, game.id, game.cells)
+    generateBoard(game.cells.length, game.id, game.cells)
   })
 }
+
 module.exports = {
   generateBoard,
   generateMiniBoard

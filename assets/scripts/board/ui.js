@@ -29,8 +29,6 @@ const getGamesSuccess = responseData => {
   const games = responseData.games.slice(-10)
   storePusher.addGames(games)
 
-  // replace below with better solution
-  games.forEach(game => userFeedback.displayGetGame(game))
   boardGenerator.generateMiniBoard()
 }
 
@@ -44,7 +42,7 @@ const getLastGameSuccess = responseData => {
   boardGame.calcAll(game)
   storePusher.resetGameWatcher()
   userFeedback.clearGames()
-  userFeedback.displayGetGame(game)
+  boardGenerator.generateMiniBoard([game])
   userFeedback.replaceBoard()
   userFeedback.updateInfo()
   //
@@ -78,11 +76,17 @@ const playMultiPlayerSuccess = responseData => {
   // console.log(gameWatcher)
 }
 
+const displayGame = data => {
+  console.log('displayGame')
+  console.log(data)
+}
+
 module.exports = {
   failure,
   newGameSuccess,
   getGamesSuccess,
   updateGameSuccess,
   getLastGameSuccess,
-  playMultiPlayerSuccess
+  playMultiPlayerSuccess,
+  displayGame
 }

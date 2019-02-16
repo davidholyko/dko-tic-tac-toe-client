@@ -53,17 +53,6 @@ const clearGames = () => {
   $('#get-games').html('')
 }
 
-const displayGetGame = game => {
-  const gameHTML =
-    `<div class="display">
-     <h2>Board: ${game.cells}</h2>
-     <h2>Completed: ${game.over}</h2>
-     <h2>ID: ${game.id}</h2>
-     </div>
-     <br>`
-  $('#get-games').append(gameHTML)
-}
-
 const formReset = () => {
   $('form').trigger('reset')
 }
@@ -76,6 +65,5 @@ module.exports = {
   updateInfo,
   updateStaticInfo,
   clearGames,
-  displayGetGame,
   formReset
 }

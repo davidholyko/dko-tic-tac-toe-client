@@ -11,8 +11,8 @@ const hideOther = () => {
 
 const squareBox = () => {
   $('.box').height($('.box').width())
-  $('#board').height($('#board').width())
-  $('#board-container').height($('#board-container').width())
+  $('.container').height($('.container').width())
+  $('.row').height($('.row').width())
 }
 
 // const landingPage = () => {

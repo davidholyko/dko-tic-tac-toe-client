@@ -2,8 +2,6 @@
 
 const store = require('../store')
 
-// array board -> ['X','X','O','X','O','X',,,]
-
 const checkWin = (board = store.game.cells) => {
   // checks for tic tac toe of any size square grid
 
@@ -17,7 +15,10 @@ const checkWin = (board = store.game.cells) => {
     for (let i = 0; i < boardSize; i++) { check.push(board[initialValue + difference * i]) }
     // push values of board at indexes * difference onto check array
     // console.log(`checking indexes: ${check}`) // uncomment to check which indexes are checked
-    if (check.every(letter => letter === check[0])) { winner.push(check[0]) }
+    if (check.every(letter => letter === check[0])) {
+      winner.push(check[0])
+      return
+    }
     // if every value in line is the same, push that value onto winner array
     if (initialValue === difference) { return checkLine(initialValue - difference, difference + 2) }
     // if initialValue and difference are the same (its a diagonal), check the other diagonal
