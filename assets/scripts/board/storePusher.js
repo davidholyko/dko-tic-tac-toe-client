@@ -32,6 +32,7 @@ const resetStore = () => {
   store.user = null
   store.player = null
   store.gameWatcher = null
+  store.games = null
 }
 
 const initStore = data => {
@@ -56,6 +57,10 @@ const updateStoreUrl = () => {
   store.game.url = `${config.apiUrl}/games/${store.game.id}`
 }
 
+const addGames = games => {
+  store.games = games
+}
+
 module.exports = {
   morph,
   resetStore,
@@ -63,5 +68,6 @@ module.exports = {
   initSignIn,
   updateStoreGame,
   updateStoreUrl,
-  resetGameWatcher
+  resetGameWatcher,
+  addGames
 }

@@ -8,41 +8,33 @@
 // //      <br>`
 // //   $('#get-games').append(gameHTML)
 // // }
-//
-// <div class="container my-5" id="board-container">
-//   <div class="row col-12" id="board">
-//     <div class="col-4 box" data-cell-index="0"></div>
-//     <div class="col-4 box" data-cell-index="1"></div>
-//     <div class="col-4 box" data-cell-index="2"></div>
-//     <div class="col-4 box" data-cell-index="3"></div>
-//     <div class="col-4 box" data-cell-index="4"></div>
-//     <div class="col-4 box" data-cell-index="5"></div>
-//     <div class="col-4 box" data-cell-index="6"></div>
-//     <div class="col-4 box" data-cell-index="7"></div>
-//     <div class="col-4 box" data-cell-index="8"></div>
-//   </div>
-// </div>
 
-const generateBoard = size => {
+const store = require('../store')
+
+const generateBoard = (boardSize, boardID = 0, cells = []) => {
   console.log('generateBoard')
   const elements = []
-  for (let i = 0; i < size; i++) {
-    const html = `<div class="col-4 box" data-cell-index="${i}"></div>`
+  for (let i = 0; i < boardSize; i++) {
+    if (!cells[i]) { cells[i] = '' }
+    const html = `<div class="col-4 box" data-cell-index="${i}">${cells[i]} </div>`
     elements.push(html)
   }
-  elements.forEach(element => $('#board').append(element))
+  elements.forEach(element => $(`#board-${boardID}`).append(element))
+  return elements
 }
 
-const generateMiniBoard = size => {
+const generateMiniBoard = () => {
   console.log('generateMiniBoard')
-  const elements = []
-  // '<div class="col-4 box" data-cell-index="0"></div>'
-  for (let i = 0; i < size; i++) {
-    const html = `<div class="col-${i} box" data-cell-index="${i}"></div>`
-    elements.push(html)
-  }
+  const games = store.games
 
-  elements.forEach(index => $('#board').append(elements[index]))
+  games.forEach(game => {
+    console.log(game)
+    $('#get-games').append(`
+      <div class="container col-12 display">
+        <div class="row" id=board-${game.id}></div>
+      </div>`)
+    generateBoard(9, game.id, game.cells)
+  })
 }
 module.exports = {
   generateBoard,

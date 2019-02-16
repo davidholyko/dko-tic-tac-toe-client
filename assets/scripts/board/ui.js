@@ -5,17 +5,12 @@ const storePusher = require('./storePusher')
 const userFeedback = require('./userFeedback')
 const boardGame = require('./boardGame')
 const multiplayer = require('./multiplayer')
+const boardGenerator = require('./boardGenerator')
 
-const failure = () => {
-  $('#user-message').text('SOMETHING WRONG')
-}
+const failure = () => { $('#user-message').text('SOMETHING WRONG') }
 
 const newGameSuccess = responseData => {
   console.log('newGameSuccess')
-  console.log(responseData)
-
-  console.log('store')
-  console.log(store)
 
   storePusher.initStore(responseData)
   storePusher.resetGameWatcher()
@@ -31,7 +26,12 @@ const newGameSuccess = responseData => {
 const getGamesSuccess = responseData => {
   console.log('getGamesSuccess')
   userFeedback.clearGames()
-  responseData.games.slice(-10).forEach(game => userFeedback.displayGetGame(game))
+  const games = responseData.games.slice(-10)
+  storePusher.addGames(games)
+
+  // replace below with better solution
+  games.forEach(game => userFeedback.displayGetGame(game))
+  boardGenerator.generateMiniBoard()
 }
 
 const getLastGameSuccess = responseData => {
