@@ -60,12 +60,13 @@ const removeMove = () => {
   console.log(store)
 }
 
+const initLogicText = () => {
+  console.log('initLogicText')
+  store.logic = $('#logic-link>h2').text()
+}
+
 const switchLogicText = () => {
   console.log('switchLogicText')
-  store.logic = $('#logic-link>h2').text()
-  store.logic === 'Show Logic Solution'
-    ? store.logic = $('#logic-link>h2').text('Hide Logic Solution')
-    : store.logic = $('#logic-link>h2').text('Show Logic Solution')
   store.logic = $('#logic-link>h2').text()
 }
 
@@ -74,6 +75,7 @@ module.exports = {
   resetStore,
   initStore,
   initSignIn,
+  initLogicText,
   updateStoreGame,
   updateStoreUrl,
   addGames,

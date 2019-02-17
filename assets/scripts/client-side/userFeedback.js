@@ -85,9 +85,27 @@ const updateUserFeedback = (message, extra = '') => {
 
 const toggleCode = () => {
   console.log('toggleCode')
-  store.logic === 'Show Logic Solution'
-    ? view.showCode()
-    : view.hideCode()
+  console.log(store)
+  // if (store.logic === 'Logic Solution') { store.logic = 'Show Logic Solution' }
+  // store.logic === 'Show Logic Solution'
+  //   ? view.showCode()
+  //   : view.hideCode()
+  // store.logic = $('#logic-link>h2').text()
+
+  switch (store.logic) {
+    case 'Logic Solution':
+      view.showCode()
+      $('#logic-link>h2').text('Hide Logic Solution')
+      break
+    case 'Show Logic Solution':
+      view.showCode()
+      $('#logic-link>h2').text('Hide Logic Solution')
+      break
+    case 'Hide Logic Solution':
+      view.hideCode()
+      $('#logic-link>h2').text('Show Logic Solution')
+      break
+  }
 }
 
 module.exports = {
