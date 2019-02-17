@@ -6,13 +6,13 @@ const view = require('../board/view')
 
 const failure = () => {
   console.log('failure')
-  userFeedback.formReset()
+  userFeedback.resetForm()
   userFeedback.failure()
 }
 
 const signInSuccess = responseData => {
   console.log('signInSuccess')
-  userFeedback.formReset()
+  userFeedback.resetForm()
   storePusher.initSignIn(responseData)
   userFeedback.updateUserFeedback('YOU HAVE BEEN SIGNED IN AS', responseData.user.email.toUpperCase())
   view.hideSignInPage()
@@ -21,18 +21,18 @@ const signInSuccess = responseData => {
 
 const signUpSuccess = () => {
   console.log('signUpSuccess')
-  userFeedback.formReset()
+  userFeedback.resetForm()
   userFeedback.updateUserFeedback('YOU HAVE SIGNED UP')
 }
 
 const changePassword = () => {
   console.log('changePassword')
-  userFeedback.formReset()
+  userFeedback.resetForm()
   userFeedback.updateUserFeedback('PASSWORD HAS BEEN CHANGED')
 }
 const signOutSuccess = () => {
   console.log('signOutSuccess')
-  userFeedback.formReset()
+  userFeedback.resetForm()
   userFeedback.resetUserInfo()
   userFeedback.resetBoard()
   storePusher.resetStore()

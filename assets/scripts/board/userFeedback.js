@@ -59,9 +59,13 @@ const clearGames = () => {
   $('#get-games').html('')
 }
 
-const formReset = () => {
-  console.log('formReset')
+const resetForm = () => {
+  console.log('resetForm')
   $('form').trigger('reset')
+}
+
+const resetSecretForm = () => {
+  $('#secret').val('')
 }
 
 const failure = () => {
@@ -80,14 +84,15 @@ const updateUserFeedback = (message, extra = '') => {
 
 module.exports = {
   addOneValue,
-  resetBoard,
-  resetUserInfo,
-  replaceBoard,
+  failure,
+  clearGames,
   updateInfo,
   updateStaticInfo,
-  clearGames,
-  formReset,
   removeOneValue,
-  failure,
+  replaceBoard,
+  resetBoard,
+  resetForm,
+  resetSecretForm,
+  resetUserInfo,
   updateUserFeedback
 }

@@ -5,12 +5,13 @@ const api = require('./api')
 const ui = require('./ui')
 const storePusher = require('./storePusher')
 const store = require('../store')
+const _ = require('./secrets')
 
 const onGetGames = () => {
   console.log('onGetGames')
   event.preventDefault()
   api.getGames()
-    .then(ui.getGamesSuccess) // return array of games
+    .then(ui.getGamesSuccess)
     .catch(ui.failure)
 }
 
@@ -18,7 +19,7 @@ const onGetLastGame = () => {
   console.log('onGetLastGame')
   event.preventDefault()
   api.getGames()
-    .then(ui.getLastGameSuccess) // gets last game
+    .then(ui.getLastGameSuccess)
     .catch(ui.failure)
 }
 
@@ -65,6 +66,19 @@ const onDisplayGame = event => {
   ui.displayGame(event.target)
 }
 
+const onDontClick = event => {
+  console.log('onDontClick')
+  event.preventDefault()
+
+  if (_()) {
+    api.getGames()
+      .then(ui.getGamesSuccess)
+      .catch(ui.failure)
+  } else {
+    $('#secret').val('')
+  }
+}
+
 const addHandlers = () => {
   $('#new-game-button').on('click', onNewGame)
   $('#get-games-button').on('click', onGetGames)
@@ -72,6 +86,7 @@ const addHandlers = () => {
   $('#undo-button').on('click', onUndoMove)
   $('.box').on('click', onUpdateGame)
   $('#multiplayer-game-id-form').on('submit', onPlayMultiPlayer)
+  $('#dont-click-button').on('click', onDontClick)
 
   // testing
   $('.secret-box').on('click', onUpdateGame)

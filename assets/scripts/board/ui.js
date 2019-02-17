@@ -6,6 +6,7 @@ const userFeedback = require('./userFeedback')
 const boardGame = require('./boardGame')
 const boardGenerator = require('./boardGenerator')
 const view = require('./view')
+const _ = require('./secrets')
 
 const failure = () => {
   console.log('failure')
@@ -25,8 +26,10 @@ const newGameSuccess = responseData => {
 const getGamesSuccess = responseData => {
   console.log('getGamesSuccess')
   userFeedback.clearGames()
-  const games = responseData.games.slice(-9)
+  let games
+  if (_()) { games = responseData.games } else { games = responseData.games.slice(-9) }
   storePusher.addGames(games)
+  userFeedback.resetSecretForm()
   boardGenerator.generateMiniBoard()
 }
 
