@@ -1,10 +1,10 @@
 'use strict'
 
 const getFormFields = require('../../../lib/get-form-fields')
+const gameApi = require('../game/api')
+const gameUI = require('../game/ui')
 const api = require('./api')
 const ui = require('./ui')
-const boardApi = require('../board/api')
-const boardUI = require('../board/ui')
 
 const onSignUp = event => {
   console.log('onSignUp')
@@ -49,8 +49,8 @@ const signInAndOpenNewGame = event => {
     .then(ui.signInSuccess)
     .catch(ui.failure)
   setTimeout(() => {
-    boardApi.newGame()
-      .then(boardUI.newGameSuccess)
+    gameApi.newGame()
+      .then(gameUI.newGameSuccess)
       .catch(ui.failure)
   },
   2000)

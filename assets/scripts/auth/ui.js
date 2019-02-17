@@ -1,8 +1,8 @@
 'use strict'
 
-const userFeedback = require('../board/userFeedback')
-const storePusher = require('../board/storePusher')
-const view = require('../board/view')
+const userFeedback = require('../client-side/userFeedback')
+const storePusher = require('../client-side/storePusher')
+const view = require('../view/view')
 
 const failure = () => {
   console.log('failure')

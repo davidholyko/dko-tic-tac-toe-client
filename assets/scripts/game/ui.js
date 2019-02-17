@@ -1,12 +1,12 @@
 'use strict'
 
+const storePusher = require('../client-side/storePusher')
+const userFeedback = require('../client-side/userFeedback')
+const boardGame = require('../client-side/boardGame')
+const boardGenerator = require('../client-side/boardGenerator')
+const _ = require('../secrets/secrets')
 const store = require('../store')
-const storePusher = require('./storePusher')
-const userFeedback = require('./userFeedback')
-const boardGame = require('./boardGame')
-const boardGenerator = require('./boardGenerator')
-const view = require('./view')
-const _ = require('./secrets')
+const view = require('../view/view')
 
 const failure = () => {
   console.log('failure')
@@ -81,12 +81,12 @@ const displayGame = data => {
 }
 
 module.exports = {
+  displayGame,
   failure,
-  newGameSuccess,
   getGamesSuccess,
-  updateGameSuccess,
   getLastGameSuccess,
   playMultiPlayerSuccess,
-  displayGame,
+  updateGameSuccess,
+  newGameSuccess,
   undoMoveSuccess
 }

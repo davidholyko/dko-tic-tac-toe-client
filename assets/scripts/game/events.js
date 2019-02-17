@@ -1,11 +1,11 @@
 'use strict'
 
 const getFormFields = require('../../../lib/get-form-fields')
+const dataParser = require('../client-side/dataParser')
+const _ = require('../secrets/secrets')
 const api = require('./api')
 const ui = require('./ui')
-const storePusher = require('./storePusher')
 const store = require('../store')
-const _ = require('./secrets')
 
 const onGetGames = () => {
   console.log('onGetGames')
@@ -34,7 +34,7 @@ const onNewGame = event => {
 const onUpdateGame = event => {
   console.log('onUpdateGame')
   event.preventDefault()
-  const data = storePusher.morphData(event.target)
+  const data = dataParser.morphData(event.target)
   if (store.game.over) { return }
   api.updateGame(data)
     .then(ui.updateGameSuccess(event.target))
@@ -45,7 +45,7 @@ const onUndoMove = event => {
   console.log('onUndoMove')
   event.preventDefault()
   const previousMove = store.game.moves.slice(-1)[0]
-  const data = storePusher.morphUndoData(previousMove)
+  const data = dataParser.morphUndoData(previousMove)
   api.updateGame(data)
     .then(ui.undoMoveSuccess)
     .catch(ui.failure)

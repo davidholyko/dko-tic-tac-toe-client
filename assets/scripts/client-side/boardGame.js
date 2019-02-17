@@ -1,7 +1,7 @@
 'use strict'
 
 const store = require('../store')
-const checkForWinner = require('./logic')
+const checkForWinner = require('../logic/winCondition')
 
 const calcAll = () => {
   console.log('calcAll')

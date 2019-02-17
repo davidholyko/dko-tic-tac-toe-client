@@ -1,43 +1,6 @@
 const store = require('../store')
 const config = require('../config')
 
-const morphData = (element, override = false) => {
-  console.log('morphData')
-  let index = $(element).data('cell-index')
-  let value = store.player
-  if (override) {
-    index = ''
-    value = ''
-  }
-
-  const data = {
-    game: {
-      cell: {
-        index: index,
-        value: value
-      },
-      over: store.game.over
-    }
-  }
-  return data
-}
-
-const morphUndoData = (move) => {
-  console.log('morphUndoData')
-  if (!move) { return }
-
-  const data = {
-    game: {
-      cell: {
-        index: move.index,
-        value: move.value
-      },
-      over: store.game.over
-    }
-  }
-  return data
-}
-
 const resetGameWatcher = () => {
   console.log('resetGameWatcher')
   store.gameWatcher = null
@@ -98,8 +61,6 @@ const removeMove = () => {
 }
 
 module.exports = {
-  morphData,
-  morphUndoData,
   resetStore,
   initStore,
   initSignIn,

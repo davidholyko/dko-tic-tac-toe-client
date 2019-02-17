@@ -1,8 +1,12 @@
 'use strict'
 
-const store = require('../store')
-
-// array board -> ['X','X','O','X','O','X',,,]
+// // Description: This file contains a function checkForWinner() which finds
+// // the winner of a tic tac toe for any size grid ie 3x3, 4x4, 9x9...
+// // The recusive function checkLine checks if all elements in a line
+// // are the same item and if true, pushes that value of the item
+// // into an array winner. It has a recursive call that calls itself again
+// // and changes the initial value by adding a jump which is the
+// // value from one initial starting index to the next line of the same axis
 
 const checkForWinner = () => {
   // checks for tic tac toe of any size square grid
@@ -40,13 +44,6 @@ const checkForWinner = () => {
   }
 
   checkLines(board)
-
-  if (winner[0].length) {
-    store.game.winner = winner[0]
-    store.game.over = true
-  }
-
-  if (store.game.turn === store.game.cells.length) { store.game.over = true }
 }
 
 module.exports = checkForWinner
