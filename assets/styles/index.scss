@@ -30,16 +30,21 @@ body {
   color: white;
   display: flex;
   justify-content: center;
+  vertical-align: middle;
   text-align: center;
   padding: 0;
   height: $third;
   width: $third;
-  font-size: inherit;
+  font-size: 5vh;
 }
 
 #board-container-0 {
   height: 50vw;
   width: 50vw;
+}
+
+button {
+  word-wrap: break-word;
 }
 
 .container {

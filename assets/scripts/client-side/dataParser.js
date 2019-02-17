@@ -4,10 +4,7 @@ const morphData = (element, override = false) => {
   console.log('morphData')
   let index = $(element).data('cell-index')
   let value = store.player
-  if (override) {
-    index = ''
-    value = ''
-  }
+  if (override) { index = ''; value = '' }
 
   const data = {
     game: {
@@ -21,7 +18,7 @@ const morphData = (element, override = false) => {
   return data
 }
 
-const morphUndoData = (move) => {
+const morphUndoData = move => {
   console.log('morphUndoData')
   if (!move) { return }
 
