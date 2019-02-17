@@ -60,14 +60,24 @@ const removeMove = () => {
   console.log(store)
 }
 
+const switchLogicText = () => {
+  console.log('switchLogicText')
+  store.logic = $('#logic-link>h2').text()
+  store.logic === 'Show Logic Solution'
+    ? store.logic = $('#logic-link>h2').text('Hide Logic Solution')
+    : store.logic = $('#logic-link>h2').text('Show Logic Solution')
+  store.logic = $('#logic-link>h2').text()
+}
+
 module.exports = {
+  switchLogicText,
   resetStore,
   initStore,
   initSignIn,
   updateStoreGame,
   updateStoreUrl,
-  resetGameWatcher,
   addGames,
   addMove,
-  removeMove
+  removeMove,
+  resetGameWatcher
 }

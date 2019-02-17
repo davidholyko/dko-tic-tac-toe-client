@@ -40,6 +40,7 @@ const signOutSuccess = () => {
   view.hideSettings()
   view.hideSignedInPage()
   view.showSignInPage()
+  view.hideCode()
   userFeedback.updateUserFeedback('YOU HAVE BEEN SIGNED OUT')
 }
 

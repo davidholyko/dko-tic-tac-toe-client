@@ -1,4 +1,5 @@
 const store = require('../store')
+const view = require('../view/view')
 
 const switchPlayer = () => {
   console.log('switchPlayer')
@@ -82,6 +83,13 @@ const updateUserFeedback = (message, extra = '') => {
   $('#user-message').text(`${message} ${extra}`)
 }
 
+const toggleCode = () => {
+  console.log('toggleCode')
+  store.logic === 'Show Logic Solution'
+    ? view.showCode()
+    : view.hideCode()
+}
+
 module.exports = {
   addOneValue,
   failure,
@@ -94,5 +102,6 @@ module.exports = {
   resetForm,
   resetSecretForm,
   resetUserInfo,
-  updateUserFeedback
+  updateUserFeedback,
+  toggleCode
 }

@@ -6,13 +6,13 @@
 const boardGenerator = require('./client-side/boardGenerator')
 const gameEvents = require('./game/events')
 const authEvents = require('./auth/events')
+const codeEvents = require('./code/events')
 const view = require('./view/view')
-// const multiplayer = require('./board/multiplayer')
-// const store = require('./store')
 
 $(() => {
   boardGenerator.generateBoard(9)
   authEvents.addHandlers()
   gameEvents.addHandlers()
+  codeEvents.addHandlers()
   view.onPageLoad()
 })

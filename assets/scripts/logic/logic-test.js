@@ -10,7 +10,6 @@ const checkForWinner = board => {
         board.push(i)
       }
     }
-
     generateBoard(16) // generate board to test in node
   }
 
