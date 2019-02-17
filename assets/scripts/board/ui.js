@@ -6,7 +6,10 @@ const userFeedback = require('./userFeedback')
 const boardGame = require('./boardGame')
 const boardGenerator = require('./boardGenerator')
 
-const failure = () => { userFeedback.failure() }
+const failure = () => {
+  console.log('failure')
+  userFeedback.failure()
+}
 
 const newGameSuccess = responseData => {
   console.log('newGameSuccess')

@@ -2,6 +2,7 @@
 
 const userFeedback = require('../board/userFeedback')
 const storePusher = require('../board/storePusher')
+const view = require('../board/view')
 
 const failure = () => {
   console.log('failure')
@@ -14,6 +15,9 @@ const signInSuccess = responseData => {
   userFeedback.formReset()
   storePusher.initSignIn(responseData)
   userFeedback.updateUserFeedback('YOU HAVE BEEN SIGNED IN AS', responseData.user.email.toUpperCase())
+  view.hideOnSignIn()
+  view.showSettings()
+  view.showGamePage()
 }
 
 const signUpSuccess = () => {

@@ -14,5 +14,5 @@ $(() => {
   boardGenerator.generateBoard(9)
   authEvents.addHandlers()
   boardEvents.addHandlers()
-  view.addHandlers()
+  view.onPageLoad()
 })

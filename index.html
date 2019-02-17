@@ -19,6 +19,7 @@
   </div>
 
   <h1 id="user-message"></h1>
+  <h1 id="user-feedback"></h1>
 
   <div id="feedback">
     <h1 id="current-game"></h1>
@@ -64,24 +65,28 @@
     <button id="sign-out-button">Sign Out</button>
   </div>
 
-  <div class="container p-0 board-container" id="board-container">
-    <div class="row m-0 col-12" id="board-0">
-    </div>
-  </div>
-
-  <button id="undo-button">Undo</button>
-
   <div id="game-page">
-    <button id="get-games-button">Get Last 9 Games</button>
 
-    <button id="get-last-game-button">Get Last Game</button>
+    <div class="container p-0 board-container my-5" id="board-container-0">
+      <div class="row m-0 col-12" id="board-0">
+      </div>
+    </div>
 
-    <button id="new-game-button">New Game</button>
+    <div id="game-buttons" class="container game-buttons my-10">
+      <div class="row">
+        <button class="col-12 my-3" id="undo-button">Undo</button>
 
-    <form id="multiplayer-game-id-form">
-      <input type="number" placeholder="GAME ID" name="game[id]" />
-      <input type="submit" value="Connect to Game" />
-    </form>
+        <button class="col-6" id="get-games-button">Get Last 9 Games</button>
+        <button class="col-6" id="get-last-game-button">Get Last Game</button>
+
+        <button class="col-12 my-3" id="new-game-button">New Game</button>
+
+        <form class="my-3" id="multiplayer-game-id-form">
+          <input class="col-12" type="number" placeholder="GAME ID" name="game[id]" />
+          <input class="col-12" type="submit" value="Connect to Game" />
+        </form>
+      </div>
+    </div>
 
     <div class="get-games my-5" id="get-games"></div>
   </div>

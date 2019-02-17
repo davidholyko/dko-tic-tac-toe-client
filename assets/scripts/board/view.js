@@ -15,14 +15,37 @@ const squareBox = () => {
   $('.box').height($('.box').width())
 }
 
-// const landingPage = () => {
-//
-// }
+const hideOnSignIn = () => {
+  $('#sign-in-form').hide()
+  $('#sign-up-form').hide()
+}
 
-const addHandlers = () => {
+const hideSettings = () => {
+  $('#settings').hide()
+}
+
+const showSettings = () => {
+  $('#settings').show()
+}
+
+const hideGamePage = () => {
+  $('#game-page').hide()
+}
+
+const showGamePage = () => {
+  $('#game-page').show()
+}
+const onPageLoad = () => {
   // hideOther()
   squareBox()
+  hideSettings()
+  hideGamePage()
   $(window).resize(squareBox)
 }
 
-module.exports = { addHandlers }
+module.exports = {
+  onPageLoad,
+  hideOnSignIn,
+  showSettings,
+  showGamePage
+}
