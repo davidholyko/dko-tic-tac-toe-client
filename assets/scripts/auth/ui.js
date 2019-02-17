@@ -15,9 +15,8 @@ const signInSuccess = responseData => {
   userFeedback.formReset()
   storePusher.initSignIn(responseData)
   userFeedback.updateUserFeedback('YOU HAVE BEEN SIGNED IN AS', responseData.user.email.toUpperCase())
-  view.hideOnSignIn()
-  view.showSettings()
-  view.showGamePage()
+  view.hideSignInPage()
+  view.showSignedInPage()
 }
 
 const signUpSuccess = () => {
@@ -37,6 +36,10 @@ const signOutSuccess = () => {
   userFeedback.resetUserInfo()
   userFeedback.resetBoard()
   storePusher.resetStore()
+  view.hideGamePage()
+  view.hideSettings()
+  view.hideSignedInPage()
+  view.showSignInPage()
   userFeedback.updateUserFeedback('YOU HAVE BEEN SIGNED OUT')
 }
 

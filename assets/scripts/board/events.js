@@ -25,7 +25,7 @@ const onGetLastGame = () => {
 const onNewGame = event => {
   console.log('onNewGame')
   event.preventDefault()
-  api.newGame() // reset board
+  api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.failure)
 }
@@ -72,9 +72,14 @@ const addHandlers = () => {
   $('#undo-button').on('click', onUndoMove)
   $('.box').on('click', onUpdateGame)
   $('#multiplayer-game-id-form').on('submit', onPlayMultiPlayer)
+
+  // testing
   $('.secret-box').on('click', onUpdateGame)
   $('.display').on('click', onDisplayGame)
   $('.game-selector').on('click', () => { console.log('game selected') })
 }
 
-module.exports = { addHandlers }
+module.exports = {
+  addHandlers,
+  onNewGame
+}

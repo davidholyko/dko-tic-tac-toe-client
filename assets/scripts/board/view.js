@@ -1,23 +1,25 @@
 'use strict'
 
-const hideOther = () => {
-  $('#sign-in-form').hide()
-  $('#sign-up-form').hide()
-
-  $('#board-container').hide()
-  $('#game-page').hide()
-  $('#settings').hide()
-}
-
 const squareBox = () => {
   $('.container').height($('.container').width())
   $('.row').height($('.row').width())
   $('.box').height($('.box').width())
 }
 
-const hideOnSignIn = () => {
-  $('#sign-in-form').hide()
-  $('#sign-up-form').hide()
+const hideSignInPage = () => {
+  $('#sign-in-page').hide()
+}
+
+const showSignInPage = () => {
+  $('#sign-in-page').show()
+}
+
+const hideSignedInPage = () => {
+  $('#signed-in-page').hide()
+}
+
+const showSignedInPage = () => {
+  $('#signed-in-page').show()
 }
 
 const hideSettings = () => {
@@ -35,17 +37,34 @@ const hideGamePage = () => {
 const showGamePage = () => {
   $('#game-page').show()
 }
+
+const hideMainBoard = () => {
+  $('board-container-0').hide()
+}
+
+const showMainBoard = () => {
+  $('board-container-0').show()
+}
+
 const onPageLoad = () => {
-  // hideOther()
   squareBox()
   hideSettings()
   hideGamePage()
+  hideMainBoard()
+  hideSignedInPage()
   $(window).resize(squareBox)
 }
 
 module.exports = {
   onPageLoad,
-  hideOnSignIn,
+  showSignInPage,
   showSettings,
-  showGamePage
+  showGamePage,
+  showMainBoard,
+  showSignedInPage,
+  hideSignInPage,
+  hideGamePage,
+  hideMainBoard,
+  hideSettings,
+  hideSignedInPage
 }

@@ -5,6 +5,7 @@ const storePusher = require('./storePusher')
 const userFeedback = require('./userFeedback')
 const boardGame = require('./boardGame')
 const boardGenerator = require('./boardGenerator')
+const view = require('./view')
 
 const failure = () => {
   console.log('failure')
@@ -17,6 +18,8 @@ const newGameSuccess = responseData => {
   userFeedback.resetUserInfo()
   userFeedback.resetBoard()
   userFeedback.updateStaticInfo()
+  view.showMainBoard()
+  view.showGamePage()
 }
 
 const getGamesSuccess = responseData => {

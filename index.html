@@ -18,6 +18,21 @@
     <h1>TIC TAC TOE</h1>
   </div>
 
+  <div class="signed-in-page mx-0 my-2" id="signed-in-page">
+    <div class="d-flex flex-col flex-wrap" id="signed-in-flex-container">
+      <form class="d-flex flex-row justify-content-between col-12 flex-wrap" id="change-password-form">
+        <input class="col-4 mx-0" type="password" placeholder="old password" name="passwords[old]" />
+        <input class="col-4 mx-0" type="password" placeholder="new password" name="passwords[new]" />
+        <input class="col-4 mx-0" type="submit" value="Change Password" />
+      </form>
+
+      <div class="d-flex flex-row justify-content-between col-12 flex-wrap my-3">
+        <button class="col-6 mx-0" id="new-game-button">New Game</button>
+        <button class="col-6 mx-0" id="sign-out-button">Sign Out</button>
+      </div>
+    </div>
+  </div>
+
   <h1 id="user-message"></h1>
   <h1 id="user-feedback"></h1>
 
@@ -29,40 +44,25 @@
     <h1 id="game-state"></h1>
   </div>
 
-  <!-- <div class="container">
-    <div class="landing-page row">
-      <button id="sign-in-button" class="big-button col-6">
-        <h1>Sign In</h1>
-      </button>
-      <button id="sign-up-button" class="big-button col-6">
-        <h1>Sign Up</h1>
-      </button>
-    </div>
-  </div> -->
-
-  <div class="sign-in-page">
+  <div id="sign-in-page">
     <form id="sign-up-form">
       <input type="email" placeholder="email" name="credentials[email]" />
       <input type="password" placeholder="password" name="credentials[password]" />
       <input type="password" placeholder="password_confirmation" name="credentials[password_confirmation]" />
-      <input type="submit" value="sign-up" />
+      <input type="submit" value="Sign-up" />
     </form>
 
     <form id="sign-in-form">
       <input type="email" placeholder="email" name="credentials[email]" />
       <input type="password" placeholder="password" name="credentials[password]" />
-      <input type="submit" value="sign-in" />
-    </form>
-  </div>
-
-  <div id="settings">
-    <form id="change-password-form">
-      <input type="password" placeholder="old password" name="passwords[old]" />
-      <input type="password" placeholder="new password" name="passwords[new]" />
-      <input type="submit" value="Change Password" />
+      <input type="submit" value="Sign In" />
     </form>
 
-    <button id="sign-out-button">Sign Out</button>
+    <form id="sign-in-and-new-game-form">
+      <input type="email" placeholder="email" name="credentials[email]" />
+      <input type="password" placeholder="password" name="credentials[password]" />
+      <input type="submit" value="Sign In and Play" />
+    </form>
   </div>
 
   <div id="game-page">
@@ -72,14 +72,11 @@
       </div>
     </div>
 
-    <div id="game-buttons" class="container game-buttons my-10">
+    <div class="container game-buttons my-10" id="game-buttons">
       <div class="row">
         <button class="col-12 my-3" id="undo-button">Undo</button>
-
         <button class="col-6" id="get-games-button">Get Last 9 Games</button>
         <button class="col-6" id="get-last-game-button">Get Last Game</button>
-
-        <button class="col-12 my-3" id="new-game-button">New Game</button>
 
         <form class="my-3" id="multiplayer-game-id-form">
           <input class="col-12" type="number" placeholder="GAME ID" name="game[id]" />
