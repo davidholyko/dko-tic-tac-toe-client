@@ -38,6 +38,7 @@ const toggleDemoLink = () => {
 
 const displayDemo = (board = store.demo) => {
   console.log('displayDemo')
+  logicDemo.clearDemoOutput()
   checkIndexes(board.length, board)
 }
 
