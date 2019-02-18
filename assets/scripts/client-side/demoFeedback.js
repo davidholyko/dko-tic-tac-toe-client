@@ -16,6 +16,7 @@ const toggleCode = () => {
       break
     case 'Hide Logic Solution':
       logicDemo.hideCode()
+      logicDemo.clearDemoBoard()
       logicDemo.clearDemoOutput()
       $('#logic-link>h2').text('Show Logic Solution')
       break
@@ -51,4 +52,5 @@ module.exports = {
   toggleDemoLink,
   displayDemo,
   makeDemoBoard
+
 }
