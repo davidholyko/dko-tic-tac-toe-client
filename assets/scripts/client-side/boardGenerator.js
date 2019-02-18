@@ -6,12 +6,12 @@ const generateBoardArray = (size = 9, board = []) => {
   return board
 }
 
-const generateBoard = (boardSize, boardID = 0, cells = [], defaultClass = 'col-4 box', target = '#board-') => {
+const generateBoard = (boardSize, boardID = 0, cells = [], defaultClasses = 'col-4 box', target = '#board-') => {
   console.log('generateBoard')
   const elements = []
   for (let i = 0; i < boardSize; i++) {
     if (!cells[i]) { cells[i] = '' }
-    const html = `<div class="${defaultClass}" data-cell-index="${i}">${cells[i]}</div>`
+    const html = `<div class="${defaultClasses}" data-cell-index="${i}">${cells[i]}</div>`
     elements.push(html)
   }
   elements.forEach(element => $(`${target}${boardID}`).append(element))

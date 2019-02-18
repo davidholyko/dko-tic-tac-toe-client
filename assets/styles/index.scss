@@ -36,6 +36,16 @@ body {
   font-size: 5vh;
 }
 
+.demo-box {
+  background-color: green;
+  color: white;
+  display: flex;
+  justify-content: center;
+  vertical-align: middle;
+  text-align: center;
+  padding: 0;
+}
+
 #demo-board {
   height: 50vh;
   width: 50vh;
@@ -193,6 +203,11 @@ button {
   .board-container {
     max-height: 100%;
     max-width: 100%;
+  }
+
+  .demo-board {
+    width: 90vw;
+    height: 90vw;
   }
 
   .display {

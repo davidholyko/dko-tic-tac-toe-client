@@ -47,21 +47,12 @@ const showMainBoard = () => {
   $('board-container-0').show()
 }
 
-const hideCode = () => {
-  $('#code').hide()
-}
-
-const showCode = () => {
-  $('#code').show()
-}
-
 const onPageLoad = () => {
   squareBox()
   hideSettings()
   hideGamePage()
   hideMainBoard()
   hideSignedInPage()
-  hideCode()
   $(window).resize(squareBox)
 }
 
@@ -72,8 +63,6 @@ module.exports = {
   showGamePage,
   showMainBoard,
   showSignedInPage,
-  showCode,
-  hideCode,
   hideSignInPage,
   hideGamePage,
   hideMainBoard,
