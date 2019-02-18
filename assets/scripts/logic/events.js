@@ -24,7 +24,7 @@ const addHandlers = () => {
   $('#logic-link').on('click', onClickCode)
   $('#demo-link').on('click', onClickDemo)
 
-  store.demo = boardGenerator.generateBoardArray(49)
+  store.demo = boardGenerator.generateBoardArray(64)
   boardGenerator.generateBoard(store.demo.length, '', store.demo, 'demo-box p-0', '#demo-board')
 }
 

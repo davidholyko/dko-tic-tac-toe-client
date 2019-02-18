@@ -1,6 +1,7 @@
 'use strict'
 
 const checkForWinner = (size, board = []) => {
+  console.log('checking...')
   if (!board.length) { return }
   const winner = []
   const boardSize = Math.sqrt(board.length) | 0
@@ -8,9 +9,9 @@ const checkForWinner = (size, board = []) => {
 
   const checkLine = function (axis = 3, initialValue, difference, jump = 0, cycle = 1) {
     const check = []; cycle = cycle - 1
+    const axes = { 3: 'X axis', 2: 'Y axis', 1: 'Diagonal' }
     for (let i = 0; i < boardSize; i++) { check.push(board[initialValue + difference * i]) }
-    if (axis <= 3) { $('#demo-output').append(`<h1>cycle: ${cycle} axis: ${axis} checking indexes: ${check}</h1>`) }
-    // console.log(`checking values: ${check}`) // <----- uncomment to check which values are checked
+    if (axis <= 3) { $('#demo-output').append(`<h1>checking ${axes[axis]} indexes: ${check}</h1>`) }
     if (check.every(letter => letter === check[0])) { winner.push(check[0]) }
     if (initialValue === difference) { return checkLine(axis, initialValue - difference, difference + 2, 0, 1) }
     if (!cycle) {
@@ -27,8 +28,5 @@ const checkForWinner = (size, board = []) => {
 
   return winner
 }
-
-console.log('checking...')
-console.log(checkForWinner(9))
 
 module.exports = checkForWinner
