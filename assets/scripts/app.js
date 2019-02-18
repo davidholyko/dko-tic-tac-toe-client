@@ -10,6 +10,7 @@ const codeEvents = require('./code/events')
 const view = require('./view/view')
 
 $(() => {
+  hljs.initHighlightingOnLoad()
   boardGenerator.generateBoard(9)
   authEvents.addHandlers()
   gameEvents.addHandlers()
