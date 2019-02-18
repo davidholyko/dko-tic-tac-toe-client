@@ -69,7 +69,6 @@ const onDisplayGame = event => {
 const onDontClick = event => {
   console.log('onDontClick')
   event.preventDefault()
-
   if (_()) {
     api.getGames()
       .then(ui.getGamesSuccess)

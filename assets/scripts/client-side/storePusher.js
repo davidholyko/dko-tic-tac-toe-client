@@ -51,7 +51,6 @@ const addMove = element => {
   const move = {}
   move[index] = value
   store.game.moves.push(move)
-  console.log(store)
 }
 
 const removeMove = () => {

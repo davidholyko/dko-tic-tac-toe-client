@@ -77,7 +77,7 @@
 
     <div class="container game-buttons my-10" id="game-buttons">
       <div class="row">
-        <button class="col-12 my-3" id="undo-button">Undo</button>
+        <!-- <button class="col-12 my-3" id="undo-button">Undo</button> -->
         <button class="col-6" id="get-games-button">Get Last 9 Games</button>
         <button class="col-6" id="get-last-game-button">Get Last Game</button>
 
@@ -104,6 +104,8 @@
     // into an array winner. It has a recursive call that calls itself again
     // and changes the initial value by adding a jump which is the
     // value from one initial starting index to the next line of the same axis
+    // visit https://github.com/davidholyko/dko-tic-tac-toe-client/blob/master/assets/scripts/logic/logic-test.js
+    // for working demo in node.
 
     const checkForWinner = () => {
       // checks for tic tac toe of any size square grid

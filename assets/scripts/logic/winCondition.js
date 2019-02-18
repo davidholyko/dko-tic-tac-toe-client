@@ -16,20 +16,20 @@ const checkForWinner = (board = store.game.cells) => {
   const winner = []
   const boardSize = Math.sqrt(board.length) | 0
 
-  const checkLine = function (init, diff, jump = 0, cycle = 1) {
+  const checkLine = function (initialValue, difference, jump = 0, cycle = 1) {
     const check = []
     cycle = cycle - 1
 
-    for (let i = 0; i < boardSize; i++) { check.push(board[init + diff * i]) }
-    // push values of board at indexes * diff onto check array
-    // console.log(`checking indexes: ${check}`) // <----- uncomment to check which indexes are checked
+    for (let i = 0; i < boardSize; i++) { check.push(board[initialValue + difference * i]) }
+    // push values of board at indexes * difference onto check array
+    console.log(`checking indexes: ${check}`) // <----- uncomment to check which indexes are checked
     if (check.every(letter => letter === check[0])) { winner.push(check[0]) }
     // if every value in line is the same, push that value onto winner array
-    if (init === diff) { return checkLine(init - diff, diff + 2) }
-    // if init and diff are the same (its a diagonal), check the other diagonal
+    if (initialValue === difference) { return checkLine(initialValue - difference, difference + 2) }
+    // if initialValue and difference are the same (its a diagonal), check the other diagonal
     if (!cycle) { return }
     // exit recursion when cycle = 0
-    return checkLine(init + jump, diff, jump, cycle)
+    return checkLine(initialValue + jump, difference, jump, cycle)
     // recursively get the other lines in same axis (x axis, y axis)
   }
 

@@ -85,13 +85,6 @@ const updateUserFeedback = (message, extra = '') => {
 
 const toggleCode = () => {
   console.log('toggleCode')
-  console.log(store)
-  // if (store.logic === 'Logic Solution') { store.logic = 'Show Logic Solution' }
-  // store.logic === 'Show Logic Solution'
-  //   ? view.showCode()
-  //   : view.hideCode()
-  // store.logic = $('#logic-link>h2').text()
-
   switch (store.logic) {
     case 'Logic Solution':
       view.showCode()
