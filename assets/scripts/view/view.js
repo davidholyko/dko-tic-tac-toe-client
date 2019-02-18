@@ -3,6 +3,7 @@
 const squareBox = () => {
   $('.container').height($('.container').width())
   $('.row').height($('.row').width())
+  $('.box').width($('.row').width() / 3)
   $('.box').height($('.box').width())
 }
 

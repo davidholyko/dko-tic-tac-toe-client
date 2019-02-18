@@ -1,15 +1,20 @@
 const store = require('../store')
 
-const generateBoard = (boardSize, boardID = 0, cells = [], extra = '') => {
+const generateBoardArray = (size = 9, board = []) => {
+  console.log('generateBoardArray')
+  for (let i = 0; i < size; i++) { board.push(`${i}`) }
+  return board
+}
+
+const generateBoard = (boardSize, boardID = 0, cells = [], defaultClass = 'col-4 box', target = '#board-') => {
   console.log('generateBoard')
   const elements = []
   for (let i = 0; i < boardSize; i++) {
     if (!cells[i]) { cells[i] = '' }
-    const html = `<div class="col-4 box ${extra}" data-cell-index="${i}">${cells[i]}</div>`
+    const html = `<div class="${defaultClass}" data-cell-index="${i}">${cells[i]}</div>`
     elements.push(html)
   }
-  elements.forEach(element => $(`#board-${boardID}`).append(element))
-  return elements
+  elements.forEach(element => $(`${target}${boardID}`).append(element))
 }
 
 const generateMiniBoard = (games = store.games) => {
@@ -28,5 +33,6 @@ const generateMiniBoard = (games = store.games) => {
 
 module.exports = {
   generateBoard,
+  generateBoardArray,
   generateMiniBoard
 }

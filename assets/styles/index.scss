@@ -33,9 +33,12 @@ body {
   vertical-align: middle;
   text-align: center;
   padding: 0;
-  height: $third;
-  width: $third;
   font-size: 5vh;
+}
+
+#demo-board {
+  height: 50vh;
+  width: 50vh;
 }
 
 #board-container-0 {

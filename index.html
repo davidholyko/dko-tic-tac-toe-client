@@ -14,6 +14,7 @@
   <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
   <script>hljs.initHighlightingOnLoad();</script>
+
 </head>
 
 <body>
@@ -68,15 +69,23 @@
     </form>
   </div>
 
-  <div id="game-page">
 
+  <div class="p-0 my-5 justify-content-center d-flex" id="demo-container">
+    <div class="m-0 p-0 d-flex flex-wrap" id="demo-board">
+    </div>
+  </div>
+
+  <div id="game-page">
     <div class="container p-0 board-container my-5" id="board-container-0">
       <div class="row m-0 col-12" id="board-0">
       </div>
     </div>
 
+
     <div class="container game-buttons my-10" id="game-buttons">
       <div class="row">
+        <!--  hide undo button until confirm that it works-->
+        <!--  patch requests are down at the moment cant check-->
         <!-- <button class="col-12 my-3" id="undo-button">Undo</button> -->
         <button class="col-6" id="get-games-button">Get Last 9 Games</button>
         <button class="col-6" id="get-last-game-button">Get Last Game</button>
@@ -96,7 +105,7 @@
     <div class="get-games my-5" id="get-games"></div>
   </div>
 
-  <pre><code class="javascript my-3" id="code" >
+  <pre><code class="my-3" data-language="javascript" id="code" >
     // Description: This file contains a function checkForWinner() which finds
     // the winner of a tic tac toe for any size grid ie 3x3, 4x4, 9x9...
     // The recusive function checkLine checks if all elements in a line
@@ -104,13 +113,10 @@
     // into an array winner. It has a recursive call that calls itself again
     // and changes the initial value by adding a jump which is the
     // value from one initial starting index to the next line of the same axis
-    // visit https://github.com/davidholyko/dko-tic-tac-toe-client/blob/master/assets/scripts/logic/logic-test.js
-    // for working demo in node.
 
-    const checkForWinner = () => {
+    const checkForWinner = (board = store.game.cells) => {
       // checks for tic tac toe of any size square grid
 
-      const board = store.game.cells
       const winner = []
       const boardSize = Math.sqrt(board.length) | 0
 
@@ -120,7 +126,6 @@
 
         for (let i = 0; i < boardSize; i++) { check.push(board[init + diff * i]) }
         // push values of board at indexes * diff onto check array
-        // console.log(`checking indexes: ${check}`) // uncomment to check which indexes are checked
         if (check.every(letter => letter === check[0])) { winner.push(check[0]) }
         // if every value in line is the same, push that value onto winner array
         if (init === diff) { return checkLine(init - diff, diff + 2) }
@@ -143,6 +148,7 @@
       }
 
       checkLines(board)
+      return winner
     }
   </code></pre>
 
