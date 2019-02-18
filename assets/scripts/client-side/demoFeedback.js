@@ -44,7 +44,7 @@ const displayDemo = (board = store.demo) => {
 const makeDemoBoard = () => {
   console.log('makeDemoBoard')
   store.demo = boardGenerator.generateBoardArray(64)
-  boardGenerator.generateBoard(store.demo.length, '', store.demo, 'demo-box p-0', '#demo-board')
+  boardGenerator.generateBoard(store.demo.length, '', store.demo, '', 'demo-box p-0', '#demo-board')
 }
 
 module.exports = {

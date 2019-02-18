@@ -18,32 +18,102 @@
 </head>
 
 <body>
-  <div class="nav">
-    <h1>TIC TAC TOE</h1>
-  </div>
-
-
-  <div class="signed-in-page mx-0 my-2" id="signed-in-page">
-    <div class="d-flex flex-col flex-wrap" id="signed-in-flex-container">
-      <form class="d-flex flex-row justify-content-between col-12 flex-wrap" id="change-password-form">
-        <input class="col-4 mx-0" type="password" placeholder="old password" name="passwords[old]" />
-        <input class="col-4 mx-0" type="password" placeholder="new password" name="passwords[new]" />
-        <input class="col-4 mx-0" type="submit" value="Change Password" />
-      </form>
-
-      <div class="d-flex flex-row justify-content-between col-12 flex-wrap my-3">
-        <button class="col-6 mx-0" id="new-game-button">New Game</button>
-        <button class="col-6 mx-0" id="sign-out-button">Sign Out</button>
-      </div>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand">Tic Tac Toe</a>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <span class="nav-link" id="user-message"></span>
+        </li>
+        <li class="nav-item active">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonSignIn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sign In
+            </button>
+            <div class="dropdown-menu">
+              <form class="px-4 py-3" id="sign-in-and-new-game-form">
+                <div class="form-group">
+                  <label for="exampleDropdownFormEmail1">Email address</label>
+                  <input type="email" placeholder="email" name="credentials[email]" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleDropdownFormPassword1">Password</label>
+                  <input type="password" placeholder="password" name="credentials[password]" />
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheckSignIn">
+                  <label class="form-check-label" for="dropdownCheck">
+                    Remember me
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </form>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <div class="dropdown">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonSignUp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sign Up
+            </button>
+            <div class="dropdown-menu">
+              <form class="px-4 py-3" id="sign-up-form">
+                <div class="form-group">
+                  <label for="exampleDropdownFormEmail1">Email address</label>
+                  <input type="email" placeholder="email" name="credentials[email]" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleDropdownFormPassword1">Password</label>
+                  <input type="password" placeholder="password" name="credentials[password]" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleDropdownFormPassword1">Password</label>
+                  <input type="password" placeholder="password confirmation" name="credentials[password_confirmation]" />
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheckSignUp">
+                  <label class="form-check-label" for="dropdownCheck">
+                    Remember me
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+              </form>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonSignUp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Change Password
+          </button>
+          <div class="dropdown-menu">
+            <form class="px-4 py-3" id="change-password-form">
+              <div class="form-group">
+                <label for="exampleDropdownFormPassword1">Password</label>
+                <input type="password" placeholder="old password" name="passwords[old]" />
+              </div>
+              <div class="form-group">
+                <label for="exampleDropdownFormPassword1">Password</label>
+                <input type="password" placeholder="new password" name="passwords[new]" />
+              </div>
+              <button type="submit" class="btn btn-primary">Change Password</button>
+            </form>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"> <span id="new-game-button">New Game</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link"> <span id="sign-out-button">Sign Out</span></a>
+        </li>
+      </ul>
+      <span class="navbar-text">
+        Made for GA SEI-030
+      </span>
     </div>
-  </div>
-
-
-
-  <h1 id="user-message"></h1>
-  <h1 id="user-feedback"></h1>
+  </nav>
 
   <div id="feedback">
+    <h1 id="user-feedback"></h1>
     <h1 id="current-game"></h1>
     <h1 id="current-player"></h1>
     <h1 id="current-turn"></h1>
@@ -51,38 +121,12 @@
     <h1 id="game-state"></h1>
   </div>
 
-  <div id="sign-in-page">
-    <form id="sign-up-form">
-      <input type="email" placeholder="email" name="credentials[email]" />
-      <input type="password" placeholder="password" name="credentials[password]" />
-      <input type="password" placeholder="password_confirmation" name="credentials[password_confirmation]" />
-      <input type="submit" value="Sign-up" />
-    </form>
 
-    <form id="sign-in-form">
-      <input type="email" placeholder="email" name="credentials[email]" />
-      <input type="password" placeholder="password" name="credentials[password]" />
-      <input type="submit" value="Sign In" />
-    </form>
-
-    <form id="sign-in-and-new-game-form">
-      <input type="email" placeholder="email" name="credentials[email]" />
-      <input type="password" placeholder="password" name="credentials[password]" />
-      <input type="submit" value="Sign In and Play" />
-    </form>
-  </div>
-
-
-  <div class="p-0 my-5 justify-content-center d-flex flex-row" id="demo-container">
-    <div class="m-0 p-0 d-flex flex-wrap" id="demo-board"></div>
-    <div class="mx-2" id="demo-output"></div>
-  </div>
 
   <div id="game-page">
     <div class="container p-0 board-container my-5" id="board-container-0">
       <div class="row m-0 col-12" id="board-0"></div>
     </div>
-
 
     <div class="container game-buttons my-10" id="game-buttons">
       <div class="row">
@@ -105,6 +149,12 @@
     </div>
 
     <div class="get-games my-5" id="get-games"></div>
+  </div>
+
+
+  <div class="p-0 my-5 justify-content-center d-flex flex-row d-none" id="demo-container">
+    <div class="m-0 p-0 d-flex flex-wrap" id="demo-board"></div>
+    <div class="mx-2" id="demo-output"></div>
   </div>
 
   <pre><code class="my-3" data-language="javascript" id="code" >

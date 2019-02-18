@@ -3,6 +3,7 @@
 const userFeedback = require('../client-side/userFeedback')
 const storePusher = require('../client-side/storePusher')
 const view = require('../view/view')
+const logicDemo = require('../view/logicDemo')
 
 const failure = () => {
   console.log('failure')
@@ -14,7 +15,7 @@ const signInSuccess = responseData => {
   console.log('signInSuccess')
   userFeedback.resetForm()
   storePusher.initSignIn(responseData)
-  userFeedback.updateUserFeedback('YOU HAVE BEEN SIGNED IN AS', responseData.user.email.toUpperCase())
+  userFeedback.updateUserFeedback('Signed in as', responseData.user.email.toUpperCase())
   view.hideSignInPage()
   view.showSignedInPage()
 }
@@ -22,13 +23,13 @@ const signInSuccess = responseData => {
 const signUpSuccess = () => {
   console.log('signUpSuccess')
   userFeedback.resetForm()
-  userFeedback.updateUserFeedback('YOU HAVE SIGNED UP')
+  userFeedback.updateUserFeedback('You have signed up')
 }
 
 const changePassword = () => {
   console.log('changePassword')
   userFeedback.resetForm()
-  userFeedback.updateUserFeedback('PASSWORD HAS BEEN CHANGED')
+  userFeedback.updateUserFeedback('Your password has been changed')
 }
 const signOutSuccess = () => {
   console.log('signOutSuccess')
@@ -40,7 +41,7 @@ const signOutSuccess = () => {
   view.hideSettings()
   view.hideSignedInPage()
   view.showSignInPage()
-  view.hideCode()
+  logicDemo.hideCode()
   userFeedback.updateUserFeedback('YOU HAVE BEEN SIGNED OUT')
 }
 

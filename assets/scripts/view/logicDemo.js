@@ -24,6 +24,16 @@ const showDemoLink = () => {
   $('#demo-link').show()
 }
 
+const hideDemoBoard = () => {
+  $('#demo-board').hide()
+}
+
+const showDemoBoard = () => {
+  $('#demo-board').width('50vh')
+  $('#demo-board').height('50vh')
+  $('#demo-board').show()
+}
+
 const clearDemoOutput = () => {
   $('#demo-output').html('')
 }
@@ -33,6 +43,8 @@ const clearDemoBoard = () => {
 }
 
 const squareDemoBox = () => {
+  $('#demo-board').width('50vh')
+  $('#demo-board').height('50vh')
   const grid = $('#demo-board').children().length
   const gridSize = Math.sqrt(grid)
   $('.demo-box').width($('#demo-board').height() / gridSize)
@@ -42,6 +54,7 @@ const onPageLoad = () => {
   squareDemoBox()
   hideDemoContainer()
   hideDemoLink()
+  hideDemoBoard()
   hideCode()
   $(window).resize(squareDemoBox)
 }
@@ -56,5 +69,7 @@ module.exports = {
   showDemoLink,
   squareDemoBox,
   clearDemoBoard,
-  clearDemoOutput
+  clearDemoOutput,
+  hideDemoBoard,
+  showDemoBoard
 }
