@@ -1,6 +1,7 @@
 const store = require('../store')
 const logicDemo = require('../view/logicDemo')
 const checkIndexes = require('../logic/logic-test')
+const boardGenerator = require('./boardGenerator')
 
 const toggleCode = () => {
   console.log('toggleCode')
@@ -15,6 +16,7 @@ const toggleCode = () => {
       break
     case 'Hide Logic Solution':
       logicDemo.hideCode()
+      logicDemo.clearDemoOutput()
       $('#logic-link>h2').text('Show Logic Solution')
       break
   }
@@ -28,21 +30,25 @@ const toggleDemoLink = () => {
       break
     case 'Hide Logic Solution':
       logicDemo.showDemoLink()
+      logicDemo.clearDemoOutput()
       break
   }
 }
 
 const displayDemo = (board = store.demo) => {
   console.log('displayDemo')
-  // board.forEach(index => {
-  //   $('#demo-output').append(`<div class="demo-box">${board[index]}</div>`)
-  //   if (!((Number(index) + 1) % Math.sqrt(board.length))) { $('#demo-output').append('<br>') }
-  // })
   checkIndexes(board.length, board)
+}
+
+const makeDemoBoard = () => {
+  console.log('makeDemoBoard')
+  store.demo = boardGenerator.generateBoardArray(64)
+  boardGenerator.generateBoard(store.demo.length, '', store.demo, 'demo-box p-0', '#demo-board')
 }
 
 module.exports = {
   toggleCode,
   toggleDemoLink,
-  displayDemo
+  displayDemo,
+  makeDemoBoard
 }

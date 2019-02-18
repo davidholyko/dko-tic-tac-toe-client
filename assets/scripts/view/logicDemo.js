@@ -24,6 +24,14 @@ const showDemoLink = () => {
   $('#demo-link').show()
 }
 
+const clearDemoOutput = () => {
+  $('#demo-output').html('')
+}
+
+const clearDemoBoard = () => {
+  $('#demo-board').html('')
+}
+
 const squareDemoBox = () => {
   const grid = $('#demo-board').children().length
   const gridSize = Math.sqrt(grid)
@@ -33,7 +41,7 @@ const squareDemoBox = () => {
 const onPageLoad = () => {
   squareDemoBox()
   hideDemoContainer()
-  // hideDemoLink()
+  hideDemoLink()
   hideCode()
   $(window).resize(squareDemoBox)
 }
@@ -46,5 +54,7 @@ module.exports = {
   hideDemoContainer,
   hideDemoLink,
   showDemoLink,
-  squareDemoBox
+  squareDemoBox,
+  clearDemoBoard,
+  clearDemoOutput
 }

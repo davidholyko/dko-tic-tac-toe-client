@@ -8,8 +8,7 @@ const checkForWinner = (size, board = []) => {
   const lines = { boardSize, boardStart: 0, boardIncrement: 1, diagonal: boardSize - 1 }
 
   const checkLine = function (axis = 3, initialValue, difference, jump = 0, cycle = 1) {
-    const check = []; cycle = cycle - 1
-    const axes = { 3: 'X axis', 2: 'Y axis', 1: 'Diagonal' }
+    const check = []; cycle = cycle - 1; const axes = { 3: 'X axis', 2: 'Y axis', 1: 'Diagonal' }
     for (let i = 0; i < boardSize; i++) { check.push(board[initialValue + difference * i]) }
     if (axis <= 3) { $('#demo-output').append(`<h1>checking ${axes[axis]} indexes: ${check}</h1>`) }
     if (check.every(letter => letter === check[0])) { winner.push(check[0]) }

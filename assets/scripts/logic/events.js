@@ -1,13 +1,15 @@
 'use strict'
 
-const store = require('../store')
 const storePusher = require('../client-side/storePusher')
 const demoFeedback = require('../client-side/demoFeedback')
-const boardGenerator = require('../client-side/boardGenerator')
+const logicDemo = require('../view/logicDemo')
 
 const onClickCode = event => {
   console.log('onClickCode')
   event.preventDefault()
+  logicDemo.clearDemoBoard()
+  demoFeedback.makeDemoBoard()
+  logicDemo.squareDemoBox()
   demoFeedback.toggleCode()
   storePusher.switchLogicText()
   demoFeedback.toggleDemoLink()
@@ -23,9 +25,6 @@ const addHandlers = () => {
   storePusher.initLogicText()
   $('#logic-link').on('click', onClickCode)
   $('#demo-link').on('click', onClickDemo)
-
-  store.demo = boardGenerator.generateBoardArray(64)
-  boardGenerator.generateBoard(store.demo.length, '', store.demo, 'demo-box p-0', '#demo-board')
 }
 
 module.exports = {
