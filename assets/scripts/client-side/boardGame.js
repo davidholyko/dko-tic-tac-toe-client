@@ -11,11 +11,6 @@ const calcAll = () => {
   checkForWinner()
 }
 
-const updateOneCell = element => {
-  console.log('updateOneCell')
-  store.game.cells[$(element).data('cell-index')] = $(element).text()
-}
-
 const calcTurn = () => {
   console.log('calcTurn')
   const board = store.game.cells
@@ -40,7 +35,6 @@ const calcOver = () => {
 }
 
 module.exports = {
-  updateOneCell,
   calcTurn,
   calcPlayer,
   calcOver,

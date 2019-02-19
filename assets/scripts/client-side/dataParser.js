@@ -20,17 +20,19 @@ const morphData = (element, override = false) => {
   return data
 }
 
-const morphUndoData = move => {
+const morphUndoData = () => {
   console.log('morphUndoData')
-  if (!move) { return }
+  const index = store.game.moves.slice(-1)[0]
+  let over = false
+  if (store.game.over) { over = true }
 
   const data = {
     game: {
       cell: {
-        index: move.index,
-        value: move.value
+        index: index,
+        value: ''
       },
-      over: store.game.over
+      over: over
     }
   }
   return data

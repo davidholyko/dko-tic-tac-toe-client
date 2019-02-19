@@ -18,6 +18,7 @@ const resetStore = () => {
 const initStore = data => {
   console.log('initStore')
   store.game = data.game
+  store.game.elements = []
   store.game.over = ''
   store.game.winner = ''
   store.game.url = `${config.apiUrl}/games/${data.game.id}`
@@ -47,16 +48,14 @@ const addGames = games => {
 const addMove = element => {
   console.log('addMove')
   const index = $(element).data('cell-index')
-  const value = $(element).text()
-  const move = {}
-  move[index] = value
-  store.game.moves.push(move)
+  store.game.moves.push(index)
 }
 
 const removeMove = () => {
   console.log('removeMove')
+  store.game.elements.pop()
   store.game.moves.pop()
-  console.log(store)
+  store.game.turn--
 }
 
 const initLogicText = () => {
@@ -69,7 +68,24 @@ const switchLogicText = () => {
   store.logic = $('#logic-link>h2').text()
 }
 
+const updateOneCell = element => {
+  console.log('updateOneCell')
+  store.game.cells[$(element).data('cell-index')] = $(element).text()
+}
+
+const removeOneCellContents = () => {
+  console.log('updateOneCell')
+  store.game.cells[store.game.moves.slice(-1)[0]] = ''
+}
+
+const addElement = element => {
+  console.log('addElement')
+  store.game.elements.push(element)
+}
+
 module.exports = {
+  updateOneCell,
+  removeOneCellContents,
   switchLogicText,
   resetStore,
   initStore,
@@ -80,5 +96,6 @@ module.exports = {
   addGames,
   addMove,
   removeMove,
-  resetGameWatcher
+  resetGameWatcher,
+  addElement
 }

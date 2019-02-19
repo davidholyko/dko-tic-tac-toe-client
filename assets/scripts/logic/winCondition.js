@@ -46,7 +46,6 @@ const checkForWinner = (board = store.game.cells) => {
 
   checkLines(board)
 
-  console.log(winner)
   if (winner[0].length === 1) {
     store.game.winner = winner[0]
     store.game.over = true

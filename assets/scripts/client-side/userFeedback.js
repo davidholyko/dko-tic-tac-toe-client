@@ -12,9 +12,9 @@ const addOneValue = element => {
   switchPlayer()
 }
 
-const removeOneValue = (element) => {
+const removeOneValue = element => {
   console.log('removeOneValue')
-  $(element).text('')
+  $(store.game.elements.slice(-1)[0]).text('')
 }
 
 const replaceBoard = (data = store.game.cells) => {

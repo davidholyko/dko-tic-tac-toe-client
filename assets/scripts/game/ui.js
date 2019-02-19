@@ -45,10 +45,12 @@ const getLastGameSuccess = responseData => {
 
 const updateGameSuccess = element => {
   console.log('updateGameSuccess')
+  console.log(element)
   if (!store.game.winner) {
     userFeedback.addOneValue(element)
-    boardGame.updateOneCell(element)
+    storePusher.updateOneCell(element)
     storePusher.addMove(element)
+    storePusher.addElement(element)
   }
   boardGame.calcAll()
   userFeedback.updateInfo()
@@ -56,15 +58,13 @@ const updateGameSuccess = element => {
 
 const undoMoveSuccess = element => {
   console.log('undoMoveSuccess')
-  console.log(store)
   if (!store.game.winner) {
     userFeedback.removeOneValue(element)
-    boardGame.updateOneCell(element)
-    storePusher.removeMove(element)
+    storePusher.removeOneCellContents()
+    storePusher.removeMove()
   }
   boardGame.calcAll()
   userFeedback.updateInfo()
-  console.log(store)
 }
 
 const playMultiPlayerSuccess = responseData => {
