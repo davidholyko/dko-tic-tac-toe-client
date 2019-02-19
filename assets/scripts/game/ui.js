@@ -45,7 +45,6 @@ const getLastGameSuccess = responseData => {
 
 const updateGameSuccess = element => {
   console.log('updateGameSuccess')
-  console.log(element)
   if (!store.game.winner) {
     userFeedback.addOneValue(element)
     storePusher.updateOneCell(element)

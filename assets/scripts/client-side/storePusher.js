@@ -33,8 +33,9 @@ const initSignIn = data => {
 
 const updateStoreGame = data => {
   console.log('updateStore')
-  console.log(data)
   store.game = data
+  store.game.moves = []
+  store.game.elements = []
 }
 
 const updateStoreUrl = () => {

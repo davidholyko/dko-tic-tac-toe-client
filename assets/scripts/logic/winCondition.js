@@ -46,7 +46,7 @@ const checkForWinner = (board = store.game.cells) => {
 
   checkLines(board)
 
-  if (winner[0].length === 1) {
+  if (winner[0] === 'X' || winner[0] === 'O') {
     store.game.winner = winner[0]
     store.game.over = true
   }
