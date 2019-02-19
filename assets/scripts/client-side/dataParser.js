@@ -4,7 +4,9 @@ const morphData = (element, override = false) => {
   console.log('morphData')
   let index = $(element).data('cell-index')
   let value = store.player
+  let over = false
   if (override) { index = ''; value = '' }
+  if (store.game.over) { over = true }
 
   const data = {
     game: {
@@ -12,7 +14,7 @@ const morphData = (element, override = false) => {
         index: index,
         value: value
       },
-      over: store.game.over
+      over: over
     }
   }
   return data

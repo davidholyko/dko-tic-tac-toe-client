@@ -4,6 +4,7 @@ const boardGenerator = require('../client-side/boardGenerator')
 const userFeedback = require('../client-side/userFeedback')
 const storePusher = require('../client-side/storePusher')
 const view = require('../view/view')
+const store = require('../store')
 const logicDemo = require('../view/logicDemo')
 
 const failure = () => {
@@ -17,10 +18,10 @@ const signInSuccess = responseData => {
   userFeedback.resetForm()
   storePusher.initSignIn(responseData)
   userFeedback.updateUserFeedback('Signed in as', responseData.user.email.toUpperCase())
+  userFeedback.updateUserFeedback(`${store.user.token}`, '', '#current-token')
   view.showSignedInPage()
   view.showSettings()
   view.hideSignInPage()
-  boardGenerator.generateBoard(9)
 }
 
 const signUpSuccess = () => {

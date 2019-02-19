@@ -29,6 +29,16 @@
         <li class="nav-item my-1">
           <span class="nav-link" id="user-message"></span>
         </li>
+        <li>
+          <div class="my-1 mx-1 dropdown settings">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Show Token
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <span class="text-wrap" id="current-token"></span>
+            </div>
+          </div>
+        </li>
         <li class="nav-item active sign-in-page my-1">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonSignIn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -109,7 +119,9 @@
         <li class="nav-item settings my-1">
           <a class="nav-link"> <span id="sign-out-button">Sign Out</span></a>
         </li>
+
       </ul>
+
       <span class="navbar-text">
         Made for GA SEI-030
       </span>

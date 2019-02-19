@@ -18,9 +18,12 @@ const squareBox = () => {
   $('.row').height($('.row').width())
   $('.box').width($('.row').width() / 3)
   $('.box').height($('.box').width())
+  $('.secret-box').width($('.secret-row').width() / 3)
+  $('.secret-box').height($('.secret-box').width())
 }
 
 const onPageLoad = () => {
+  squareBox()
   hideSettings()
   hideGamePage()
   hideMainBoard()

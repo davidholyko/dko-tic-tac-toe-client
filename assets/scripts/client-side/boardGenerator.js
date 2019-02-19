@@ -6,7 +6,7 @@ const generateBoardArray = (size = 9, board = []) => {
   return board
 }
 
-const generateBoard = (boardSize, boardID = 0, cells = [], defaultClasses = 'col-4 box', extraClasses, target = '#board-') => {
+const generateBoard = (boardSize, boardID = 0, cells = [], defaultClasses = 'col-4 box', extraClasses = '', target = '#board-') => {
   console.log('generateBoard')
   const elements = []
   for (let i = 0; i < boardSize; i++) {
@@ -24,7 +24,7 @@ const generateMiniBoard = (games = store.games) => {
       <div class="mini-board m-0 board-container">
         <button class="game-selector">Game ID: ${game.id}</button>
         <div class="container display">
-          <div class="row col-12 m-0" id=board-${game.id}></div>
+          <div class="secret-row row col-12 m-0" id=board-${game.id}></div>
         </div>
       </div>`)
     generateBoard(game.cells.length, game.id, game.cells, 'col-4 box', 'secret-box')

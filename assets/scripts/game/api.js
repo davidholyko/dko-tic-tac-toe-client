@@ -14,7 +14,6 @@ const getGames = () => {
 
 const getGame = data => {
   console.log('getGame')
-
   return $.ajax({
     url: config.apiUrl + `/games/${data.game.id}`,
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -24,7 +23,6 @@ const getGame = data => {
 
 const newGame = () => {
   console.log('newGame')
-
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -33,6 +31,7 @@ const newGame = () => {
 }
 
 const updateGame = data => {
+  console.log(store)
   console.log('updateGame')
   return $.ajax({
     url: config.apiUrl + `/games/${store.game.id}`,

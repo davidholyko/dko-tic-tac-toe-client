@@ -78,8 +78,8 @@ const failure = () => {
   $('#user-feedback').toggleClass('error')
 }
 
-const updateUserFeedback = (message, extra = '') => {
-  $('#user-message').text(`${message} ${extra}`)
+const updateUserFeedback = (message, extra = '', target = '#user-message') => {
+  $(target).text(`${message} ${extra}`)
 }
 
 module.exports = {

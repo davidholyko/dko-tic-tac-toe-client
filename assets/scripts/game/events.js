@@ -35,6 +35,7 @@ const onUpdateGame = event => {
   console.log('onUpdateGame')
   event.preventDefault()
   const data = dataParser.morphData(event.target)
+  console.log(store)
   if (store.game.over) { return }
   api.updateGame(data)
     .then(ui.updateGameSuccess(event.target))
