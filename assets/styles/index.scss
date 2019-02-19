@@ -160,6 +160,11 @@ h3 {
   border: 0;
   padding: 0;
 }
+
+#undo-button {
+  align-self: center;
+  width: 50vw;
+}
 @media (max-width: 960px) {
   #board-container-0 {
     height: 75vw;
