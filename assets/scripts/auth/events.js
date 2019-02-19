@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const gameApi = require('../game/api')
 const gameUI = require('../game/ui')
+const gameEvents = require('../game/events')
 const api = require('./api')
 const ui = require('./ui')
 
@@ -45,15 +46,22 @@ const signInAndOpenNewGame = event => {
   console.log('signInAndOpenNewGame')
   event.preventDefault()
   const data = getFormFields(event.target)
-  api.signIn(data)
-    .then(ui.signInSuccess)
-    .catch(ui.failure)
-  setTimeout(() => {
+
+  const signIn = () => {
+    api.signIn(data)
+      .then(ui.signInSuccess)
+      .catch(ui.failure)
+      .then(gameEvents.onNewGame)
+  }
+
+  const newGame = () => {
     gameApi.newGame()
       .then(gameUI.newGameSuccess)
       .catch(ui.failure)
-  },
-  2000)
+  }
+
+  const promise = new Promise(resolve => newGame)
+  promise.then(signIn(data))
 }
 
 const addHandlers = () => {

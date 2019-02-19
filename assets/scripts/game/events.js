@@ -25,7 +25,7 @@ const onGetLastGame = () => {
 
 const onNewGame = event => {
   console.log('onNewGame')
-  event.preventDefault()
+  // event.preventDefault()
   api.newGame()
     .then(ui.newGameSuccess)
     .catch(ui.failure)
