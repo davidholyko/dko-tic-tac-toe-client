@@ -18,6 +18,7 @@ const onClickCode = event => {
 const onClickDemo = event => {
   console.log('onClickDemo')
   event.preventDefault()
+  logicDemo.clearDemoBoard()
   demoFeedback.makeDemoBoard()
   logicDemo.squareDemoBox()
   demoFeedback.displayDemo()

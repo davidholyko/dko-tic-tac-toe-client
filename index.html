@@ -144,17 +144,15 @@
 
     <div class="game-buttons my-10" id="game-buttons">
       <div class="flex-col">
-        <!--  hide undo button until confirm that it works-->
-        <!--  patch requests are down at the moment cant check-->
         <button class="col-12 btn btn-primary btn-lg btn-block mx-0 p-0 my-3" id="undo-button">Undo</button>
-        <div class="d-flex flex-row col-12">
-          <button class="col-6 btn btn-primary btn-lg btn-block mx-1 p-0" id="get-games-button">Get Last 9 Games</button>
-          <button class="col-6 btn btn-primary btn-lg btn-block mx-1 my-0 p-0" id="get-last-game-button">Get Last Game</button>
+        <div class="d-flex flex-row col-12 justify-content-around">
+          <button class="col-4 btn btn-primary btn-lg btn-block mx-1 p-0" id="get-games-button">Get Last 9 Games</button>
+          <button class="col-4 btn btn-primary btn-lg btn-block mx-1 my-0 p-0" id="get-last-game-button">Get Last Game</button>
         </div>
 
-        <form class="col-12 my-2 d-flex flex-row" id="multiplayer-game-id-form">
-          <input class="col-6 btn btn-primary btn-lg btn-block mx-1 p-0" type="submit" value="Connect to Previous Game" />
-          <input class="col-6 mx-1 p-0" type="number" placeholder="GAME ID" name="game[id]" />
+        <form class="col-12 my-2 d-flex flex-row justify-content-around" id="multiplayer-game-id-form">
+          <input class="col-4 btn btn-primary btn-lg btn-block mx-1 p-0" type="submit" value="Connect to Previous Game" />
+          <input class="col-4 mx-1 p-0" type="number" placeholder="GAME ID" name="game[id]" />
         </form>
 
         <form class="my-2 d-flex flex-row justify-content-around">

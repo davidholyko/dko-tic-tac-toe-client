@@ -51,7 +51,7 @@ const signInAndOpenNewGame = event => {
     api.signIn(data)
       .then(ui.signInSuccess)
       .catch(ui.failure)
-      .then(gameEvents.onNewGame)
+      .then(newGame)
   }
 
   const newGame = () => {

@@ -23,8 +23,7 @@ const morphData = (element, override = false) => {
 const morphUndoData = () => {
   console.log('morphUndoData')
   const index = store.game.moves.slice(-1)[0]
-  let over = false
-  if (store.game.over) { over = true }
+  const over = false
 
   const data = {
     game: {
