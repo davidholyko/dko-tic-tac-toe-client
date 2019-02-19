@@ -18,14 +18,14 @@
 </head>
 
 <body>
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
     <a class="navbar-brand">Tic Tac Toe</a>
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
           <span class="nav-link" id="user-message"></span>
         </li>
-        <li class="nav-item active">
+        <li class="nav-item active sign-in-page">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonSignIn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Sign In
@@ -51,7 +51,7 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item sign-in-page">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonSignUp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               Sign Up
@@ -81,7 +81,7 @@
             </div>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item settings">
           <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonSignUp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             Change Password
           </button>
@@ -99,10 +99,10 @@
             </form>
           </div>
         </li>
-        <li class="nav-item">
+        <li class="nav-item settings">
           <a class="nav-link"> <span id="new-game-button">New Game</span></a>
         </li>
-        <li class="nav-item">
+        <li class="nav-item settings">
           <a class="nav-link"> <span id="sign-out-button">Sign Out</span></a>
         </li>
       </ul>
@@ -126,22 +126,24 @@
       <div class="row m-0 col-12" id="board-0"></div>
     </div>
 
-    <div class="container game-buttons my-10" id="game-buttons">
-      <div class="row">
+    <div class="game-buttons my-10" id="game-buttons">
+      <div class="flex-col">
         <!--  hide undo button until confirm that it works-->
         <!--  patch requests are down at the moment cant check-->
         <!-- <button class="col-12 my-3" id="undo-button">Undo</button> -->
-        <button class="col-6" id="get-games-button">Get Last 9 Games</button>
-        <button class="col-6" id="get-last-game-button">Get Last Game</button>
+        <div class="d-flex flex-row col-12">
+          <button class="col-6 btn btn-primary btn-lg btn-block" id="get-games-button">Get Last 9 Games</button>
+          <button class="col-6 btn btn-primary btn-lg btn-block my-0" id="get-last-game-button">Get Last Game</button>
+        </div>
 
         <form class="my-2 col-12" id="multiplayer-game-id-form">
           <input class="col-12" type="number" placeholder="GAME ID" name="game[id]" />
-          <input class="col-12" type="submit" value="Connect to Game" />
+          <input class="col-12 btn btn-primary btn-lg btn-block" type="submit" value="Connect to Previous Game" />
         </form>
 
         <form class="my-0 d-flex flex-row">
           <input class="col-6" id="secret" type="text" placeholder="Type Something" name="secret" />
-          <button class="col-6" id="dont-click-button"> Solve the Riddle and Click </button>
+          <button class="col-6 btn btn-primary btn-lg btn-block" id="dont-click-button"> Solve the Riddle and Click </button>
         </form>
       </div>
     </div>

@@ -8,11 +8,11 @@ const squareBox = () => {
 }
 
 const hideSignInPage = () => {
-  $('#sign-in-page').hide()
+  $('.sign-in-page').hide()
 }
 
 const showSignInPage = () => {
-  $('#sign-in-page').show()
+  $('.sign-in-page').show()
 }
 
 const hideSignedInPage = () => {
@@ -24,11 +24,11 @@ const showSignedInPage = () => {
 }
 
 const hideSettings = () => {
-  $('#settings').hide()
+  $('.settings').hide()
 }
 
 const showSettings = () => {
-  $('#settings').show()
+  $('.settings').show()
 }
 
 const hideGamePage = () => {

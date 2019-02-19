@@ -16,8 +16,9 @@ const signInSuccess = responseData => {
   userFeedback.resetForm()
   storePusher.initSignIn(responseData)
   userFeedback.updateUserFeedback('Signed in as', responseData.user.email.toUpperCase())
-  view.hideSignInPage()
   view.showSignedInPage()
+  view.showSettings()
+  view.hideSignInPage()
 }
 
 const signUpSuccess = () => {

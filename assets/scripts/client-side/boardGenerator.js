@@ -27,7 +27,7 @@ const generateMiniBoard = (games = store.games) => {
           <div class="row col-12 m-0" id=board-${game.id}></div>
         </div>
       </div>`)
-    generateBoard(game.cells.length, game.id, game.cells, '', 'secret-box')
+    generateBoard(game.cells.length, game.id, game.cells, 'col-4 box', 'secret-box')
   })
 }
 
