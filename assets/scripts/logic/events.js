@@ -8,8 +8,8 @@ const onClickCode = event => {
   console.log('onClickCode')
   event.preventDefault()
   logicDemo.clearDemoBoard()
-  demoFeedback.makeDemoBoard()
-  logicDemo.squareDemoBox()
+  logicDemo.showDemoContainer()
+  logicDemo.showDemoBoard()
   demoFeedback.toggleCode()
   storePusher.switchLogicText()
   demoFeedback.toggleDemoLink()
@@ -18,6 +18,8 @@ const onClickCode = event => {
 const onClickDemo = event => {
   console.log('onClickDemo')
   event.preventDefault()
+  demoFeedback.makeDemoBoard()
+  logicDemo.squareDemoBox()
   demoFeedback.displayDemo()
 }
 

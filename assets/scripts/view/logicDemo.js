@@ -8,43 +8,26 @@ const showCode = () => {
   $('#code').show()
 }
 
-const hideDemoContainer = () => {
-  $('#demo-container').hide()
-}
+const showDemoLink = () => { $('#demo-link').show() }
+const hideDemoContainer = () => { $('#demo-container').hide() }
+const hideDemoLink = () => { $('#demo-link').hide() }
+const hideDemoBoard = () => { $('#demo-board').hide() }
+const clearDemoBoard = () => { $('#demo-board').html('') }
+const clearDemoOutput = () => { $('#demo-output').html('') }
 
 const showDemoContainer = () => {
+  $('#demo-container').width('50vw')
+  $('#demo-container').height('50vw')
   $('#demo-container').show()
 }
 
-const hideDemoLink = () => {
-  $('#demo-link').hide()
-}
-
-const showDemoLink = () => {
-  $('#demo-link').show()
-}
-
-const hideDemoBoard = () => {
-  $('#demo-board').hide()
-}
-
 const showDemoBoard = () => {
-  $('#demo-board').width('50vh')
-  $('#demo-board').height('50vh')
+  $('#demo-board').width('50vw')
+  $('#demo-board').height('50vw')
   $('#demo-board').show()
 }
 
-const clearDemoOutput = () => {
-  $('#demo-output').html('')
-}
-
-const clearDemoBoard = () => {
-  $('#demo-board').html('')
-}
-
 const squareDemoBox = () => {
-  $('#demo-board').width('50vh')
-  $('#demo-board').height('50vh')
   const grid = $('#demo-board').children().length
   const gridSize = Math.sqrt(grid)
   $('.demo-box').width($('#demo-board').height() / gridSize)

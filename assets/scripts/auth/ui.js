@@ -1,5 +1,6 @@
 'use strict'
 
+const boardGenerator = require('../client-side/boardGenerator')
 const userFeedback = require('../client-side/userFeedback')
 const storePusher = require('../client-side/storePusher')
 const view = require('../view/view')
@@ -19,6 +20,7 @@ const signInSuccess = responseData => {
   view.showSignedInPage()
   view.showSettings()
   view.hideSignInPage()
+  boardGenerator.generateBoard(9)
 }
 
 const signUpSuccess = () => {

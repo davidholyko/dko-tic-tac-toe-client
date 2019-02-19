@@ -1,5 +1,18 @@
 'use strict'
 
+const store = require('../store')
+
+const hideSignInPage = () => { $('.sign-in-page').hide() }
+const showSignInPage = () => { $('.sign-in-page').show() }
+const hideSignedInPage = () => { $('#signed-in-page').hide() }
+const showSignedInPage = () => { $('#signed-in-page').show() }
+const hideSettings = () => { $('.settings').hide() }
+const showSettings = () => { $('.settings').show() }
+const hideGamePage = () => { $('#game-page').hide() }
+const showGamePage = () => { $('#game-page').show() }
+const hideMainBoard = () => { $('board-container-0').hide() }
+const showMainBoard = () => { $('board-container-0').show() }
+const scaleFontSizeH3 = () => { $('h3').css('font-size', '2vw') }
 const squareBox = () => {
   $('.container').height($('.container').width())
   $('.row').height($('.row').width())
@@ -7,53 +20,13 @@ const squareBox = () => {
   $('.box').height($('.box').width())
 }
 
-const hideSignInPage = () => {
-  $('.sign-in-page').hide()
-}
-
-const showSignInPage = () => {
-  $('.sign-in-page').show()
-}
-
-const hideSignedInPage = () => {
-  $('#signed-in-page').hide()
-}
-
-const showSignedInPage = () => {
-  $('#signed-in-page').show()
-}
-
-const hideSettings = () => {
-  $('.settings').hide()
-}
-
-const showSettings = () => {
-  $('.settings').show()
-}
-
-const hideGamePage = () => {
-  $('#game-page').hide()
-}
-
-const showGamePage = () => {
-  $('#game-page').show()
-}
-
-const hideMainBoard = () => {
-  $('board-container-0').hide()
-}
-
-const showMainBoard = () => {
-  $('board-container-0').show()
-}
-
 const onPageLoad = () => {
-  squareBox()
   hideSettings()
   hideGamePage()
   hideMainBoard()
   hideSignedInPage()
   $(window).resize(squareBox)
+  $(window).resize(scaleFontSizeH3)
 }
 
 module.exports = {
