@@ -15,6 +15,14 @@ const onGetGames = () => {
     .catch(ui.failure)
 }
 
+const onGetHistory = () => {
+  console.log('onGetGames')
+  event.preventDefault()
+  api.getGames()
+    .then(ui.getHistorySuccess)
+    .catch(ui.failure)
+}
+
 const onGetLastGame = () => {
   console.log('onGetLastGame')
   event.preventDefault()
@@ -85,7 +93,7 @@ const addHandlers = () => {
   $('.box').on('click', onUpdateGame)
   $('#multiplayer-game-id-form').on('submit', onPlayMultiPlayer)
   $('#dont-click-button').on('click', onDontClick)
-  // $('#get-history-button').on('click', onGetGames)
+  $('#get-history-button').on('click', onGetHistory)
 
   // testing
   $('.secret-box').on('click', onUpdateGame)

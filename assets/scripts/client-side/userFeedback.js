@@ -52,7 +52,7 @@ const updateInfo = () => {
 
 const updateStaticInfo = () => {
   console.log('updateStaticInfo')
-  $('#user-message').text(`Signed in as ${store.user.email.toUpperCase()}`)
+  $('#user-message').html(`${store.user.email.toUpperCase()}`)
   $('#current-player').text(`Current Player's Turn: ${store.player}`)
   $('#current-game').text(`Current Game ID: ${store.game.id}`)
 }

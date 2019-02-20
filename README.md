@@ -62,6 +62,7 @@ Take a break after certain amount of time regardless of progress.
 ## Unsolved Problems
 
 Logic Solution Demo Right Pane check exceeds the height of the flexbox
+Sometimes Main Board does not show up on load
 
 ## Future Direction
 

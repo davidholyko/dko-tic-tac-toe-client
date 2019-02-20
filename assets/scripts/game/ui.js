@@ -34,6 +34,15 @@ const getGamesSuccess = responseData => {
   boardGenerator.generateMiniBoard()
 }
 
+const getHistorySuccess = responseData => {
+  console.log('getGamesSuccess')
+  userFeedback.clearGames()
+  storePusher.addGames(responseData.games)
+  userFeedback.addHistory()
+  userFeedback.resetSecretForm()
+  boardGenerator.generateMiniBoard()
+}
+
 const getLastGameSuccess = responseData => {
   console.log('getLastGameSuccess')
   const game = responseData.games.slice(-2, -1)[0]
@@ -97,5 +106,6 @@ module.exports = {
   playMultiPlayerSuccess,
   updateGameSuccess,
   newGameSuccess,
-  undoMoveSuccess
+  undoMoveSuccess,
+  getHistorySuccess
 }
