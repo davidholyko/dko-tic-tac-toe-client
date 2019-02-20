@@ -45,6 +45,7 @@ const getLastGameSuccess = responseData => {
 
 const updateGameSuccess = element => {
   console.log('updateGameSuccess')
+  if ($(element).text()) { userFeedback.updateUserFeedback('You have made an invalid move!', '', '#user-feedback') }
   if (!store.game.winner) {
     userFeedback.addOneValue(element)
     storePusher.updateOneCell(element)
@@ -57,6 +58,8 @@ const updateGameSuccess = element => {
 
 const undoMoveSuccess = element => {
   console.log('undoMoveSuccess')
+  if (!store.moves) { userFeedback.updateUserFeedback('Make a move before you undo!', '', '#user-feedback') }
+  if (store.game.winner) { userFeedback.updateUserFeedback('You cannot undo a finished game!', '', '#user-feedback') }
   if (!store.game.winner) {
     userFeedback.removeOneValue(element)
     storePusher.removeOneCellContents()
