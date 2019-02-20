@@ -45,9 +45,9 @@ const checkForWinner = (board = store.game.cells) => {
   }
 
   checkLines(board)
-  console.log(winner)
+  winner.sort((a, b) => b - a)
 
-  if (winner.join('') === 'X' || winner.join('') === 'O') {
+  if (winner[0]) {
     store.game.winner = winner[0]
     store.game.over = true
   }
