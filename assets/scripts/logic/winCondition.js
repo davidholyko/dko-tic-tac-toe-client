@@ -22,8 +22,8 @@ const checkForWinner = (board = store.game.cells) => {
 
     for (let i = 0; i < boardSize; i++) { check.push(board[initialValue + difference * i]) }
     // push values of board at indexes * difference onto check array
-    // console.log(`checking values: ${check}`) // <----- uncomment to check which values are checked
-    if (check.every(letter => letter === check[0])) { winner.push(check[0]) }
+    console.log(`checking values: ${check}`) // <----- uncomment to check which values are checked
+    if (check.every(value => value === check[0])) { winner.push(check[0]) }
     // if every value in line is the same, push that value onto winner array
     if (initialValue === difference) { return checkLine(initialValue - difference, difference + 2) }
     // if initialValue and difference are the same (its a diagonal), check the other diagonal
@@ -45,8 +45,9 @@ const checkForWinner = (board = store.game.cells) => {
   }
 
   checkLines(board)
+  console.log(winner)
 
-  if (winner[0] === 'X' || winner[0] === 'O') {
+  if (winner.join('') === 'X' || winner.join('') === 'O') {
     store.game.winner = winner[0]
     store.game.over = true
   }
