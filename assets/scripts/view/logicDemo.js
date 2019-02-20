@@ -1,5 +1,7 @@
 'use strict'
 
+const store = require('../store')
+
 const hideCode = () => {
   $('#code').hide()
 }
@@ -33,12 +35,18 @@ const squareDemoBox = () => {
   $('.demo-box').width($('#demo-board').height() / gridSize)
 }
 
+const initDemo = () => {
+  store.sizes = [9, 16, 25, 36, 49, 64, 81]
+  store.demoIndex = 0
+}
+
 const onPageLoad = () => {
   squareDemoBox()
   hideDemoContainer()
   hideDemoLink()
   hideDemoBoard()
   hideCode()
+  initDemo()
   $(window).resize(squareDemoBox)
 }
 

@@ -44,7 +44,9 @@ const displayDemo = (board = store.demo) => {
 
 const makeDemoBoard = () => {
   console.log('makeDemoBoard')
-  store.demo = boardGenerator.generateBoardArray(64)
+  store.demo = boardGenerator.generateBoardArray(store.sizes[store.demoIndex])
+  store.demoIndex++
+  if (store.demoIndex > store.sizes.length - 1) { store.demoIndex = 0 }
   boardGenerator.generateBoard(store.demo.length, '', store.demo, '', 'demo-box p-0', '#demo-board')
 }
 

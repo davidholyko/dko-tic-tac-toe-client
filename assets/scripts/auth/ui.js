@@ -1,6 +1,5 @@
 'use strict'
 
-const boardGenerator = require('../client-side/boardGenerator')
 const userFeedback = require('../client-side/userFeedback')
 const storePusher = require('../client-side/storePusher')
 const view = require('../view/view')

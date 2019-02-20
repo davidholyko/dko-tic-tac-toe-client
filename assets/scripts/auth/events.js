@@ -3,7 +3,6 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const gameApi = require('../game/api')
 const gameUI = require('../game/ui')
-const gameEvents = require('../game/events')
 const api = require('./api')
 const ui = require('./ui')
 
