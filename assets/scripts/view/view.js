@@ -15,9 +15,9 @@ const squareBox = () => {
   $('.container').height($('.container').width())
   $('.board-container').height($('.board-container').width())
   $('.row').height($('.row').width())
-  $('.secret-row').height($('.secret-row').width())
-  $('.box').width($('.row').width() / 3)
+  $('.box').width($('.row').height() / 3)
   $('.box').height($('.box').width())
+  $('.secret-row').height($('.secret-row').width())
   $('.secret-box').width($('.secret-row').width() / 3)
   $('.secret-box').height($('.secret-box').width())
 }
@@ -28,8 +28,8 @@ const onPageLoad = () => {
   hideGamePage()
   hideMainBoard()
   hideSignedInPage()
-  setTimeout($(window).resize(squareBox), 0)
-  setTimeout($(window).resize(scaleFontSizeH3), 0)
+  setTimeout(() => $(window).resize(squareBox), 0)
+  setTimeout(() => $(window).resize(scaleFontSizeH3), 0)
 }
 
 module.exports = {

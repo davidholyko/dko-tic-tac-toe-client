@@ -21,10 +21,10 @@ const generateMiniBoard = (games = store.games) => {
   console.log('generateMiniBoard')
   games.forEach(game => {
     $('#get-games').append(`
-      <div class="mini-board m-0 d-flex flex-column">
+      <div class="mini-board my-2 mx-0 d-flex flex-column">
         <button class="game-selector btn btn-primary btn-lg">Game ID: ${game.id}</button>
         <div class="container display">
-          <div class="secret-row row m-0" id=board-${game.id} ></div>
+          <div class="secret-row row" id=board-${game.id} ></div>
         </div>
       </div>`)
     generateBoard(game.cells.length, game.id, game.cells, 'col-4 box', 'secret-box')

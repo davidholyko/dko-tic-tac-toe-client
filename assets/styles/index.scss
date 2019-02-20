@@ -97,6 +97,10 @@ button {
   color: white;
 }
 
+flex {
+  display: flex;
+}
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -185,11 +189,6 @@ h3 {
   height: 100%;
   border: 0;
   padding: 0;
-}
-
-#undo-button {
-  align-self: center;
-  width: 50vw;
 }
 @media (max-width: 960px) {
   #board-container-0 {

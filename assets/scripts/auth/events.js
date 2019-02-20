@@ -60,8 +60,10 @@ const signInAndOpenNewGame = event => {
       .catch(ui.failure)
   }
 
-  const promise = new Promise(resolve => newGame)
-  promise.then(signIn(data))
+  signIn()
+
+  // const promise = new Promise(resolve => newGame)
+  // promise.then(signIn(data))
 }
 
 const addHandlers = () => {
