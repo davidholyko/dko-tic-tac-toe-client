@@ -192,12 +192,10 @@
     const checkForWinner = (board = store.game.cells) => {
       // checks for tic tac toe of any size square grid
 
-      const winner = []
-      const boardSize = Math.sqrt(board.length) | 0
+      const winner = []; const boardSize = Math.sqrt(board.length) | 0
 
       const checkLine = function (init, diff, jump = 0, cycle = 1) {
-        const check = []
-        cycle = cycle - 1
+        const check = []; cycle = cycle - 1
 
         for (let i = 0; i < boardSize; i++) { check.push(board[init + diff * i]) }
         // push values of board at indexes * diff onto check array
@@ -223,7 +221,10 @@
       }
 
       checkLines(board)
-      return winner
+      // invoke checkLines function
+      winner.sort((a, b) => b - a)
+      // float the value X or O to front of the winner array
+      return winner[0]
     }
   </code></pre>
   </div>

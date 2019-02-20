@@ -11,7 +11,7 @@ const checkForWinner = (size, board = []) => {
     const check = []; cycle = cycle - 1; const axes = { 3: 'X axis', 2: 'Y axis', 1: 'Diagonal' }
     for (let i = 0; i < boardSize; i++) { check.push(board[initialValue + difference * i]) }
     if (axis <= 3) { $('#demo-output').append(`<h3>checking ${axes[axis]} indexes: ${check}</h3>`) }
-    if (check.every(letter => letter === check[0])) { winner.push(check[0]) }
+    if (check.every(value => value === check[0])) { winner.push(check[0]) }
     if (initialValue === difference) { return checkLine(axis, initialValue - difference, difference + 2, 0, 1) }
     if (!cycle) {
       axis = axis - 1
