@@ -10,7 +10,7 @@ const view = require('../view/view')
 
 const failure = () => {
   console.log('failure')
-  userFeedback.failure()
+  userFeedback.showFailureMessage()
 }
 
 const newGameSuccess = responseData => {

@@ -3,6 +3,7 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const gameApi = require('../game/api')
 const gameUI = require('../game/ui')
+const userFeedback = require('../client-side/userFeedback')
 const api = require('./api')
 const ui = require('./ui')
 

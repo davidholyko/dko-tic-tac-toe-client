@@ -63,6 +63,8 @@ Take a break after certain amount of time regardless of progress.
 
 Logic Solution Demo Right Pane check exceeds the height of the flexbox
 Sometimes Main Board does not show up on load
+Sometimes secret boxes scaling fails
+background repeat gradient -> underneath black background
 
 ## Future Direction
 

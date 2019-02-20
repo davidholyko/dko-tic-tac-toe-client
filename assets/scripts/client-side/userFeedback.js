@@ -71,14 +71,15 @@ const resetSecretForm = () => {
   $('#secret').val('')
 }
 
-const failure = () => {
-  $('#user-feedback').html('UNHELPFUL ERROR MESSAGE!')
-  $('#user-feedback').toggleClass('error')
+const showFailureMessage = () => {
+  console.log('showFailureMessage')
+  $('#failure-feedback').html('UNHELPFUL ERROR MESSAGE!')
+  $('#failure-feedback').toggleClass('error')
   for (let i = 0; i < 3000; i += 200) {
-    setTimeout(() => { $('#user-feedback').toggleClass('error-toggle') }, i)
+    setTimeout(() => { $('#failure-feedback').toggleClass('error-toggle') }, i)
   }
-  setTimeout(() => { $('#user-feedback').html('') }, 3000)
-  $('#user-feedback').toggleClass('error')
+  setTimeout(() => { $('#failure-feedback').html('') }, 3000)
+  $('#failure-feedback').toggleClass('error')
 }
 
 const updateUserFeedback = (message, extra = '', target = '#user-message') => {
@@ -92,7 +93,7 @@ const addHistory = () => {
 
 module.exports = {
   addOneValue,
-  failure,
+  showFailureMessage,
   clearGames,
   updateInfo,
   updateStaticInfo,

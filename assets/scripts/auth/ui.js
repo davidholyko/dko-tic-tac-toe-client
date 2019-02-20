@@ -9,7 +9,7 @@ const logicDemo = require('../view/logicDemo')
 const failure = () => {
   console.log('failure')
   userFeedback.resetForm()
-  userFeedback.failure()
+  userFeedback.showFailureMessage()
 }
 
 const signInSuccess = responseData => {
