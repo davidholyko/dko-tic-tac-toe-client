@@ -41,7 +41,7 @@ const onPageLoad = () => {
   hideDemoBoard()
   hideCode()
   initDemo()
-  setTimeout(() => $(window).resize(squareDemoBox), 0)
+  setTimeout(() => $(window).resize(squareDemoBox), 1)
 }
 
 module.exports = {

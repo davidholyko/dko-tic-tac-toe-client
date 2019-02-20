@@ -8,7 +8,7 @@ const ui = require('./ui')
 const store = require('../store')
 
 const onGetGames = () => {
-  console.log('onGetGames')
+  // console.log('onGetGames')
   event.preventDefault()
   api.getGames()
     .then(ui.getGamesSuccess)
@@ -16,7 +16,7 @@ const onGetGames = () => {
 }
 
 const onGetHistory = () => {
-  console.log('onGetGames')
+  // console.log('onGetGames')
   event.preventDefault()
   api.getGames()
     .then(ui.getHistorySuccess)
@@ -24,7 +24,7 @@ const onGetHistory = () => {
 }
 
 const onGetLastGame = () => {
-  console.log('onGetLastGame')
+  // console.log('onGetLastGame')
   event.preventDefault()
   api.getGames()
     .then(ui.getLastGameSuccess)
@@ -32,7 +32,7 @@ const onGetLastGame = () => {
 }
 
 const onNewGame = event => {
-  console.log('onNewGame')
+  // console.log('onNewGame')
   event.preventDefault()
   api.newGame()
     .then(ui.newGameSuccess)
@@ -40,7 +40,7 @@ const onNewGame = event => {
 }
 
 const onUpdateGame = event => {
-  console.log('onUpdateGame')
+  // console.log('onUpdateGame')
   event.preventDefault()
   const data = dataParser.morphData(event.target)
   if (store.game.over) { return }
@@ -50,7 +50,7 @@ const onUpdateGame = event => {
 }
 
 const onUndoMove = event => {
-  console.log('onUndoMove')
+  // console.log('onUndoMove')
   event.preventDefault()
   const data = dataParser.morphUndoData()
   api.updateGame(data)
@@ -59,7 +59,7 @@ const onUndoMove = event => {
 }
 
 const onPlayMultiPlayer = event => {
-  console.log('onPlayMultiPlayer')
+  // console.log('onPlayMultiPlayer')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.playMultiPlayer(data)
@@ -68,13 +68,13 @@ const onPlayMultiPlayer = event => {
 }
 
 const onDisplayGame = event => {
-  console.log('onDisplayGame')
+  // console.log('onDisplayGame')
   event.preventDefault()
   ui.displayGame(event.target)
 }
 
 const onDontClick = event => {
-  console.log('onDontClick')
+  // console.log('onDontClick')
   event.preventDefault()
   if (_()) {
     api.getGames()
@@ -98,7 +98,7 @@ const addHandlers = () => {
   // testing
   $('.secret-box').on('click', onUpdateGame)
   $('.display').on('click', onDisplayGame)
-  $('.game-selector').on('click', () => { console.log('game selected') })
+  $('.game-selector').on('click', () => {})
 }
 
 module.exports = {

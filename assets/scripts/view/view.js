@@ -28,8 +28,8 @@ const onPageLoad = () => {
   hideGamePage()
   hideMainBoard()
   hideSignedInPage()
-  setTimeout(() => $(window).resize(squareBox), 0)
-  setTimeout(() => $(window).resize(scaleFontSizeH3), 0)
+  setTimeout(() => $(window).resize(squareBox), 1)
+  setTimeout(() => $(window).resize(scaleFontSizeH3), 1)
 }
 
 module.exports = {
