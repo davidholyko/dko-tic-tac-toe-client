@@ -1,6 +1,6 @@
 // <li class="nav-item sign-in-page my-1">
 //   <div class="dropdown">
-//     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonSignUp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+//     <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButtonSignUp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 //       Sign Up
 //     </button>
 //     <div class="dropdown-menu">

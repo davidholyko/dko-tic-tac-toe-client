@@ -46,6 +46,7 @@ body {
 
 button {
   word-wrap: break-word;
+  color: white;
 }
 
 .container {}
@@ -149,6 +150,16 @@ h3 {
 
 .mini-board {
   text-align: center;
+}
+
+#navbar-text {
+  color: white;
+}
+
+.navbar {
+  background-color: rgba(0,0,180,1);
+  border-color: transparent;
+  color: white;
 }
 
 .nav-item {

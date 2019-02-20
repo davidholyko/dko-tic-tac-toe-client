@@ -45,12 +45,15 @@ const updateInfo = () => {
   $('#current-player').text(`Current Player's Turn: ${store.player}`)
   $('#current-turn').text(`Current Turn Number: ${store.game.turn}`)
   $('#current-over').text(`Is the game over? ${store.game.progress}`)
-  $('#game-state').text(`Who won? ${store.game.winner}`)
+  let output = ''
+  if (store.game.winner) { output = store.game.winner }
+  $('#game-state').text(`Who won? ${output}`)
 }
 
 const updateStaticInfo = () => {
   console.log('updateStaticInfo')
   $('#user-message').text(`Signed in as ${store.user.email.toUpperCase()}`)
+  $('#current-player').text(`Current Player's Turn: ${store.player}`)
   $('#current-game').text(`Current Game ID: ${store.game.id}`)
 }
 
@@ -74,7 +77,7 @@ const failure = () => {
   for (let i = 0; i < 3000; i += 200) {
     setTimeout(() => { $('#user-feedback').toggleClass('error-toggle') }, i)
   }
-  setTimeout(() => { $('#user-feedback').remove() }, 3000)
+  setTimeout(() => { $('#user-feedback').html('') }, 3000)
   $('#user-feedback').toggleClass('error')
 }
 
