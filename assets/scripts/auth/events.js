@@ -12,8 +12,8 @@ const onSignUp = event => {
   const data = getFormFields(event.target)
   api.signUp(data)
     .then(ui.signUpSuccess)
-    .then(() => { onSignIn(event) })
     .catch(ui.failure)
+    .then(() => { onSignIn(event) })
 }
 
 const onSignIn = event => {
@@ -61,9 +61,6 @@ const signInAndOpenNewGame = event => {
   }
 
   signIn()
-
-  // const promise = new Promise(resolve => newGame)
-  // promise.then(signIn(data))
 }
 
 const addHandlers = () => {
