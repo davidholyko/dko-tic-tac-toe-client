@@ -1,7 +1,5 @@
 'use strict'
 
-const store = require('../store')
-
 const hideSignInPage = () => { $('.sign-in-page').hide() }
 const showSignInPage = () => { $('.sign-in-page').show() }
 const hideSignedInPage = () => { $('#signed-in-page').hide() }
@@ -15,7 +13,9 @@ const showMainBoard = () => { $('board-container-0').show() }
 const scaleFontSizeH3 = () => { $('h3').css('font-size', '2vw') }
 const squareBox = () => {
   $('.container').height($('.container').width())
+  $('.board-container').height($('.board-container').width())
   $('.row').height($('.row').width())
+  $('.secret-row').height($('.secret-row').width())
   $('.box').width($('.row').width() / 3)
   $('.box').height($('.box').width())
   $('.secret-box').width($('.secret-row').width() / 3)

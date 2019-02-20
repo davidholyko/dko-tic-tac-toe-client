@@ -82,6 +82,11 @@ const updateUserFeedback = (message, extra = '', target = '#user-message') => {
   $(target).text(`${message} ${extra}`)
 }
 
+const addHistory = () => {
+  console.log(store)
+  $('#current-stats').text(`Number of Games Played: ${store.games.length}`)
+}
+
 module.exports = {
   addOneValue,
   failure,
@@ -94,5 +99,6 @@ module.exports = {
   resetForm,
   resetSecretForm,
   resetUserInfo,
-  updateUserFeedback
+  updateUserFeedback,
+  addHistory
 }

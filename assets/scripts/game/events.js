@@ -85,6 +85,7 @@ const addHandlers = () => {
   $('.box').on('click', onUpdateGame)
   $('#multiplayer-game-id-form').on('submit', onPlayMultiPlayer)
   $('#dont-click-button').on('click', onDontClick)
+  // $('#get-history-button').on('click', onGetGames)
 
   // testing
   $('.secret-box').on('click', onUpdateGame)

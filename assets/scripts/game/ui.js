@@ -29,6 +29,7 @@ const getGamesSuccess = responseData => {
   let games
   if (_()) { games = responseData.games } else { games = responseData.games.slice(-9) }
   storePusher.addGames(games)
+  userFeedback.addHistory()
   userFeedback.resetSecretForm()
   boardGenerator.generateMiniBoard()
 }
@@ -58,7 +59,7 @@ const updateGameSuccess = element => {
 
 const undoMoveSuccess = element => {
   console.log('undoMoveSuccess')
-  if (!store.moves) { userFeedback.updateUserFeedback('Make a move before you undo!', '', '#user-feedback') }
+  if (!store.moves) { userFeedback.updateUserFeedback('You cannot undo further!', '', '#user-feedback') }
   if (store.game.winner) { userFeedback.updateUserFeedback('You cannot undo a finished game!', '', '#user-feedback') }
   if (!store.game.winner) {
     userFeedback.removeOneValue(element)

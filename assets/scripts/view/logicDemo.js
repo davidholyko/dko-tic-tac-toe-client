@@ -2,14 +2,8 @@
 
 const store = require('../store')
 
-const hideCode = () => {
-  $('#code').hide()
-}
-
-const showCode = () => {
-  $('#code').show()
-}
-
+const hideCode = () => { $('#code').hide() }
+const showCode = () => { $('#code').show() }
 const showDemoLink = () => { $('#demo-link').show() }
 const hideDemoContainer = () => { $('#demo-container').hide() }
 const hideDemoLink = () => { $('#demo-link').hide() }

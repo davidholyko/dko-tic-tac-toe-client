@@ -28,7 +28,7 @@ body {
 }
 
 .box {
-  background-color: green;
+  background-color: rgba(0,255,0,.4);
   border: 1px solid $white;
   color: white;
   display: flex;
@@ -40,8 +40,8 @@ body {
 }
 
 #board-container-0 {
-  height: 50vw;
-  width: 50vw;
+  height: 50vh;
+  width: 50vh;
 }
 
 button {
@@ -51,7 +51,7 @@ button {
 .container {}
 
 .demo-box {
-  background-color: green;
+  background-color: rgba(0,255,0,.2);
   color: white;
   display: flex;
   justify-content: center;
@@ -111,6 +111,7 @@ h1 {
 h3 {
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+  font-size: 2vw;
 }
 
 .nav {

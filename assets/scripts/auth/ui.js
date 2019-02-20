@@ -45,7 +45,7 @@ const signOutSuccess = () => {
   view.hideSignedInPage()
   view.showSignInPage()
   logicDemo.hideCode()
-  userFeedback.updateUserFeedback('YOU HAVE BEEN SIGNED OUT')
+  userFeedback.updateUserFeedback('You have been signed out')
 }
 
 module.exports = {

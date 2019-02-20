@@ -39,6 +39,16 @@
             </div>
           </div>
         </li>
+        <li>
+          <div class="my-1 mx-1 dropdown settings">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="get-history-button">
+              Show Stats
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <span class="text-wrap" id="current-stats">You have played at least 0 games! Well Done</span>
+            </div>
+          </div>
+        </li>
         <li class="nav-item active sign-in-page my-1">
           <div class="dropdown">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButtonSignIn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -152,7 +162,7 @@
 
         <form class="col-12 my-2 d-flex flex-row justify-content-around" id="multiplayer-game-id-form">
           <input class="col-4 btn btn-primary btn-lg btn-block mx-1 p-0" type="submit" value="Connect to Previous Game" />
-          <input class="col-4 mx-1 p-0" type="number" placeholder="GAME ID" name="game[id]" />
+          <input class="col-4 mx-1 p-0" type="number" placeholder="Enter Previous Game ID" name="game[id]" />
         </form>
 
         <form class="my-2 d-flex flex-row justify-content-around">
