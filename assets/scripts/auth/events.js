@@ -3,7 +3,6 @@
 const getFormFields = require('../../../lib/get-form-fields')
 const gameApi = require('../game/api')
 const gameUI = require('../game/ui')
-const userFeedback = require('../client-side/userFeedback')
 const api = require('./api')
 const ui = require('./ui')
 
@@ -11,10 +10,16 @@ const onSignUp = event => {
   // console.log('onSignUp')
   event.preventDefault()
   const data = getFormFields(event.target)
+
+  const signInChain = () => {
+    api.signIn(data)
+      .then(ui.signInSuccess)
+      .catch(ui.failure)
+  }
   api.signUp(data)
     .then(ui.signUpSuccess)
+    .then(signInChain)
     .catch(ui.failure)
-    .then(() => { onSignIn(event) })
 }
 
 const onSignIn = event => {
