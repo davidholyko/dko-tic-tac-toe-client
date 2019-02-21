@@ -46,11 +46,7 @@ const onUpdateGame = event => {
   event.preventDefault()
   const data = dataParser.morphData(event.target)
   if (store.game.over) { return }
-  if ($(event.target).text()) {
-    userFeedback.updateUserFeedback('You have made an invalid move!', '', '#user-feedback')
-    setTimeout(() => { userFeedback.updateUserFeedback('', '', '#user-feedback') }, 5000)
-    return
-  }
+  if ($(event.target).text()) { return userFeedback.onInvalidMove() }
   api.updateGame(data)
     .then(ui.updateGameSuccess(event.target))
     .catch(ui.failure)
@@ -60,15 +56,7 @@ const onUndoMove = event => {
   // console('onUndoMove')
   event.preventDefault()
   const data = dataParser.morphUndoData()
-  if (!store.game.moves.length) {
-    userFeedback.updateUserFeedback('You cannot undo further!', '', '#user-feedback')
-    setTimeout(() => { userFeedback.updateUserFeedback('', '', '#user-feedback') }, 5000)
-    return
-  }
-  if (store.game.winner) {
-    userFeedback.updateUserFeedback('You cannot undo a finished game!', '', '#user-feedback')
-    return
-  }
+  if (!store.game.moves.length || store.game.winner) { return userFeedback.onInvalidUndoMove() }
   api.updateGame(data)
     .then(ui.undoMoveSuccess)
     .catch(ui.failure)
@@ -96,9 +84,9 @@ const onDontClick = event => {
     api.getGames()
       .then(ui.getGamesSuccess)
       .catch(ui.failure)
-    $('#secret-form-input').val('')
+    $('#secret-word').val('')
   } else {
-    $('#secret-form-input').val('')
+    $('#secret-word').val('')
   }
 }
 

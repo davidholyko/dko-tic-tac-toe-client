@@ -28,7 +28,7 @@ const getGamesSuccess = responseData => {
   userFeedback.clearGames()
   let games
   store.gamesHistory = responseData.games
-  if (_()) { games = responseData.games } else { games = responseData.games.slice(-9) }
+  if (store.secretWord) { games = responseData.games } else { games = responseData.games.slice(-9) }
   storePusher.addGames(games)
   userFeedback.addHistory()
   userFeedback.resetSecretForm()

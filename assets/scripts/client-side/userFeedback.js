@@ -78,9 +78,7 @@ const showFailureMessage = () => {
   // console('showFailureMessage')
   $('#failure-feedback').html('UNHELPFUL ERROR MESSAGE!')
   $('#failure-feedback').toggleClass('error')
-  for (let i = 0; i < 3000; i += 200) {
-    setTimeout(() => { $('#failure-feedback').toggleClass('error-toggle') }, i)
-  }
+  for (let i = 0; i < 3000; i += 200) { setTimeout(() => { $('#failure-feedback').toggleClass('error-toggle') }, i) }
   setTimeout(() => { $('#failure-feedback').html('') }, 3000)
   $('#failure-feedback').toggleClass('error')
 }
@@ -92,6 +90,22 @@ const updateUserFeedback = (message, extra = '', target = '#user-message') => {
 const addHistory = () => {
   // console(store)
   $('#current-stats').text(`Number of Games Played: ${store.gamesHistory.length}`)
+}
+
+const onInvalidUndoMove = event => {
+  if (!store.game.moves.length) {
+    updateUserFeedback('You cannot undo further!', '', '#user-feedback')
+    for (let i = 0; i < 2000; i += 200) { setTimeout(() => { $('#user-feedback').toggleClass('error-toggle') }, i) }
+  }
+  if (store.game.winner) {
+    updateUserFeedback('You cannot undo a finished game!', '', '#user-feedback')
+    for (let i = 0; i < 2000; i += 200) { setTimeout(() => { $('#user-feedback').toggleClass('error-toggle') }, i) }
+  }
+}
+
+const onInvalidMove = event => {
+  updateUserFeedback('You have made an invalid move!', '', '#user-feedback')
+  for (let i = 0; i < 2000; i += 200) { setTimeout(() => { $('#user-feedback').toggleClass('error-toggle') }, i) }
 }
 
 module.exports = {
@@ -107,5 +121,7 @@ module.exports = {
   resetSecretForm,
   resetUserInfo,
   updateUserFeedback,
-  addHistory
+  addHistory,
+  onInvalidUndoMove,
+  onInvalidMove
 }

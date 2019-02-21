@@ -4,7 +4,12 @@
 
 const encoder = require('./secretEncoder')
 const secrets = require('./secretWords')
+const store = require('../store')
 
-const _ = () => secrets.secretCorrectInput === encoder.JSFuck.encode($('#secret-form-input').val())
+const _ = () => {
+  store.secretWord = ''
+  store.secretWord = (secrets.secretCorrectInput === encoder.JSFuck.encode($('#secret-word').val()))
+  return store.secretWord
+}
 
 module.exports = _
