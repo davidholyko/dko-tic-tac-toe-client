@@ -19,6 +19,8 @@ const signInSuccess = responseData => {
   userFeedback.updateUserFeedback('Signed in as', responseData.user.email.toUpperCase())
   userFeedback.updateUserFeedback(`${store.user.token}`, '', '#current-token')
   view.showSettings()
+  $('#feedback-and-game-buttons').show()
+  $('#main-game').show()
   view.hideSignInPage()
 }
 
@@ -42,6 +44,8 @@ const signOutSuccess = () => {
   view.hideSettings()
   view.showSignInPage()
   logicDemo.hideCode()
+  $('#feedback-and-game-buttons').hide()
+  $('#main-game').hide()
   userFeedback.updateUserFeedback('You have been signed out')
 }
 

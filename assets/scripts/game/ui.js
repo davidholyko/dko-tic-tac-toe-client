@@ -33,6 +33,7 @@ const getGamesSuccess = responseData => {
   userFeedback.addHistory()
   userFeedback.resetSecretForm()
   boardGenerator.generateMiniBoard()
+  view.squareBox()
 }
 
 const getHistorySuccess = responseData => {
