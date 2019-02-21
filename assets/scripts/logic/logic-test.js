@@ -1,7 +1,7 @@
 'use strict'
 
 const checkForWinner = (size, board = []) => {
-  // console.log('checking...')
+  console.log('checking...')
   if (!board.length) { return }
   const winner = []
   const boardSize = Math.sqrt(board.length) | 0

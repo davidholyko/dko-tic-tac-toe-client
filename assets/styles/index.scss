@@ -46,11 +46,13 @@ body {
 #board-container-0 {
   height: 50vh;
   width: 50vh;
+  text-align: center;
 }
 
 #board-0 {
   height: 50vh;
   width: 50vh;
+  align-self: center;
 }
 
 button {
@@ -180,13 +182,14 @@ h3 {
   }
 }
 
-#feedback-and-game-buttons {
-  width: 50vw;
-}
-
 #game-page {
   display: flex;
   justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+#feedback-and-game-buttons {
+  width: 50vw;
 }
 
 #main-game {
@@ -234,10 +237,22 @@ h3 {
   border: 0;
   padding: 0;
 }
+
+#undo-button {
+  max-width: 50vh;
+}
 @media (max-width: 960px) {
   #board-container-0 {
     height: 75vw;
     width: 75vw;
+  }
+
+  #feedback-and-game-buttons {
+    width: 80vw;
+  }
+
+  #main-game {
+    width: 80vw;
   }
 
   .board-container {
@@ -270,6 +285,15 @@ h3 {
   #board-container-0 {
     height: 95vw;
     width: 95vw;
+    text-align: center;
+  }
+
+  #feedback-and-game-buttons {
+    width: 80vw;
+  }
+
+  #main-game {
+    width: 80vw;
   }
 
   .board-container {
@@ -301,6 +325,15 @@ h3 {
   #board-container-0 {
     max-height: 95vw;
     max-width: 95vw;
+    text-align: center;
+  }
+
+  #feedback-and-game-buttons {
+    width: 80vw;
+  }
+
+  #main-game {
+    width: 80vw;
   }
 
   .board-container {
