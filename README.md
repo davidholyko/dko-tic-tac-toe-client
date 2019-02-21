@@ -17,15 +17,14 @@ Simply go to https://davidholyko.github.io/dko-tic-tac-toe-client/, sign up, and
 ## Planning and Development
 
 Planning:
-0. Don't plan anything
-1. Start coding without planning or reading instructions anything
+1. Start coding without planning
 2. Refactor and complete small goals that lead upto a big goal
 3. After making progress, go back and check if what was done makes anything on the to-do list
 
 
 #### My Process
 
-1. Start coding by skipping curl
+1. Start coding
 2. Build HTML
 2. Complete auth event handlers by copying from previous auth folder with same ideas
 3. Complete game event handlers except PATCH
@@ -60,8 +59,8 @@ As a user, I want to see a demonstration of the code.
 
 Break down problems into smallest solvable problem and build up.
 Take a break after certain amount of time regardless of progress.
-Write down diagrams.
-Explain code to peers for different approaches to solve the problem
+Write down diagrams if stuck.
+Explain code to peers for different approaches to solve the problem.
 
 ## Unsolved Problems
 

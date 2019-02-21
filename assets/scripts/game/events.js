@@ -86,7 +86,7 @@ const onDontClick = event => {
       .catch(ui.failure)
     $('#secret-word').val('')
   } else {
-    $('#secret-word').val('')
+    $('#secret-word').val('That is not the right word! Try again.')
   }
 }
 

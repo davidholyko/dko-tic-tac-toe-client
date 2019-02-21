@@ -45,11 +45,14 @@ const checkForWinner = (board = store.game.cells) => {
   }
 
   checkLines(board)
+  // invoke the algorithm on the board
   winner.sort((a, b) => b - a)
+  // float X or O to front
 
   if (winner[0]) {
     store.game.winner = winner[0]
     store.game.over = true
+    store.game.progress = 'Game Ended'
   }
 
   if (store.game.turn === store.game.cells.length) { store.game.over = true }
