@@ -97,15 +97,24 @@ const onInvalidUndoMove = event => {
     updateUserFeedback('You cannot undo further!', '', '#user-feedback')
     for (let i = 0; i < 2000; i += 200) { setTimeout(() => { $('#user-feedback').toggleClass('error-toggle') }, i) }
   }
+
   if (store.game.winner) {
     updateUserFeedback('You cannot undo a finished game!', '', '#user-feedback')
     for (let i = 0; i < 2000; i += 200) { setTimeout(() => { $('#user-feedback').toggleClass('error-toggle') }, i) }
   }
+  setTimeout(() => { $('#user-feedback').html('') }, 1500)
 }
 
 const onInvalidMove = event => {
   updateUserFeedback('You have made an invalid move!', '', '#user-feedback')
   for (let i = 0; i < 2000; i += 200) { setTimeout(() => { $('#user-feedback').toggleClass('error-toggle') }, i) }
+  setTimeout(() => { $('#user-feedback').html('') }, 1500)
+}
+
+const onInvalidSecretWord = () => {
+  updateUserFeedback('That is not the correct word. Try again!', '', '#user-feedback')
+  for (let i = 0; i < 2000; i += 200) { setTimeout(() => { $('#user-feedback').toggleClass('error-toggle') }, i) }
+  setTimeout(() => { $('#user-feedback').html('') }, 1500)
 }
 
 module.exports = {
@@ -123,5 +132,6 @@ module.exports = {
   updateUserFeedback,
   addHistory,
   onInvalidUndoMove,
-  onInvalidMove
+  onInvalidMove,
+  onInvalidSecretWord
 }
