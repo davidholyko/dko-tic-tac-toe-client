@@ -209,6 +209,12 @@ h3 {
   color: white;
 }
 
+#board-0 {
+  max-height: 95vw;
+  max-width: 95vw;
+  text-align: center;
+}
+
 .navbar {
   background-color: rgba(0,0,180,1);
   border-color: transparent;
@@ -255,6 +261,12 @@ h3 {
     width: 80vw;
   }
 
+  #board-0 {
+    max-height: 95vw;
+    max-width: 95vw;
+    text-align: center;
+  }
+
   .board-container {
     max-height: calc(100%/3);
     max-width: calc(100%/3);
@@ -275,10 +287,28 @@ h3 {
     flex-wrap: wrap;
     justify-content: center;
   }
+
+  .mini-board {
+    text-align: center;
+    align-items: center;
+    width: 100%;
+  }
 }
 @media (max-width: 850px) {
   #logic-link {
     display: none;
+  }
+
+  #board-0 {
+    max-height: 95vw;
+    max-width: 95vw;
+    text-align: center;
+  }
+
+  .mini-board {
+    text-align: center;
+    align-items: center;
+    width: 100%;
   }
 }
 @media (max-width: 720px) {
@@ -286,6 +316,12 @@ h3 {
     height: 95vw;
     width: 95vw;
     text-align: center;
+  }
+
+  .mini-board {
+    text-align: center;
+    align-items: center;
+    width: 100%;
   }
 
   #feedback-and-game-buttons {
@@ -328,6 +364,12 @@ h3 {
     text-align: center;
   }
 
+  #board-0 {
+    max-height: 95vw;
+    max-width: 95vw;
+    text-align: center;
+  }
+
   #feedback-and-game-buttons {
     width: 80vw;
   }
@@ -349,6 +391,12 @@ h3 {
   .display {
     width: 90vw;
     height: 90vw;
+  }
+
+  .mini-board {
+    text-align: center;
+    align-items: center;
+    width: 100%;
   }
 
   .get-games {
