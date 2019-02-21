@@ -55,6 +55,9 @@ const updateStaticInfo = () => {
   $('#user-message').html(`${store.user.email.toUpperCase()}`)
   $('#current-player').text(`Current Player's Turn: ${store.player}`)
   $('#current-game').text(`Current Game ID: ${store.game.id}`)
+  $('#current-turn').text(`Current Turn Number: `)
+  $('#current-over').text(`Is the game over? `)
+  $('#game-state').text(`Who won? `)
 }
 
 const clearGames = () => {

@@ -2,14 +2,12 @@
 
 const hideSignInPage = () => { $('.sign-in-page').hide() }
 const showSignInPage = () => { $('.sign-in-page').show() }
-const hideSignedInPage = () => { $('#signed-in-page').hide() }
-const showSignedInPage = () => { $('#signed-in-page').show() }
 const hideSettings = () => { $('.settings').hide() }
 const showSettings = () => { $('.settings').show() }
 const hideGamePage = () => { $('#game-page').hide() }
 const showGamePage = () => { $('#game-page').show() }
-const hideMainBoard = () => { $('board-container-0').hide() }
-const showMainBoard = () => { $('board-container-0').show() }
+const hideMainBoard = () => { $('#board-container-0').hide() }
+const showMainBoard = () => { $('#board-container-0').show() }
 const scaleFontSizeH3 = () => { $('h3').css('font-size', '2vw') }
 const squareBox = () => {
   $('.container').height($('.container').width())
@@ -17,9 +15,6 @@ const squareBox = () => {
   $('.row').height($('.row').width())
   $('.box').width($('.row').height() / 3)
   $('.box').height($('.box').width())
-  $('.secret-row').height($('.secret-row').width())
-  $('.secret-box').width($('.secret-row').width() / 3)
-  $('.secret-box').height($('.secret-box').width())
 }
 
 const onPageLoad = () => {
@@ -27,7 +22,6 @@ const onPageLoad = () => {
   hideSettings()
   hideGamePage()
   hideMainBoard()
-  hideSignedInPage()
   setTimeout(() => $(window).resize(squareBox), 1)
   setTimeout(() => $(window).resize(scaleFontSizeH3), 1)
 }
@@ -38,10 +32,8 @@ module.exports = {
   showSettings,
   showGamePage,
   showMainBoard,
-  showSignedInPage,
   hideSignInPage,
   hideGamePage,
   hideMainBoard,
-  hideSettings,
-  hideSignedInPage
+  hideSettings
 }

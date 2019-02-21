@@ -138,53 +138,44 @@
 
   <h1 id="failure-feedback"></h1>
 
-  <div class="flex-column" id="game-page">
-    <div class="d-flex col-12">
-      <div class="d-flex justify-content-around col-12 flex-wrap p-0">
 
-        <div class="d-flex flex-column col-12 col-lg-4 my-5" id="feedback">
-          <h1 id="current-game"></h1>
-          <h1 id="current-player"></h1>
-          <h1 id="current-turn"></h1>
-          <h1 id="current-over"></h1>
-          <h1 id="game-state"></h1>
+  <div class="flex-row" id="game-page">
+    <div class="col-6" id="feedback-and-game-buttons">
+      <div class="col-12 p-0" id="feedback">
+        <h2 id="current-game"></h2>
+        <h2 id="current-player"></h2>
+        <h2 id="current-turn"></h2>
+        <h2 id="current-over"></h2>
+        <h2 id="game-state"></h2>
+      </div>
 
-        </div>
-
-        <div id="main-game" class="col-12 col-lg-6 p-0 text-align-center d-flex-column justify-content-center">
-          <div class="container p-0 board-container my-5 center-block" id="board-container-0">
-            <button class="col-12 btn btn-primary btn-lg" id="undo-button">Undo</button>
-            <div class="row m-0 col-12" id="board-0"></div>
-          </div>
-          <h1 class="text-center" id="user-feedback"></h1>
-        </div>
-
-        <div id="buttons-container" class="col-12 col-lg-6 my-5">
-          <div class="col-12 justify-content-around" id="game-buttons">
-
-            <div class="d-flex flex-column">
-              <button class="col-12 btn btn-primary btn-lg btn-block mx-1 my-2 p-0" id="get-games-button">Get Last 9 Games</button>
-              <button class="col-12 btn btn-primary btn-lg btn-block mx-1 my-2 p-0" id="get-last-game-button">Get Last Game</button>
-
-              <form class="col-12 my-2 d-flex flex-column justify-content-around" id="multiplayer-game-id-form">
-                <input class="col-12 btn btn-primary btn-lg btn-block mx-1 p-0" type="submit" value="Connect to Previous Game" />
-                <input required class="col-12 mx-1 p-0" type="number" placeholder="Enter Previous Game ID" name="game[id]" />
-              </form>
-
-              <form class="col-12 my-2 d-flex flex-column justify-content-around" id="secret-form">
-                <input required class="col-12 mx-1 p-0" type="text" placeholder="Type Something" name="secret" />
-                <input class="col-12 btn btn-primary btn-lg btn-block mx-1 p-0" type="submit" value="Type the correct word and submit " />
-              </form>
-
-            </div>
-          </div>
-        </div>
+      <div class="col-12" id="game-buttons">
+        <form class="col-12 my-2" id="multiplayer-game-id-form">
+          <input class="btn btn-primary game-button col-12 p-0" type="submit" value="Connect to Previous Game" />
+          <input required class="game-button col-12 p-0" type="number" placeholder="Enter Previous Game ID" name="game[id]" />
+        </form>
+        <button class="game-button btn btn-primary col-12 my-2 p-0" id="get-games-button" value="Get Last 9 Games"> Get Last 9 Games </button>
+        <button class="game-button btn btn-primary col-12 my-2 p-0" id="get-last-game-button" value="Get Last Game"> Get Last Game </button>
+        <form class="col-12 my-2 p-0" id="secret-form">
+          <input required class="game-button col-12 p-0" type="text" placeholder="Type Something" name="secret" />
+          <input class="btn btn-primary game-button col-12 p-0" type="submit" value="Type the correct word and submit " />
+        </form>
       </div>
     </div>
 
-    <div class="get-games my-5 flex-wrap" id="get-games"></div>
+
+    <div id="main-game" class="col-6 p-0 d-flex-column mx-0">
+      <div class="container p-0 board-container my-5 center-block" id="board-container-0">
+        <button class="col-12 btn btn-primary btn-lg" id="undo-button">Undo</button>
+        <div class="row m-0 col-12" id="board-0"></div>
+      </div>
+      <h1 class="text-center" id="user-feedback"></h1>
+    </div>
 
   </div>
+
+  <div class="get-games my-5 flex-wrap" id="get-games"></div>
+
 
   <div class="d-flex flex-column justify-content-around" id="code-page">
     <div class="p-0 my-5 justify-content-center d-flex flex-column flex-wrap" id="demo-container">

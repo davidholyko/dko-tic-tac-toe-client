@@ -18,7 +18,6 @@ const signInSuccess = responseData => {
   storePusher.initSignIn(responseData)
   userFeedback.updateUserFeedback('Signed in as', responseData.user.email.toUpperCase())
   userFeedback.updateUserFeedback(`${store.user.token}`, '', '#current-token')
-  view.showSignedInPage()
   view.showSettings()
   view.hideSignInPage()
 }
@@ -40,9 +39,7 @@ const signOutSuccess = () => {
   userFeedback.resetUserInfo()
   userFeedback.resetBoard()
   storePusher.resetStore()
-  view.hideGamePage()
   view.hideSettings()
-  view.hideSignedInPage()
   view.showSignInPage()
   logicDemo.hideCode()
   userFeedback.updateUserFeedback('You have been signed out')

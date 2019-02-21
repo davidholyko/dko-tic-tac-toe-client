@@ -6,7 +6,6 @@ const dataStoreCalculator = require('../client-side/dataStoreCalculator')
 const boardGenerator = require('../client-side/boardGenerator')
 const _ = require('../secrets/secrets')
 const view = require('../view/view')
-const store = require('../store')
 
 const failure = () => {
   // console.log('failure')
@@ -61,7 +60,6 @@ const updateGameSuccess = element => {
   storePusher.addElement(element)
   dataStoreCalculator.calcAll()
   userFeedback.updateInfo()
-  // console.log(store)
 }
 
 const undoMoveSuccess = element => {
@@ -82,13 +80,7 @@ const playMultiPlayerSuccess = responseData => {
   userFeedback.updateStaticInfo()
 }
 
-const displayGame = data => {
-  // console.log('displayGame')
-  // console.log(data)
-}
-
 module.exports = {
-  displayGame,
   failure,
   getGamesSuccess,
   getLastGameSuccess,

@@ -58,6 +58,10 @@ button {
   color: white;
 }
 
+#buttons {
+  height: 100%;
+}
+
 .container {}
 
 .demo-box {
@@ -102,6 +106,8 @@ flex {
   display: flex;
 }
 
+#feedback {}
+
 .footer {
   position: fixed;
   bottom: 0;
@@ -128,10 +134,25 @@ h1 {
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
 }
 
+h2 {
+  color: white;
+  text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+}
+
 h3 {
   color: white;
   text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
   font-size: 2vw;
+}
+
+#game-page {
+  display: flex;
+}
+
+.game-button {
+  height: 5vh;
+  color: white;
+  font-size: 2vh;
 }
 
 .nav {
@@ -157,14 +178,6 @@ h3 {
     margin: 5%;
     flex-wrap: wrap;
   }
-}
-
-.landing-page {
-  margin: 0;
-  height: 90vh;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
 }
 
 .mini-board {
