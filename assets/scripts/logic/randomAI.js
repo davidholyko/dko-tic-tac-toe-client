@@ -2,7 +2,7 @@
 const store = require('../store')
 
 const randomAIMove = (board = store.game.cells) => {
-  console.log('findOpenRandomIndex')
+  // console.log('findOpenRandomIndex')
   const tempBoard = []
   for (const i in board) { if (!board[i]) { tempBoard.push({index: i, value: board[i]}) } }
   if (tempBoard.length) { store.randomAIMove = tempBoard[Math.random() * tempBoard.length | 0] }

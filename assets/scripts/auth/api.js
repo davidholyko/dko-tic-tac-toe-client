@@ -4,7 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const signUp = data => {
-  console.log('signUp')
+  // console.log('signUp')
   return $.ajax({
     url: config.apiUrl + '/sign-up',
     method: 'POST',
@@ -13,7 +13,7 @@ const signUp = data => {
 }
 
 const signIn = data => {
-  console.log('signIn')
+  // console.log('signIn')
   return $.ajax({
     url: config.apiUrl + '/sign-in',
     method: 'POST',
@@ -22,7 +22,7 @@ const signIn = data => {
 }
 
 const changePassword = data => {
-  console.log('changePassword')
+  // console.log('changePassword')
   return $.ajax({
     url: config.apiUrl + '/change-password',
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -32,7 +32,7 @@ const changePassword = data => {
 }
 
 const signOut = () => {
-  console.log('signOut')
+  // console.log('signOut')
   return $.ajax({
     url: config.apiUrl + '/sign-out',
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -41,7 +41,7 @@ const signOut = () => {
 }
 
 const getGames = () => {
-  console.log('getGames')
+  // console.log('getGames')
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -50,8 +50,8 @@ const getGames = () => {
 }
 
 const getGame = data => {
-  console.log('getGame')
-  console.log(data)
+  // console.log('getGame')
+  // console.log(data)
   return $.ajax({
     url: config.apiUrl + `/games/${data.game.id}`,
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -60,7 +60,7 @@ const getGame = data => {
 }
 
 const newGame = () => {
-  console.log('newGame')
+  // console.log('newGame')
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -69,7 +69,7 @@ const newGame = () => {
 }
 
 const updateGame = data => {
-  console.log('updateGame')
+  // console.log('updateGame')
   return $.ajax({
     url: config.apiUrl + `/games/${store.game.id}`, // id is supposed to represent current game ID
     headers: {Authorization: `Token token=${store.user.token}`},

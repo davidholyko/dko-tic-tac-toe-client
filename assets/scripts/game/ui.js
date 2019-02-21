@@ -9,12 +9,12 @@ const view = require('../view/view')
 const store = require('../store')
 
 const failure = () => {
-  console.log('failure')
+  // console.log('failure')
   userFeedback.showFailureMessage()
 }
 
 const newGameSuccess = responseData => {
-  console.log('newGameSuccess')
+  // console.log('newGameSuccess')
   storePusher.initStore(responseData)
   userFeedback.resetUserInfo()
   userFeedback.resetBoard()
@@ -24,7 +24,7 @@ const newGameSuccess = responseData => {
 }
 
 const getGamesSuccess = responseData => {
-  console.log('getGamesSuccess')
+  // console.log('getGamesSuccess')
   userFeedback.clearGames()
   let games
   if (_()) { games = responseData.games } else { games = responseData.games.slice(-9) }
@@ -35,7 +35,7 @@ const getGamesSuccess = responseData => {
 }
 
 const getHistorySuccess = responseData => {
-  console.log('getGamesSuccess')
+  // console.log('getGamesSuccess')
   userFeedback.clearGames()
   storePusher.addGames(responseData.games)
   userFeedback.addHistory()
@@ -44,7 +44,7 @@ const getHistorySuccess = responseData => {
 }
 
 const getLastGameSuccess = responseData => {
-  console.log('getLastGameSuccess')
+  // console.log('getLastGameSuccess')
   const game = responseData.games.slice(-2, -1)[0]
   storePusher.updateStoreGame(game)
   dataStoreCalculator.calcAll()
@@ -54,18 +54,18 @@ const getLastGameSuccess = responseData => {
 }
 
 const updateGameSuccess = element => {
-  console.log('updateGameSuccess')
+  // console.log('updateGameSuccess')
   userFeedback.addOneValue(element)
   storePusher.updateOneCell(element)
   storePusher.addMove(element)
   storePusher.addElement(element)
   dataStoreCalculator.calcAll()
   userFeedback.updateInfo()
-  console.log(store)
+  // console.log(store)
 }
 
 const undoMoveSuccess = element => {
-  console.log('undoMoveSuccess')
+  // console.log('undoMoveSuccess')
   userFeedback.removeOneValue(element)
   storePusher.removeOneCellContents()
   storePusher.removeMove()
@@ -74,7 +74,7 @@ const undoMoveSuccess = element => {
 }
 
 const playMultiPlayerSuccess = responseData => {
-  console.log('playMultiPlayerSuccess')
+  // console.log('playMultiPlayerSuccess')
   storePusher.updateStoreGame(responseData.game)
   storePusher.updateStoreUrl(responseData.game.id)
   userFeedback.replaceBoard(responseData.game.cells)
@@ -83,8 +83,8 @@ const playMultiPlayerSuccess = responseData => {
 }
 
 const displayGame = data => {
-  console.log('displayGame')
-  console.log(data)
+  // console.log('displayGame')
+  // console.log(data)
 }
 
 module.exports = {

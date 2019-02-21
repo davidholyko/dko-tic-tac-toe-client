@@ -4,7 +4,7 @@ const config = require('../config')
 const store = require('../store')
 
 const getGames = () => {
-  console.log('getGames')
+  // console.log('getGames')
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -13,7 +13,7 @@ const getGames = () => {
 }
 
 const getGame = data => {
-  console.log('getGame')
+  // console.log('getGame')
   return $.ajax({
     url: config.apiUrl + `/games/${data.game.id}`,
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -22,7 +22,7 @@ const getGame = data => {
 }
 
 const newGame = () => {
-  console.log('newGame')
+  // console.log('newGame')
   return $.ajax({
     url: config.apiUrl + '/games',
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -31,7 +31,7 @@ const newGame = () => {
 }
 
 const updateGame = data => {
-  console.log('updateGame')
+  // console.log('updateGame')
   return $.ajax({
     url: config.apiUrl + `/games/${store.game.id}`,
     headers: {Authorization: `Token token=${store.user.token}`},
@@ -41,7 +41,7 @@ const updateGame = data => {
 }
 
 const playMultiPlayer = (id = store.game.id) => {
-  console.log('playMultiPlayer')
+  // console.log('playMultiPlayer')
   if (id.game) { id = id.game.id }
   return $.ajax({
     url: config.apiUrl + `/games/${id}`,

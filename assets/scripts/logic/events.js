@@ -5,7 +5,7 @@ const demoFeedback = require('../client-side/demoFeedback')
 const logicDemo = require('../view/logicDemo')
 
 const onClickCode = event => {
-  console.log('onClickCode')
+  // console.log('onClickCode')
   event.preventDefault()
   logicDemo.clearDemoBoard()
   logicDemo.showDemoContainer()
@@ -16,7 +16,7 @@ const onClickCode = event => {
 }
 
 const onClickDemo = event => {
-  console.log('onClickDemo')
+  // console.log('onClickDemo')
   event.preventDefault()
   logicDemo.clearDemoBoard()
   demoFeedback.makeDemoBoard()
