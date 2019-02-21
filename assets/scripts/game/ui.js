@@ -6,6 +6,7 @@ const dataStoreCalculator = require('../client-side/dataStoreCalculator')
 const boardGenerator = require('../client-side/boardGenerator')
 const _ = require('../secrets/secrets')
 const view = require('../view/view')
+const store = require('../store')
 
 const failure = () => {
   // console.log('failure')
@@ -26,6 +27,7 @@ const getGamesSuccess = responseData => {
   // console.log('getGamesSuccess')
   userFeedback.clearGames()
   let games
+  store.gamesHistory = responseData.games
   if (_()) { games = responseData.games } else { games = responseData.games.slice(-9) }
   storePusher.addGames(games)
   userFeedback.addHistory()
@@ -37,6 +39,7 @@ const getHistorySuccess = responseData => {
   // console.log('getGamesSuccess')
   userFeedback.clearGames()
   storePusher.addGames(responseData.games)
+  store.gamesHistory = responseData.games
   userFeedback.addHistory()
   userFeedback.resetSecretForm()
   boardGenerator.generateMiniBoard()

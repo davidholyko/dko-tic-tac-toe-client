@@ -91,7 +91,7 @@ const updateUserFeedback = (message, extra = '', target = '#user-message') => {
 
 const addHistory = () => {
   // console.log(store)
-  $('#current-stats').text(`Number of Games Played: ${store.games.length}`)
+  $('#current-stats').text(`Number of Games Played: ${store.gamesHistory.length}`)
 }
 
 module.exports = {
