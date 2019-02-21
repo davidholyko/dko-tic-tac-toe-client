@@ -31,7 +31,7 @@ const squareDemoBox = () => {
 }
 
 const initDemo = () => {
-  store.sizes = [9, 16, 25, 36, 49, 64, 81]
+  store.sizes = [9, 16, 25, 36, 49, 64]
   store.demoIndex = 0
 }
 
