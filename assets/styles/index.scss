@@ -180,6 +180,22 @@ h3 {
   }
 }
 
+#feedback-and-game-buttons {
+  width: 50vw;
+}
+
+#game-page {
+  display: flex;
+  justify-content: space-around;
+}
+
+#main-game {
+  display: flex;
+  flex-direction: row;
+  width: 50vw;
+  justify-content: space-around;
+}
+
 .mini-board {
   text-align: center;
   align-items: center;
