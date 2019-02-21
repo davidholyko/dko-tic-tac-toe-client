@@ -17,8 +17,10 @@ Simply go to https://davidholyko.github.io/dko-tic-tac-toe-client/, sign up, and
 ## Planning and Development
 
 Planning:
-  Step 1: Start coding without planning or reading instructions anything
-  Step 2: After making progress, go back and check if what was done makes anything on the to-do list
+0. Don't plan anything
+1. Start coding without planning or reading instructions anything
+2. Refactor and complete small goals that lead upto a big goal
+3. After making progress, go back and check if what was done makes anything on the to-do list
 
 
 #### My Process
@@ -58,21 +60,24 @@ As a user, I want to see a demonstration of the code.
 
 Break down problems into smallest solvable problem and build up.
 Take a break after certain amount of time regardless of progress.
+Write down diagrams.
+Explain code to peers for different approaches to solve the problem
 
 ## Unsolved Problems
 
-Logic Solution Demo Right Pane check exceeds the height of the flexbox
+Logic Solution Demo Right Pane check exceeds the height of the flexbox, need the parent container to grow
 Sometimes Main Board does not show up on load
 Sometimes secret boxes scaling fails
 background repeat gradient -> underneath black background
 
-## Future Direction
+## Future Direction (Super Stretch Goals)
 
 Possible features and directions this project could go:
 Play any multiple games at same time
 Dumb AI
 MiniMax AI
 Multiplayer
+Ultimate Tic Tac Toe
 
 ## [License](LICENSE)
 
