@@ -48,17 +48,17 @@ body {
   width: 50vh;
 }
 
+#board-0 {
+  height: 50vh;
+  width: 50vh;
+}
+
 button {
   word-wrap: break-word;
   color: white;
 }
 
 .container {}
-
-.demo-board > *:hover {
-  // background-color: rgba(0,255,0,.9);
-  background-color: black;
-}
 
 .demo-box {
   background-color: rgba(0,255,0,.2);

@@ -1,11 +1,12 @@
 const store = require('../store')
 
-const morphData = (element, override = false) => {
-  // console.log('morphData')
+const morphData = (element, override = false, secondOverride = false) => {
+  console.log('morphData')
   let index = $(element).data('cell-index')
   let value = store.player
   let over = false
   if (override) { index = ''; value = '' }
+  if (secondOverride) { index = store.randomAIMove.index }
   if (store.game.over) { over = true }
 
   const data = {
@@ -21,7 +22,7 @@ const morphData = (element, override = false) => {
 }
 
 const morphUndoData = () => {
-  // console.log('morphUndoData')
+  console.log('morphUndoData')
   const index = store.game.moves.slice(-1)[0]
   const over = false
 

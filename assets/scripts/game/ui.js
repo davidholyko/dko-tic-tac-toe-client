@@ -2,19 +2,18 @@
 
 const storePusher = require('../client-side/storePusher')
 const userFeedback = require('../client-side/userFeedback')
-const boardGame = require('../client-side/boardGame')
+const dataStoreCalculator = require('../client-side/dataStoreCalculator')
 const boardGenerator = require('../client-side/boardGenerator')
 const _ = require('../secrets/secrets')
-const store = require('../store')
 const view = require('../view/view')
 
 const failure = () => {
-  // console.log('failure')
+  console.log('failure')
   userFeedback.showFailureMessage()
 }
 
 const newGameSuccess = responseData => {
-  // console.log('newGameSuccess')
+  console.log('newGameSuccess')
   storePusher.initStore(responseData)
   userFeedback.resetUserInfo()
   userFeedback.resetBoard()
@@ -24,7 +23,7 @@ const newGameSuccess = responseData => {
 }
 
 const getGamesSuccess = responseData => {
-  // console.log('getGamesSuccess')
+  console.log('getGamesSuccess')
   userFeedback.clearGames()
   let games
   if (_()) { games = responseData.games } else { games = responseData.games.slice(-9) }
@@ -35,7 +34,7 @@ const getGamesSuccess = responseData => {
 }
 
 const getHistorySuccess = responseData => {
-  // console.log('getGamesSuccess')
+  console.log('getGamesSuccess')
   userFeedback.clearGames()
   storePusher.addGames(responseData.games)
   userFeedback.addHistory()
@@ -44,58 +43,46 @@ const getHistorySuccess = responseData => {
 }
 
 const getLastGameSuccess = responseData => {
-  // console.log('getLastGameSuccess')
+  console.log('getLastGameSuccess')
   const game = responseData.games.slice(-2, -1)[0]
   storePusher.updateStoreGame(game)
-  boardGame.calcAll()
+  dataStoreCalculator.calcAll()
   userFeedback.replaceBoard()
   userFeedback.clearGames()
   userFeedback.updateInfo()
 }
 
 const updateGameSuccess = element => {
-  // console.log('updateGameSuccess')
-  if ($(element).text()) {
-    userFeedback.updateUserFeedback('You have made an invalid move!', '', '#user-feedback')
-    setTimeout(() => { userFeedback.updateUserFeedback('', '', '#user-feedback') }, 5000)
-  }
-  if (!store.game.winner) {
-    userFeedback.addOneValue(element)
-    storePusher.updateOneCell(element)
-    storePusher.addMove(element)
-    storePusher.addElement(element)
-  }
-  boardGame.calcAll()
+  console.log('updateGameSuccess')
+  userFeedback.addOneValue(element)
+  storePusher.updateOneCell(element)
+  storePusher.addMove(element)
+  storePusher.addElement(element)
+  dataStoreCalculator.calcAll()
   userFeedback.updateInfo()
 }
 
 const undoMoveSuccess = element => {
-  // console.log('undoMoveSuccess')
-  if (!store.moves) {
-    userFeedback.updateUserFeedback('You cannot undo further!', '', '#user-feedback')
-    setTimeout(() => { userFeedback.updateUserFeedback('', '', '#user-feedback') }, 5000)
-  }
-  if (store.game.winner) { userFeedback.updateUserFeedback('You cannot undo a finished game!', '', '#user-feedback') }
-  if (!store.game.winner) {
-    userFeedback.removeOneValue(element)
-    storePusher.removeOneCellContents()
-    storePusher.removeMove()
-  }
-  boardGame.calcAll()
+  console.log('undoMoveSuccess')
+  userFeedback.removeOneValue(element)
+  storePusher.removeOneCellContents()
+  storePusher.removeMove()
+  dataStoreCalculator.calcAll()
   userFeedback.updateInfo()
 }
 
 const playMultiPlayerSuccess = responseData => {
-  // console.log('playMultiPlayerSuccess')
+  console.log('playMultiPlayerSuccess')
   storePusher.updateStoreGame(responseData.game)
   storePusher.updateStoreUrl(responseData.game.id)
   userFeedback.replaceBoard(responseData.game.cells)
+  dataStoreCalculator.calcAll()
   userFeedback.updateStaticInfo()
 }
 
 const displayGame = data => {
-  // console.log('displayGame')
-  // console.log(data)
+  console.log('displayGame')
+  console.log(data)
 }
 
 module.exports = {

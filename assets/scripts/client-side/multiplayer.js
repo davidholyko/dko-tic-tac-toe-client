@@ -12,8 +12,8 @@ const makeGameWatcher = () => {
 }
 
 const onGameChange = function (data) {
-  // console.log('onGameChange')
-  // console.log(data)
+  console.log('onGameChange')
+  console.log(data)
   if (data.game && data.game.cells) {
     const diff = changes => {
       const before = changes[0]
@@ -31,8 +31,8 @@ const onGameChange = function (data) {
     }
 
     const cell = diff(data.game.cells)
-    // console.log(`cell: ${cell}`)
-    $('#board').children()[cell.index].val(cell.value)
+    console.log(`cell: ${cell}`)
+    $('#board-0').children()[cell.index].val(cell.value)
   }
 }
 
