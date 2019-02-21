@@ -218,6 +218,11 @@ h3 {
     justify-content: center;
   }
 }
+@media (max-width: 850px) {
+  #logic-link {
+    display: none;
+  }
+}
 @media (max-width: 720px) {
   #board-container-0 {
     height: 95vw;
@@ -243,6 +248,10 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  #logic-link {
+    display: none;
   }
 }
 @media (max-width: 576px) {
@@ -270,5 +279,9 @@ h3 {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  #logic-link {
+    display: none;
   }
 }
