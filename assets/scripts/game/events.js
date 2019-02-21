@@ -60,7 +60,7 @@ const onUndoMove = event => {
   console.log('onUndoMove')
   event.preventDefault()
   const data = dataParser.morphUndoData()
-  if (!store.moves) {
+  if (!store.game.moves.length) {
     userFeedback.updateUserFeedback('You cannot undo further!', '', '#user-feedback')
     setTimeout(() => { userFeedback.updateUserFeedback('', '', '#user-feedback') }, 5000)
     return
@@ -108,7 +108,7 @@ const addHandlers = () => {
   $('#undo-button').on('click', onUndoMove)
   $('.box').on('click', onUpdateGame)
   $('#multiplayer-game-id-form').on('submit', onPlayMultiPlayer)
-  $('#dont-click-button').on('click', onDontClick)
+  $('#secret-form').on('submit', onDontClick)
   $('#get-history-button').on('click', onGetHistory)
 
   // testing
