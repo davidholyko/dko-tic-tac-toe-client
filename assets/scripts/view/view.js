@@ -31,6 +31,7 @@ const onPageLoad = () => {
 }
 
 module.exports = {
+  squareBox,
   onPageLoad,
   showSignInPage,
   showSettings,
