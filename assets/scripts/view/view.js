@@ -10,11 +10,15 @@ const hideMainBoard = () => { $('#board-container-0').hide() }
 const showMainBoard = () => { $('#board-container-0').show() }
 const scaleFontSizeH3 = () => { $('h3').css('font-size', '2vw') }
 const squareBox = () => {
-  $('.container').height($('.container').width())
-  $('.board-container').height($('.board-container').width())
+  // $('.container').height($('.container').width())
+  // $('.board-container').height($('.board-container').width())
   $('.row').height($('.row').width())
   $('.box').width($('.row').height() / 3)
   $('.box').height($('.box').width())
+
+  $('.secret-row').height($('.secret-row').width())
+  $('.secret-box').width($('.secret-row').width())
+  $('.secret-box').height($('.secret-box').width())
 }
 
 const onPageLoad = () => {

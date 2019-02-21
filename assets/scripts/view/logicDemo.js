@@ -26,7 +26,8 @@ const showDemoBoard = () => {
 const squareDemoBox = () => {
   const grid = $('#demo-board').children().length
   const gridSize = Math.sqrt(grid)
-  $('.demo-box').width($('#demo-board').height() / gridSize)
+  $('.demo-box').width($('#demo-board').width() / gridSize)
+  $('.demo-box').height($('#demo-box').width())
 }
 
 const initDemo = () => {

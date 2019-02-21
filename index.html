@@ -139,8 +139,8 @@
   <h1 id="failure-feedback"></h1>
 
 
-  <div class="flex-row" id="game-page">
-    <div class="col-6" id="feedback-and-game-buttons">
+  <div class="flex-row flex-wrap" id="game-page">
+    <div class="col-12 col-lg-6 col-xl-6" id="feedback-and-game-buttons">
       <div class="col-12 p-0" id="feedback">
         <h2 id="current-game"></h2>
         <h2 id="current-player"></h2>
@@ -149,7 +149,7 @@
         <h2 id="game-state"></h2>
       </div>
 
-      <div class="col-12" id="game-buttons">
+      <div class="col-12 mt-5" id="game-buttons">
         <form class="col-12 my-2" id="multiplayer-game-id-form">
           <input class="btn btn-primary game-button col-12 p-0" type="submit" value="Connect to Previous Game" />
           <input required class="game-button col-12 p-0" type="number" placeholder="Enter Previous Game ID" name="game[id]" />
@@ -163,15 +163,13 @@
       </div>
     </div>
 
-
-    <div id="main-game" class="col-6 p-0 d-flex-column mx-0">
-      <div class="container p-0 board-container my-5 center-block" id="board-container-0">
+    <div class="col-12 col-lg-6 col-xl-6 p-0 mx-0" id="main-game">
+      <div class="p-0 my-5 justify-content-around flex-column" id="board-container-0">
         <button class="col-12 btn btn-primary btn-lg" id="undo-button">Undo</button>
-        <div class="row m-0 col-12" id="board-0"></div>
+        <div class="row m-0 col-12 center-block" id="board-0"></div>
+        <h1 class="text-center" id="user-feedback"></h1>
       </div>
-      <h1 class="text-center" id="user-feedback"></h1>
     </div>
-
   </div>
 
   <div class="get-games my-5 flex-wrap" id="get-games"></div>
