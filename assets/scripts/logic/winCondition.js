@@ -11,7 +11,7 @@
 const store = require('../store')
 
 const checkForWinner = (board = store.game.cells) => {
-  console.log('checkForWinner')
+  // console('checkForWinner')
 
   const winner = []
   const boardSize = Math.sqrt(board.length) | 0
@@ -22,7 +22,7 @@ const checkForWinner = (board = store.game.cells) => {
 
     for (let i = 0; i < boardSize; i++) { check.push(board[initialValue + difference * i]) }
     // push values of board at indexes * difference onto check array
-    console.log(`checking values: ${check}`) // <----- uncomment to check which values are checked
+    // console(`checking values: ${check}`) // <----- uncomment to check which values are checked
     if (check.every(value => value === check[0])) { winner.push(check[0]) }
     // if every value in line is the same, push that value onto winner array
     if (initialValue === difference) { return checkLine(initialValue - difference, difference + 2) }

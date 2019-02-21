@@ -9,12 +9,12 @@ const view = require('../view/view')
 const store = require('../store')
 
 const failure = () => {
-  console.log('failure')
+  // console('failure')
   userFeedback.showFailureMessage()
 }
 
 const newGameSuccess = responseData => {
-  console.log('newGameSuccess')
+  // console('newGameSuccess')
   storePusher.initStore(responseData)
   userFeedback.resetUserInfo()
   userFeedback.resetBoard()
@@ -24,7 +24,7 @@ const newGameSuccess = responseData => {
 }
 
 const getGamesSuccess = responseData => {
-  console.log('getGamesSuccess')
+  // console('getGamesSuccess')
   userFeedback.clearGames()
   let games
   store.gamesHistory = responseData.games
@@ -37,7 +37,7 @@ const getGamesSuccess = responseData => {
 }
 
 const getHistorySuccess = responseData => {
-  console.log('getGamesSuccess')
+  // console('getGamesSuccess')
   userFeedback.clearGames()
   storePusher.addGames(responseData.games)
   store.gamesHistory = responseData.games
@@ -47,7 +47,7 @@ const getHistorySuccess = responseData => {
 }
 
 const getLastGameSuccess = responseData => {
-  console.log('getLastGameSuccess')
+  // console('getLastGameSuccess')
   const game = responseData.games.slice(-2, -1)[0]
   storePusher.updateStoreGame(game)
   dataStoreCalculator.calcAll()
@@ -57,7 +57,7 @@ const getLastGameSuccess = responseData => {
 }
 
 const updateGameSuccess = element => {
-  console.log('updateGameSuccess')
+  // console('updateGameSuccess')
   userFeedback.addOneValue(element)
   storePusher.updateOneCell(element)
   storePusher.addMove(element)
@@ -67,7 +67,7 @@ const updateGameSuccess = element => {
 }
 
 const undoMoveSuccess = element => {
-  console.log('undoMoveSuccess')
+  // console('undoMoveSuccess')
   userFeedback.removeOneValue(element)
   storePusher.removeOneCellContents()
   storePusher.removeMove()
@@ -76,7 +76,7 @@ const undoMoveSuccess = element => {
 }
 
 const playMultiPlayerSuccess = responseData => {
-  console.log('playMultiPlayerSuccess')
+  // console('playMultiPlayerSuccess')
   storePusher.updateStoreGame(responseData.game)
   storePusher.updateStoreUrl(responseData.game.id)
   userFeedback.replaceBoard(responseData.game.cells)

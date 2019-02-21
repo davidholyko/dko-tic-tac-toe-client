@@ -7,13 +7,13 @@ const store = require('../store')
 const logicDemo = require('../view/logicDemo')
 
 const failure = () => {
-  console.log('failure')
+  // console('failure')
   userFeedback.resetForm()
   userFeedback.showFailureMessage()
 }
 
 const signInSuccess = responseData => {
-  console.log('signInSuccess')
+  // console('signInSuccess')
   userFeedback.resetForm()
   storePusher.initSignIn(responseData)
   userFeedback.updateUserFeedback('Signed in as', responseData.user.email.toUpperCase())
@@ -25,18 +25,18 @@ const signInSuccess = responseData => {
 }
 
 const signUpSuccess = () => {
-  console.log('signUpSuccess')
+  // console('signUpSuccess')
   userFeedback.resetForm()
   userFeedback.updateUserFeedback('You have signed up')
 }
 
 const changePassword = () => {
-  console.log('changePassword')
+  // console('changePassword')
   userFeedback.resetForm()
   userFeedback.updateUserFeedback('Your password has been changed')
 }
 const signOutSuccess = () => {
-  console.log('signOutSuccess')
+  // console('signOutSuccess')
   userFeedback.resetForm()
   userFeedback.resetUserInfo()
   userFeedback.resetBoard()

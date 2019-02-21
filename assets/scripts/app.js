@@ -11,7 +11,7 @@ const view = require('./view/view')
 const logicDemo = require('./view/logicDemo')
 
 $(() => {
-  console.log('Running JavaScript...')
+  // console('Running JavaScript...')
   boardGenerator.generateBoard(9)
   authEvents.addHandlers()
   gameEvents.addHandlers()

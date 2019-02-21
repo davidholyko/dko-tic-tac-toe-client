@@ -4,7 +4,7 @@ const checkIndexes = require('../logic/logic-test')
 const boardGenerator = require('./boardGenerator')
 
 const toggleCode = () => {
-  console.log('toggleCode')
+  // console('toggleCode')
   switch (store.logic) {
     case 'Logic Solution':
       logicDemo.showCode()
@@ -24,7 +24,7 @@ const toggleCode = () => {
 }
 
 const toggleDemoLink = () => {
-  console.log('toggleDemoLink')
+  // console('toggleDemoLink')
   switch (store.logic) {
     case 'Show Logic Solution':
       logicDemo.hideDemoLink()
@@ -37,13 +37,13 @@ const toggleDemoLink = () => {
 }
 
 const displayDemo = (board = store.demo) => {
-  console.log('displayDemo')
+  // console('displayDemo')
   logicDemo.clearDemoOutput()
   checkIndexes(board.length, board)
 }
 
 const makeDemoBoard = () => {
-  console.log('makeDemoBoard')
+  // console('makeDemoBoard')
   store.demo = boardGenerator.generateBoardArray(store.sizes[store.demoIndex])
   store.demoIndex++
   if (store.demoIndex > store.sizes.length - 1) { store.demoIndex = 0 }
