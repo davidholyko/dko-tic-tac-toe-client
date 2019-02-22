@@ -34,7 +34,12 @@ const checkForWinner = (board = store.game.cells) => {
   }
 
   const checkLines = board => {
-    const lines = { boardSize, boardStart: 0, boardIncrement: 1, diagonal: boardSize - 1 }
+    const lines = {
+      boardSize: boardSize,
+      boardStart: 0,
+      boardIncrement: 1,
+      diagonal: boardSize - 1
+    }
     // object that contains relevant board information
     checkLine(lines.boardStart, lines.boardIncrement, lines.boardSize, lines.boardSize)
     // checks all horizontal lines
@@ -55,7 +60,9 @@ const checkForWinner = (board = store.game.cells) => {
     store.game.progress = 'Game Ended'
   }
 
-  if (store.game.turn === store.game.cells.length) { store.game.over = true }
+  if (store.game.turn === store.game.cells.length) {
+    store.game.over = true
+  }
 }
 
 module.exports = checkForWinner
