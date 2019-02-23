@@ -136,12 +136,12 @@ of the project week.
 Produce documentation in the form of a **README**, which must:
 
 1.  [X] Pin your repository on GitHub as a Popular Repository
-1.  [] Complete the repository `Description` field and `Website` field with a meaningful sentence description of the application and link to the live URL
+1.  [X] Complete the repository `Description` field and `Website` field with a meaningful sentence description of the application and link to the live URL
 ![github image](https://git.generalassemb.ly/storage/user/3667/files/beae41ae-aaaa-11e7-8867-63958d376a0b)
-1.  [ ] List technologies used
-1.  [ ] Document your planning and tell a story about your development process and problem-solving strategy.
-1.  [ ] List unsolved problems which would be fixed in future iterations.
-1.  [ ] Link to wireframes and user stories.
+1.  [X] List technologies used
+1.  [X] Document your planning and tell a story about your development process and problem-solving strategy.
+1.  [X] List unsolved problems which would be fixed in future iterations.
+1.  [X] Link to wireframes and user stories.
 
 ### Technical Specifications
 
@@ -185,5 +185,5 @@ Your app **must not**:
 1.  [X] Allow players to move in the same square more than once.
 1.  [X] Change players when an invalid move is made.
 1.  [X] Use alerts for anything.
-1.  [ ] Display errors or warnings in the console.
+1.  [X] Display errors or warnings in the console.
 1.  [X] Display debugging messages in the console.
