@@ -43,12 +43,12 @@ const getHistorySuccess = responseData => {
   store.gamesHistory = responseData.games
   userFeedback.addHistory()
   userFeedback.resetSecretForm()
-  boardGenerator.generateMiniBoard()
 }
 
 const getLastGameSuccess = responseData => {
   // console('getLastGameSuccess')
-  const game = responseData.games.slice(-2, -1)[0]
+  const game = responseData.games[responseData.games.length - store.previousGame]
+  store.previousGame++
   storePusher.updateStoreGame(game)
   dataStoreCalculator.calcAll()
   userFeedback.replaceBoard()

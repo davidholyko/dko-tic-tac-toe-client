@@ -13,6 +13,7 @@ const resetStore = () => {
   store.player = null
   store.gameWatcher = null
   store.games = null
+  store.previousGame = 1
 }
 
 const initStore = data => {
@@ -24,6 +25,7 @@ const initStore = data => {
   store.game.url = `${config.apiUrl}/games/${data.game.id}`
   store.game.moves = []
   store.player = 'X'
+  store.previousGame = 1
 }
 
 const initSignIn = data => {
