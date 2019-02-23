@@ -12,8 +12,6 @@ const clearDemoBoard = () => { $('#demo-board').html('') }
 const clearDemoOutput = () => { $('#demo-output').html('') }
 
 const showDemoContainer = () => {
-  $('#demo-container').width('50vw')
-  $('#demo-container').height('50vw')
   $('#demo-container').show()
 }
 
