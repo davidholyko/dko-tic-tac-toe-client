@@ -17,7 +17,7 @@ Simply go to https://davidholyko.github.io/dko-tic-tac-toe-client/, sign up, and
 ## Planning and Development
 
 Planning:
-1. Start coding without planning
+1. Start coding
 2. Refactor and complete small goals that lead upto a big goal
 3. After making progress, go back and check if what was done makes anything on the to-do list
 
@@ -35,7 +35,7 @@ Planning:
 8. Refactor client-side files
 9. Add secrets
 10. Add view onPageLoad handlers
-11. Refactor game logic
+11. Refactor game logic into its own folder
 12. Add bootstrap navbar, nav dropdowns
 13. Refactor into smaller files, more folders
 14. Add logic Demonstration
