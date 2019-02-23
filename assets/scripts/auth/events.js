@@ -7,7 +7,7 @@ const api = require('./api')
 const ui = require('./ui')
 
 const onSignUp = event => {
-  // console('onSignUp')
+  // console.log('onSignUp')
   event.preventDefault()
   const data = getFormFields(event.target)
 
@@ -23,7 +23,7 @@ const onSignUp = event => {
 }
 
 const onSignIn = event => {
-  // console('onSignIn')
+  // console.log('onSignIn')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.signIn(data)
@@ -32,7 +32,7 @@ const onSignIn = event => {
 }
 
 const onChangePassword = event => {
-  // console('onChangePassword')
+  // console.log('onChangePassword')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.changePassword(data)
@@ -41,7 +41,7 @@ const onChangePassword = event => {
 }
 
 const onSignOut = event => {
-  // console('onSignOut')
+  // console.log('onSignOut')
   event.preventDefault()
   api.signOut()
     .then(ui.signOutSuccess)
@@ -49,7 +49,7 @@ const onSignOut = event => {
 }
 
 const signInAndOpenNewGame = event => {
-  // console('signInAndOpenNewGame')
+  // console.log('signInAndOpenNewGame')
   event.preventDefault()
   const data = getFormFields(event.target)
 

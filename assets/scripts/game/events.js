@@ -10,7 +10,7 @@ const store = require('../store')
 // const randomAI = require('../logic/randomAI')
 
 const onGetGames = () => {
-  // console('onGetGames')
+  // console.log('onGetGames')
   event.preventDefault()
   api.getGames()
     .then(ui.getGamesSuccess)
@@ -18,7 +18,7 @@ const onGetGames = () => {
 }
 
 const onGetHistory = () => {
-  // console('onGetGames')
+  // console.log('onGetGames')
   event.preventDefault()
   api.getGames()
     .then(ui.getHistorySuccess)
@@ -26,7 +26,7 @@ const onGetHistory = () => {
 }
 
 const onGetLastGame = () => {
-  // console('onGetLastGame')
+  // console.log('onGetLastGame')
   event.preventDefault()
   api.getGames()
     .then(ui.getLastGameSuccess)
@@ -34,7 +34,7 @@ const onGetLastGame = () => {
 }
 
 const onNewGame = event => {
-  // console('onNewGame')
+  // console.log('onNewGame')
   event.preventDefault()
   api.newGame()
     .then(ui.newGameSuccess)
@@ -42,7 +42,7 @@ const onNewGame = event => {
 }
 
 const onUpdateGame = event => {
-  // console('onUpdateGame')
+  // console.log('onUpdateGame')
   event.preventDefault()
   const data = dataParser.morphData(event.target)
   if (store.game.over) { return }
@@ -53,7 +53,7 @@ const onUpdateGame = event => {
 }
 
 const onUndoMove = event => {
-  // console('onUndoMove')
+  // console.log('onUndoMove')
   event.preventDefault()
   const data = dataParser.morphUndoData()
   if (!store.game.moves.length || store.game.winner) { return userFeedback.onInvalidUndoMove() }
@@ -63,7 +63,7 @@ const onUndoMove = event => {
 }
 
 const onPlayMultiPlayer = event => {
-  // console('onPlayMultiPlayer')
+  // console.log('onPlayMultiPlayer')
   event.preventDefault()
   const data = getFormFields(event.target)
   api.playMultiPlayer(data)
@@ -72,13 +72,13 @@ const onPlayMultiPlayer = event => {
 }
 
 const onDisplayGame = event => {
-  // console('onDisplayGame')
+  // console.log('onDisplayGame')
   event.preventDefault()
   ui.displayGame(event.target)
 }
 
 const onDontClick = event => {
-  // console('onDontClick')
+  // console.log('onDontClick')
   event.preventDefault()
   if (_()) {
     api.getGames()

@@ -180,57 +180,69 @@
   <div class="d-flex flex-column justify-content-around" id="code-page">
 
 
-    <div class="p-0 my-5 mx-1 justify-content-center d-flex flex-wrap" id="demo-container">
-      <div class="m-2 p-0 d-flex flex-wrap" id="demo-board"></div>
+    <div class="p-0 my-5 mx-1 justify-content-center flex-wrap" id="demo-container">
+      <div class="m-2 p-0 flex-wrap" id="demo-board"></div>
       <div class="d-flex flex-column align-items-start" id="demo-output"></div>
     </div>
 
 
     <pre><code class="my-3" data-language="javascript" id="code" >
     // Description: This file contains a function checkForWinner() which finds
-    // the winner of a tic tac toe for any size grid ie 3x3, 4x4, 9x9...
+    // the winners of a tic tac toe for any size grid ie 3x3, 4x4, 9x9...
     // The recusive function checkLine checks if all elements in a line
     // are the same item and if true, pushes that value of the item
-    // into an array winner. It has a recursive call that calls itself again
+    // into an array winners. It has a recursive call that calls itself again
     // and changes the initial value by adding a jump which is the
     // value from one initial starting index to the next line of the same axis
+    // array of 1D is stays as a 1D array with a 2D theoretical representation
+    // [0, 1, 2, 3, 4, 5, 6, 7, 8] -->
+    // ------------------------------> 0 1 2
+    // ------------------------------> 3 4 5
+    // ------------------------------> 6 7 8
 
     const checkForWinner = (board = store.game.cells) => {
       // checks for tic tac toe of any size square grid
 
-      const winner = []; const boardSize = Math.sqrt(board.length) | 0
+      const winners = []
+      // output array of that will contain the value X or O depending on the winner
+      const boardSize = Math.sqrt(board.length) | 0
+      // representation of the length of a side of the square made from the 1D array
+      const line = { boardStart: 0, boardIncrement: 1, boardSize: boardSize, diagonal: boardSize - 1 }
+      // object that contains relevant board information
 
-      const checkLine = function (init, diff, jump = 0, cycle = 1) {
-        const check = []; cycle = cycle - 1
+      const checkLine = function (initialValue, difference, jump = 0, cycle = 1) {
+        const check = []
+        // array that will hold the values to be checked if they are the same
+        cycle = cycle - 1
+        // de-increment cycle by one each time checkLine is called
 
-        for (let i = 0; i < boardSize; i++) { check.push(board[init + diff * i]) }
-        // push values of board at indexes * diff onto check array
-        if (check.every(letter => letter === check[0])) { winner.push(check[0]) }
-        // if every value in line is the same, push that value onto winner array
-        if (init === diff) { return checkLine(init - diff, diff + 2) }
-        // if init and diff are the same (its a diagonal), check the other diagonal
+        for (let i = 0; i < boardSize; i++) { check.push(board[initialValue + difference * i]) }
+        // push values of board at indexes * difference onto check array
+        if (check.every(value => value === check[0])) { winners.push(check[0]) }
+        // if every value in line is the same, push that value onto winners array
+        if (initialValue === difference) { return checkLine(initialValue - difference, difference + 2) }
+        // if initialValue and difference are the same (its a diagonal), check the other diagonal
         if (!cycle) { return }
         // exit recursion when cycle = 0
-        return checkLine(init + jump, diff, jump, cycle)
-        // recursively get the other ones
+        return checkLine(initialValue + jump, difference, jump, cycle)
+        // recursively go through other lines until cycle = 0
+        // increase the initialValue by the jump to switch from one line to the next
       }
 
       const checkLines = board => {
-        const lines = { boardSize, boardStart: 0, boardIncrement: 1, diagonal: boardSize - 1 }
-        // object that contains relevant board information
-        checkLine(lines.boardStart, lines.boardIncrement, lines.boardSize, lines.boardSize)
-        // checks all horizontal lines
-        checkLine(lines.boardStart, lines.boardSize, lines.boardIncrement, lines.boardSize)
-        // checks all vertical lines
-        checkLine(lines.diagonal, lines.diagonal)
-        // checks both diagonal lines
+        checkLine(line.boardStart, line.boardIncrement, line.boardSize, line.boardSize)
+        // checks all horizontal line
+        checkLine(line.boardStart, line.boardSize, line.boardIncrement, line.boardSize)
+        // checks all vertical line
+        checkLine(line.diagonal, line.diagonal)
+        // checks both diagonal line
       }
 
       checkLines(board)
       // invoke checkLines function
-      winner.sort((a, b) => b - a)
-      // float the value X or O to front of the winner array
-      return winner[0]
+      winners.sort((a, b) => b - a)
+      // float the value X or O to front of the winners array
+      return winners[0]
     }
   </code></pre>
   </div>

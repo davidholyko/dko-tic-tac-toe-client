@@ -1,11 +1,11 @@
 'use strict'
 
 const storePusher = require('../client-side/storePusher')
-const demoFeedback = require('../client-side/demoFeedback')
+const demoFeedback = require('./demoFeedback')
 const logicDemo = require('../view/logicDemo')
 
 const onClickCode = event => {
-  // console('onClickCode')
+  // console.log('onClickCode')
   event.preventDefault()
   logicDemo.clearDemoBoard()
   logicDemo.showDemoContainer()
@@ -16,7 +16,7 @@ const onClickCode = event => {
 }
 
 const onClickDemo = event => {
-  // console('onClickDemo')
+  // console.log('onClickDemo')
   event.preventDefault()
   logicDemo.clearDemoBoard()
   demoFeedback.makeDemoBoard()

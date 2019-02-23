@@ -80,8 +80,18 @@ button {
   }
 }
 
+#demo-board {
+  display: flex;
+}
+
 #demo-container {
   width: 95vw;
+  display: flex;
+}
+
+#demo-output-title {
+  border-bottom: 5px solid white;
+  margin-bottom: 2vh;
 }
 
 .display {
@@ -299,6 +309,18 @@ h3 {
 }
 @media (max-width: 850px) {
   #logic-link {
+    display: none;
+  }
+
+  #demo-link {
+    display: none;
+  }
+
+  #code {
+    display: none;
+  }
+
+  #demo-container {
     display: none;
   }
 

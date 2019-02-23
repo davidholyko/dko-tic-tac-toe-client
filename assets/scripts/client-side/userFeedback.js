@@ -1,38 +1,38 @@
 const store = require('../store')
 
 const switchPlayer = () => {
-  // console('switchPlayer')
+  // console.log('switchPlayer')
   store.player === 'X' ? store.player = 'O' : store.player = 'X'
 }
 
 const addOneValue = element => {
-  // console('addOneValue')
+  // console.log('addOneValue')
   if ($(element).text()) { return }
   $(element).text(store.player)
   switchPlayer()
 }
 
 const removeOneValue = element => {
-  // console('removeOneValue')
+  // console.log('removeOneValue')
   $(store.game.elements.slice(-1)[0]).text('')
 }
 
 const replaceBoard = (data = store.game.cells) => {
-  // console('replaceBoard')
+  // console.log('replaceBoard')
   $('#board-0').children().each(function (index) {
     $(this).html(data[index])
   })
 }
 
 const resetBoard = () => {
-  // console('resetBoard')
+  // console.log('resetBoard')
   $('#board-0').children().each(function (index) {
     $(this).html('')
   })
 }
 
 const resetUserInfo = () => {
-  // console('resetUserInfo')
+  // console.log('resetUserInfo')
   $('#user-message').html('')
   $('#current-game').html('')
   $('#feedback>*').html('')
@@ -40,7 +40,7 @@ const resetUserInfo = () => {
 }
 
 const updateInfo = () => {
-  // console('updateInfo')
+  // console.log('updateInfo')
   $('#current-game').text(`Current Game ID: ${store.game.id}`)
   $('#current-player').text(`Current Player's Turn: ${store.player}`)
   $('#current-turn').text(`Current Turn Number: ${store.game.turn}`)
@@ -51,7 +51,7 @@ const updateInfo = () => {
 }
 
 const updateStaticInfo = () => {
-  // console('updateStaticInfo')
+  // console.log('updateStaticInfo')
   $('#user-message').html(`${store.user.email.toUpperCase()}`)
   $('#current-player').text(`Current Player's Turn: ${store.player}`)
   $('#current-game').text(`Current Game ID: ${store.game.id}`)
@@ -61,12 +61,12 @@ const updateStaticInfo = () => {
 }
 
 const clearGames = () => {
-  // console('clearGames')
+  // console.log('clearGames')
   $('#get-games').html('')
 }
 
 const resetForm = () => {
-  // console('resetForm')
+  // console.log('resetForm')
   $('form').trigger('reset')
 }
 
@@ -75,7 +75,7 @@ const resetSecretForm = () => {
 }
 
 const showFailureMessage = () => {
-  // console('showFailureMessage')
+  // console.log('showFailureMessage')
   $('#failure-feedback').html('UNHELPFUL ERROR MESSAGE!')
   $('#failure-feedback').toggleClass('error')
   for (let i = 0; i < 3000; i += 200) { setTimeout(() => { $('#failure-feedback').toggleClass('error-toggle') }, i) }
@@ -88,7 +88,7 @@ const updateUserFeedback = (message, extra = '', target = '#user-message') => {
 }
 
 const addHistory = () => {
-  // console(store)
+  // console.log(store)
   $('#current-stats').text(`Number of Games Played: ${store.gamesHistory.length}`)
 }
 

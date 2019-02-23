@@ -1,7 +1,7 @@
 const store = require('../store')
 
 const morphData = (element, override = false, secondOverride = false) => {
-  // console('morphData')
+  // console.log('morphData')
   let index = $(element).data('cell-index')
   let value = store.player
   let over = false
@@ -22,7 +22,7 @@ const morphData = (element, override = false, secondOverride = false) => {
 }
 
 const morphUndoData = () => {
-  // console('morphUndoData')
+  // console.log('morphUndoData')
   const index = store.game.moves.slice(-1)[0]
   const over = false
 

@@ -9,12 +9,12 @@ const view = require('../view/view')
 const store = require('../store')
 
 const failure = () => {
-  // console('failure')
+  // console.log('failure')
   userFeedback.showFailureMessage()
 }
 
 const newGameSuccess = responseData => {
-  // console('newGameSuccess')
+  // console.log('newGameSuccess')
   storePusher.initStore(responseData)
   userFeedback.resetUserInfo()
   userFeedback.resetBoard()
@@ -24,7 +24,7 @@ const newGameSuccess = responseData => {
 }
 
 const getGamesSuccess = responseData => {
-  // console('getGamesSuccess')
+  // console.log('getGamesSuccess')
   userFeedback.clearGames()
   let games
   store.gamesHistory = responseData.games
@@ -37,7 +37,7 @@ const getGamesSuccess = responseData => {
 }
 
 const getHistorySuccess = responseData => {
-  // console('getGamesSuccess')
+  // console.log('getGamesSuccess')
   userFeedback.clearGames()
   storePusher.addGames(responseData.games)
   store.gamesHistory = responseData.games
@@ -46,7 +46,7 @@ const getHistorySuccess = responseData => {
 }
 
 const getLastGameSuccess = responseData => {
-  // console('getLastGameSuccess')
+  // console.log('getLastGameSuccess')
   const game = responseData.games[responseData.games.length - store.previousGame]
   store.previousGame++
   storePusher.updateStoreGame(game)
@@ -57,7 +57,7 @@ const getLastGameSuccess = responseData => {
 }
 
 const updateGameSuccess = element => {
-  // console('updateGameSuccess')
+  // console.log('updateGameSuccess')
   userFeedback.addOneValue(element)
   storePusher.updateOneCell(element)
   storePusher.addMove(element)
@@ -67,7 +67,7 @@ const updateGameSuccess = element => {
 }
 
 const undoMoveSuccess = element => {
-  // console('undoMoveSuccess')
+  // console.log('undoMoveSuccess')
   userFeedback.removeOneValue(element)
   storePusher.removeOneCellContents()
   storePusher.removeMove()
@@ -76,7 +76,7 @@ const undoMoveSuccess = element => {
 }
 
 const playMultiPlayerSuccess = responseData => {
-  // console('playMultiPlayerSuccess')
+  // console.log('playMultiPlayerSuccess')
   storePusher.updateStoreGame(responseData.game)
   storePusher.updateStoreUrl(responseData.game.id)
   userFeedback.replaceBoard(responseData.game.cells)
