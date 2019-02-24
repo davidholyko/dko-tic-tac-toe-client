@@ -1,6 +1,11 @@
 const store = require('../store')
 const config = require('../config')
 
+const switchPlayer = () => {
+  // console.log('switchPlayer')
+  store.player === 'X' ? store.player = 'O' : store.player = 'X'
+}
+
 const resetGameWatcher = () => {
   // console.log('resetGameWatcher')
   store.gameWatcher = null
@@ -87,6 +92,7 @@ const addElement = element => {
 }
 
 module.exports = {
+  switchPlayer,
   updateOneCell,
   removeOneCellContents,
   switchLogicText,

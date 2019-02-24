@@ -1,6 +1,7 @@
 'use strict'
 
 const storePusher = require('../client-side/storePusher')
+const store = require('../store')
 const demoFeedback = require('./demoFeedback')
 const logicDemo = require('../view/logicDemo')
 
@@ -24,8 +25,14 @@ const onClickDemo = event => {
   demoFeedback.displayDemo()
 }
 
+const initDemoStore = () => {
+  store.sizes = [9, 16, 25, 36, 49, 64, 81, 100]
+  store.demoIndex = 0
+}
+
 const addHandlers = () => {
   storePusher.initLogicText()
+  initDemoStore()
   $('#logic-link').on('click', onClickCode)
   $('#demo-link').on('click', onClickDemo)
 }

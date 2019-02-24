@@ -1,19 +1,14 @@
 'use strict'
 
-const store = require('../store')
-
 const hideCode = () => { $('#code').hide() }
 const showCode = () => { $('#code').show() }
 const showDemoLink = () => { $('#demo-link').show() }
-const hideDemoContainer = () => { $('#demo-container').hide() }
 const hideDemoLink = () => { $('#demo-link').hide() }
 const hideDemoBoard = () => { $('#demo-board').hide() }
 const clearDemoBoard = () => { $('#demo-board').html('') }
 const clearDemoOutput = () => { $('#demo-output').html('') }
-
-const showDemoContainer = () => {
-  $('#demo-container').show()
-}
+const hideDemoContainer = () => { $('#demo-container').hide() }
+const showDemoContainer = () => { $('#demo-container').show() }
 
 const showDemoBoard = () => {
   $('#demo-board').width('50vw')
@@ -28,18 +23,12 @@ const squareDemoBox = () => {
   $('.demo-box').height($('#demo-box').width())
 }
 
-const initDemo = () => {
-  store.sizes = [9, 16, 25, 36, 49, 64]
-  store.demoIndex = 0
-}
-
 const onPageLoad = () => {
   squareDemoBox()
   hideDemoContainer()
   hideDemoLink()
   hideDemoBoard()
   hideCode()
-  initDemo()
   setTimeout(() => $(window).resize(squareDemoBox), 1)
 }
 

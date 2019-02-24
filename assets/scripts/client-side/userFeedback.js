@@ -1,15 +1,9 @@
 const store = require('../store')
 
-const switchPlayer = () => {
-  // console.log('switchPlayer')
-  store.player === 'X' ? store.player = 'O' : store.player = 'X'
-}
-
 const addOneValue = element => {
   // console.log('addOneValue')
   if ($(element).text()) { return }
   $(element).text(store.player)
-  switchPlayer()
 }
 
 const removeOneValue = element => {
@@ -71,6 +65,7 @@ const resetForm = () => {
 }
 
 const resetSecretForm = () => {
+  // console.log('resetSecretForm')
   $('#secret').val('')
 }
 
@@ -88,11 +83,10 @@ const updateUserFeedback = (message, extra = '', target = '#user-message') => {
 }
 
 const addHistory = () => {
-  // console.log(store)
   $('#current-stats').text(`Number of Games Played: ${store.gamesHistory.length}`)
 }
 
-const onInvalidUndoMove = event => {
+const onInvalidUndoMove = () => {
   if (!store.game.moves.length) {
     updateUserFeedback('You cannot undo further!', '', '#user-feedback')
     for (let i = 0; i < 2000; i += 200) { setTimeout(() => { $('#user-feedback').toggleClass('error-toggle') }, i) }
@@ -105,7 +99,7 @@ const onInvalidUndoMove = event => {
   setTimeout(() => { $('#user-feedback').html('') }, 1500)
 }
 
-const onInvalidMove = event => {
+const onInvalidMove = () => {
   updateUserFeedback('You have made an invalid move!', '', '#user-feedback')
   for (let i = 0; i < 2000; i += 200) { setTimeout(() => { $('#user-feedback').toggleClass('error-toggle') }, i) }
   setTimeout(() => { $('#user-feedback').html('') }, 1500)

@@ -4,7 +4,6 @@ const storePusher = require('../client-side/storePusher')
 const userFeedback = require('../client-side/userFeedback')
 const dataStoreCalculator = require('../client-side/dataStoreCalculator')
 const boardGenerator = require('../client-side/boardGenerator')
-const _ = require('../secrets/secrets')
 const view = require('../view/view')
 const store = require('../store')
 
@@ -23,10 +22,9 @@ const newGameSuccess = responseData => {
   view.showGamePage()
 }
 
-const getGamesSuccess = responseData => {
+const getGamesSuccess = (responseData, games) => {
   // console.log('getGamesSuccess')
   userFeedback.clearGames()
-  let games
   store.gamesHistory = responseData.games
   if (store.secretWord) { games = responseData.games } else { games = responseData.games.slice(-9) }
   storePusher.addGames(games)
@@ -37,9 +35,8 @@ const getGamesSuccess = responseData => {
 }
 
 const getHistorySuccess = responseData => {
-  // console.log('getGamesSuccess')
+  // console.log('getHistorySuccess')
   userFeedback.clearGames()
-  storePusher.addGames(responseData.games)
   store.gamesHistory = responseData.games
   userFeedback.addHistory()
   userFeedback.resetSecretForm()
@@ -59,6 +56,7 @@ const getLastGameSuccess = responseData => {
 const updateGameSuccess = element => {
   // console.log('updateGameSuccess')
   userFeedback.addOneValue(element)
+  storePusher.switchPlayer()
   storePusher.updateOneCell(element)
   storePusher.addMove(element)
   storePusher.addElement(element)

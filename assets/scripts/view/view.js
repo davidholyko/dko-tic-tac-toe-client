@@ -9,9 +9,12 @@ const showGamePage = () => { $('#game-page').show() }
 const hideMainBoard = () => { $('#board-container-0').hide() }
 const showMainBoard = () => { $('#board-container-0').show() }
 const scaleFontSizeH3 = () => { $('h3').css('font-size', '2vw') }
+const showMainGame = () => { $('#main-game').show() }
+const hideMainGame = () => { $('#main-game').hide() }
+const showFeedbackAndGameButtons = () => { $('#feedback-and-game-buttons').show() }
+const hideFeedbackAndGameButtons = () => { $('#feedback-and-game-buttons').hide() }
+
 const squareBox = () => {
-  // $('.container').height($('.container').width())
-  // $('.board-container').height($('.board-container').width())
   $('.row').height($('.row').width())
   $('.box').width($('.row').height() / 3)
   $('.box').height($('.box').width())
@@ -40,5 +43,9 @@ module.exports = {
   hideSignInPage,
   hideGamePage,
   hideMainBoard,
-  hideSettings
+  hideSettings,
+  showMainGame,
+  hideMainGame,
+  showFeedbackAndGameButtons,
+  hideFeedbackAndGameButtons
 }

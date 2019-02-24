@@ -17,9 +17,9 @@ body {
 }
 
 .big-button {
-  color: white;
   background-color: violet;
   border-radius: 5%;
+  color: white;
 
   &:hover {
     color: black;
@@ -31,11 +31,11 @@ body {
   border: 1px solid $white;
   color: white;
   display: flex;
-  justify-content: center;
-  vertical-align: middle;
-  text-align: center;
-  padding: 0;
   font-size: 5vh;
+  justify-content: center;
+  padding: 0;
+  text-align: center;
+  vertical-align: middle;
 
   &:hover {
     background-color: rgba(0,255,0,.5);
@@ -44,14 +44,17 @@ body {
 
 #board-container-0 {
   height: 50vh;
-  width: 50vh;
   text-align: center;
+  width: 50vh;
 }
 
 #board-0 {
-  height: 50vh;
-  width: 50vh;
   align-self: center;
+  height: 50vh;
+  max-height: 95vw;
+  max-width: 95vw;
+  text-align: center;
+  width: 50vh;
 }
 
 button {
@@ -64,6 +67,10 @@ button {
 }
 
 .container {}
+
+#demo-board {
+  display: flex;
+}
 
 .demo-box {
   background-color: rgba(0,255,0,.2);
@@ -78,10 +85,6 @@ button {
   &:hover {
     background-color: rgba(0,255,0,.5);
   }
-}
-
-#demo-board {
-  display: flex;
 }
 
 #demo-container {
@@ -160,28 +163,14 @@ h3 {
   font-size: 2vw;
 }
 
-#game-page {
-  display: flex;
-}
-
 .game-button {
   height: 5vh;
   color: white;
   font-size: 2vh;
 }
 
-.nav {
-  border: 5px solid black;
-  text-align: center;
-  display: block;
-  color: white;
-  background-color: green;
-  height: 10vh;
-
-  & > * {
-    text-align: center;
-    font-size: 8vh;
-  }
+#game-page {
+  display: flex;
 }
 
 .get-games {
@@ -218,14 +207,22 @@ h3 {
   width: (100%/3);
 }
 
-#navbar-text {
+.nav {
+  border: 5px solid black;
+  text-align: center;
+  display: block;
   color: white;
+  background-color: green;
+  height: 10vh;
+
+  & > * {
+    text-align: center;
+    font-size: 8vh;
+  }
 }
 
-#board-0 {
-  max-height: 95vw;
-  max-width: 95vw;
-  text-align: center;
+#navbar-text {
+  color: white;
 }
 
 .navbar {
