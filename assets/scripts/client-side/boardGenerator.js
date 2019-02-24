@@ -15,12 +15,6 @@ const generateBoard = (boardSize, boardID = 0, cells = [], defaultClasses = 'col
     elements.push(html)
   }
   elements.forEach(element => $(`${target}${boardID}`).append(element))
-
-  // check if this does anything
-  // if (boardID === 0) {
-  //   $('#board-0').height('50vh')
-  //   $('#board-0').height('50vw')
-  // }
 }
 
 const generateMiniBoard = (games = store.games) => {

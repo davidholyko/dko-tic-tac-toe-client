@@ -36,10 +36,8 @@ const getGamesSuccess = (responseData, games) => {
 
 const getHistorySuccess = responseData => {
   // console.log('getHistorySuccess')
-  userFeedback.clearGames()
   store.gamesHistory = responseData.games
   userFeedback.addHistory()
-  userFeedback.resetSecretForm()
 }
 
 const getLastGameSuccess = responseData => {
