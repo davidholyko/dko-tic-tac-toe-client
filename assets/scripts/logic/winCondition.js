@@ -55,7 +55,7 @@ const checkForWinner = (board = store.game.cells) => {
   // filter out empty strings
 
   if (winners[0]) {
-    store.game.winners = winners[0]
+    store.game.winner = winners[0]
     store.game.over = true
     store.game.progress = 'Game Ended'
   }
