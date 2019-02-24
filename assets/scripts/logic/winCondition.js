@@ -18,7 +18,7 @@ const store = require('../store')
 const checkForWinner = (board = store.game.cells) => {
   // console.log('checkForWinner')
 
-  const winner = []
+  let winners = []
   const boardSize = Math.sqrt(board.length) | 0
 
   const checkLine = function (initialValue, difference, jump = 0, cycle = 1) {
@@ -28,8 +28,8 @@ const checkForWinner = (board = store.game.cells) => {
     for (let i = 0; i < boardSize; i++) { check.push(board[initialValue + difference * i]) }
     // push values of board at indexes * difference onto check array
     // console.log(`checking values: ${check}`) // <----- uncomment to check which values are checked
-    if (check.every(value => value === check[0])) { winner.push(check[0]) }
-    // if every value in line is the same, push that value onto winner array
+    if (check.every(value => value === check[0])) { winners.push(check[0]) }
+    // if every value in line is the same, push that value onto winners array
     if (initialValue === difference) { return checkLine(initialValue - difference, difference + 2) }
     // if initialValue and difference are the same (its a diagonal), check the other diagonal
     if (!cycle) { return }
@@ -51,11 +51,11 @@ const checkForWinner = (board = store.game.cells) => {
 
   checkLines(board)
   // invoke the algorithm on the board
-  winner.sort((a, b) => b - a)
-  // float X or O to front
+  winners = winners.filter(winner => winner)
+  // filter out empty strings
 
-  if (winner[0]) {
-    store.game.winner = winner[0]
+  if (winners[0]) {
+    store.game.winners = winners[0]
     store.game.over = true
     store.game.progress = 'Game Ended'
   }
