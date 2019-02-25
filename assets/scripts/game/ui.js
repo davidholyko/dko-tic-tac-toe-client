@@ -24,14 +24,15 @@ const newGameSuccess = responseData => {
 
 const getGamesSuccess = (responseData, games) => {
   // console.log('getGamesSuccess')
-  userFeedback.clearGames()
   store.gamesHistory = responseData.games
   if (store.secretWord) { games = responseData.games } else { games = responseData.games.slice(-9) }
+  userFeedback.clearGames()
   storePusher.addGames(games)
   userFeedback.addHistory()
   userFeedback.resetSecretForm()
   boardGenerator.generateMiniBoard()
   view.squareBox()
+  store.secretWord = false
 }
 
 const getHistorySuccess = responseData => {

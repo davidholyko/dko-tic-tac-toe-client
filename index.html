@@ -112,11 +112,11 @@
           <div class="dropdown-menu">
             <form class="px-4 py-3" id="change-password-form">
               <div class="form-group">
-                <label for="exampleDropdownFormPassword1">Password</label>
+                <label for="exampleDropdownFormPassword1">Old Password</label>
                 <input type="password" placeholder="Old Password" name="passwords[old]" />
               </div>
               <div class="form-group">
-                <label for="exampleDropdownFormPassword1">Password</label>
+                <label for="exampleDropdownFormPassword1">New Password</label>
                 <input type="password" placeholder="New Password" name="passwords[new]" />
               </div>
               <button type="submit" class="btn btn-primary">Change Password</button>
@@ -200,7 +200,7 @@
     const checkForWinner = (board = store.game.cells) => {
       // checks for tic tac toe of any size square grid
 
-      let winners = []
+      const winners = []
       // output array of that will contain the value X or O depending on the winner
       const boardSize = Math.sqrt(board.length) | 0
       // representation of the length of a side of the square made from the 1D array
@@ -237,9 +237,9 @@
 
       checkLines(board)
       // invoke checkLines function
-      winners = winners.sort(winner => winner)
+      winner = winners.sort(winner => winner)[0]
       // filter out empty strings
-      return winners[0]
+      return winner
     }
   </code></pre>
   </div>

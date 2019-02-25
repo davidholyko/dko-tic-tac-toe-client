@@ -18,7 +18,7 @@ const store = require('../store')
 const checkForWinner = (board = store.game.cells) => {
   // console.log('checkForWinner')
 
-  let winners = []
+  const winners = []
   const boardSize = Math.sqrt(board.length) | 0
 
   const checkLine = function (initialValue, difference, jump = 0, cycle = 1) {
@@ -51,11 +51,11 @@ const checkForWinner = (board = store.game.cells) => {
 
   checkLines(board)
   // invoke the algorithm on the board
-  winners = winners.filter(winner => winner)
+  const winner = winners.filter(winner => winner)[0]
   // filter out empty strings
 
-  if (winners[0]) {
-    store.game.winner = winners[0]
+  if (winner) {
+    store.game.winner = winner
     store.game.over = true
     store.game.progress = 'Game Ended'
   }
