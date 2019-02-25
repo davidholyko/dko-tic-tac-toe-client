@@ -45,38 +45,38 @@ Planning:
 #### Initial wireframes and user stories
 ##### [Desktop wireframe](https://i.imgur.com/80gDeK5.jpg "Tic Tac Toe - desktop wireframe")
 
-As a user, I want to sign up.
-As a user, I want to sign in.
-As a user, I want to change passwords.
-As a user, I want to sign out.
-As a user, I want to play a new game.
-As a user, I want to see previous games.
-As a user, I want to go to a previous game.
-As a user, I want to see how the code works.
-As a user, I want to see a demonstration of the code.
+1. As a user, I want to sign up.
+2. As a user, I want to sign in.
+3. As a user, I want to change passwords.
+4. As a user, I want to sign out.
+5. As a user, I want to play a new game.
+6. As a user, I want to see previous games.
+7. As a user, I want to go to a previous game.
+8. As a user, I want to see how the code works.
+9. As a user, I want to see a demonstration of the code.
 
 ## Problem Solving Strategy
 
-Break down problems into smallest solvable problem and build up.
-Take a break after certain amount of time regardless of progress.
-Write down diagrams if stuck.
-Explain code to peers for different approaches to solve the problem.
+1. Break down problems into smallest solvable problem and build up.
+2. Take a break after certain amount of time regardless of progress.
+3. Write down diagrams if stuck.
+4. Explain code to peers for different approaches to solve the problem.
 
 ## Unsolved Problems
 
-Logic Solution Demo Right Pane check exceeds the height of the flexbox, need the parent container to grow
-Sometimes Main Board does not show up on load
-Sometimes secret boxes scaling fails
-background repeat gradient -> underneath black background
+1. Logic Solution Demo Right Pane check exceeds the height of the flexbox, need the parent container to grow
+2. Sometimes Main Board does not show up on load
+3. Sometimes secret boxes scaling fails
+4. background repeat gradient -> underneath black background
 
 ## Future Direction (Super Stretch Goals)
 
-Possible features and directions this project could go:
-Play any multiple games at same time
-Dumb AI
-MiniMax AI
-Multiplayer
-Ultimate Tic Tac Toe
+1. Possible features and directions this project could go:
+2. Play any multiple games at same time
+3. Dumb AI
+4. MiniMax AI
+5. Multiplayer
+6. Ultimate Tic Tac Toe
 
 ## [License](LICENSE)
 
