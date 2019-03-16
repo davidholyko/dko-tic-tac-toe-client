@@ -14,7 +14,7 @@ const api = require('./game/api')
 $(() => {
   // console.log('Running JavaScript...')
   boardGenerator.generateBoard(9)
-  api.getGames()
+  api.showAll()
   authEvents.addHandlers()
   gameEvents.addHandlers()
   logicEvents.addHandlers()

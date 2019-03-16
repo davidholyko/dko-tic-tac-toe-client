@@ -14,6 +14,13 @@ const getGames = () => {
   })
 }
 
+const showAll = () => {
+  return $.ajax({
+    url: config.apiUrl + '/all',
+    method: 'GET'
+  })
+}
+
 const getGame = data => {
   // console.log('getGame')
   return $.ajax({
@@ -57,5 +64,6 @@ module.exports = {
   getGame,
   newGame,
   updateGame,
-  playMultiPlayer
+  playMultiPlayer,
+  showAll
 }
