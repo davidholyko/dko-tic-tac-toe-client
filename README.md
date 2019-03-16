@@ -64,7 +64,7 @@ Planning:
 
 ## Unsolved Problems
 
-1. Logic Solution Demo Right Pane check exceeds the height of the flexbox, need the parent container to grow
+1. Logic Code Demo Right Pane check exceeds the height of the flexbox, need the parent container to grow
 2. Sometimes Main Board does not show up on load
 3. Sometimes secret boxes scaling fails
 4. background repeat gradient -> underneath black background

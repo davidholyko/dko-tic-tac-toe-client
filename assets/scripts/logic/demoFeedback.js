@@ -6,19 +6,19 @@ const boardGenerator = require('../client-side/boardGenerator')
 const toggleCode = () => {
   // console.log('toggleCode')
   switch (store.logic) {
-    case 'Logic Solution':
+    case 'Logic Code':
       logicDemo.showCode()
-      $('#logic-link>h2').text('Hide Logic Solution')
+      $('#logic-link>h2').text('Hide Logic Code')
       break
-    case 'Show Logic Solution':
+    case 'Show Logic Code':
       logicDemo.showCode()
-      $('#logic-link>h2').text('Hide Logic Solution')
+      $('#logic-link>h2').text('Hide Logic Code')
       break
-    case 'Hide Logic Solution':
+    case 'Hide Logic Code':
       logicDemo.hideCode()
       logicDemo.clearDemoBoard()
       logicDemo.clearDemoOutput()
-      $('#logic-link>h2').text('Show Logic Solution')
+      $('#logic-link>h2').text('Show Logic Code')
       break
   }
 }
@@ -26,10 +26,10 @@ const toggleCode = () => {
 const toggleDemoLink = () => {
   // console.log('toggleDemoLink')
   switch (store.logic) {
-    case 'Show Logic Solution':
+    case 'Show Logic Code':
       logicDemo.hideDemoLink()
       break
-    case 'Hide Logic Solution':
+    case 'Hide Logic Code':
       logicDemo.showDemoLink()
       logicDemo.clearDemoOutput()
       break
