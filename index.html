@@ -237,7 +237,7 @@
 
       checkLines(board)
       // invoke checkLines function
-      winner = winners.sort(winner => winner)[0]
+      winner = winners.filter(winner => winner)[0]
       // filter out empty strings
       return winner
     }

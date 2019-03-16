@@ -9,10 +9,12 @@ const authEvents = require('./auth/events')
 const logicEvents = require('./logic/events')
 const view = require('./view/view')
 const logicDemo = require('./view/logicDemo')
+const api = require('./game/api')
 
 $(() => {
   // console.log('Running JavaScript...')
   boardGenerator.generateBoard(9)
+  api.getGames()
   authEvents.addHandlers()
   gameEvents.addHandlers()
   logicEvents.addHandlers()

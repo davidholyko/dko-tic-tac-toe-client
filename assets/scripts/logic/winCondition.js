@@ -25,21 +25,34 @@ const checkForWinner = (board = store.game.cells) => {
     const check = []
     cycle = cycle - 1
 
-    for (let i = 0; i < boardSize; i++) { check.push(board[initialValue + difference * i]) }
+    for (let i = 0; i < boardSize; i++) {
+      check.push(board[initialValue + difference * i])
+    }
     // push values of board at indexes * difference onto check array
     // console.log(`checking values: ${check}`) // <----- uncomment to check which values are checked
-    if (check.every(value => value === check[0])) { winners.push(check[0]) }
+    if (check.every(value => value === check[0])) {
+      winners.push(check[0])
+    }
     // if every value in line is the same, push that value onto winners array
-    if (initialValue === difference) { return checkLine(initialValue - difference, difference + 2) }
+    if (initialValue === difference) {
+      return checkLine(initialValue - difference, difference + 2)
+    }
     // if initialValue and difference are the same (its a diagonal), check the other diagonal
-    if (!cycle) { return }
+    if (!cycle) {
+      return
+    }
     // exit recursion when cycle = 0
     return checkLine(initialValue + jump, difference, jump, cycle)
     // recursively get the other lines in same axis (x axis, y axis)
   }
 
   const checkLines = board => {
-    const lines = { boardStart: 0, boardIncrement: 1, boardSize: boardSize, diagonal: boardSize - 1 }
+    const lines = {
+      boardStart: 0,
+      boardIncrement: 1,
+      boardSize: boardSize,
+      diagonal: boardSize - 1
+    }
     // object that contains relevant board information
     checkLine(lines.boardStart, lines.boardIncrement, lines.boardSize, lines.boardSize)
     // checks all horizontal lines

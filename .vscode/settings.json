@@ -4,5 +4,11 @@
     "titleBar.activeBackground": "#394235",
     "titleBar.activeForeground": "#FAFAF9"
   },
-  "editor.formatOnSave": true
+  "editor.formatOnSave": true,
+  "jshint.options": {
+    "esversion": 6
+  },
+  "eslint.enable": true,
+
+  "eslint.autoFixOnSave": true
 }

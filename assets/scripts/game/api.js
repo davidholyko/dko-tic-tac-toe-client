@@ -5,11 +5,21 @@ const store = require('../store')
 
 const getGames = () => {
   // console.log('getGames')
-  return $.ajax({
-    url: config.apiUrl + '/games',
-    headers: {Authorization: `Token token=${store.user.token}`},
-    method: 'GET'
-  })
+  let token = ''
+  if (store.user) {
+    token = store.user.token
+
+    return $.ajax({
+      url: config.apiUrl + '/games',
+      headers: {Authorization: `Token token=${token}`},
+      method: 'GET'
+    })
+  } else {
+    return $.ajax({
+      url: config.apiUrl + '/games',
+      method: 'GET'
+    })
+  }
 }
 
 const getGame = data => {

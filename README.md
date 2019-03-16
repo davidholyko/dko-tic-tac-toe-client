@@ -26,7 +26,7 @@ Planning:
 
 1. Start coding
 2. Build HTML
-2. Complete auth event handlers by copying from previous auth folder with same ideas
+2. Complete auth event handlers with skeleton from previous work
 3. Complete game event handlers except PATCH
 4. Complete onUpdateGame
 5. Refactor into smaller files, more folders
