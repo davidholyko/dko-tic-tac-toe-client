@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Tic-Tac-Toe made by DKO</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- Do not add `link` tags -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/styles/agate.min.css">
+
+  <!-- Do not add `script` tags -->
+  <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+  <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.14.2/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light sticky-top">
+    <a class="navbar-brand">Tic Tac Toe</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item my-1">
+          <span class="nav-link" id="user-message" style="color: white"></span>
+        </li>
+        <li>
+          <div class="my-1 mx-1 dropdown settings">
+            <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Show Token
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <span class="text-wrap" id="current-token"></span>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="my-1 mx-1 dropdown settings">
+            <button class="btn btn-light dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" id="get-history-button">
+              Show Stats
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <span class="text-wrap" id="current-stats">Please wait for page to load history...</span>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item active sign-in-page my-1">
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButtonSignIn" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sign In
+            </button>
+            <div class="dropdown-menu">
+              <form class="px-4 py-3" id="sign-in-and-new-game-form">
+                <div class="form-group">
+                  <label for="exampleDropdownFormEmail1">Email address</label>
+                  <input required type="email" placeholder="Enter Email" name="credentials[email]" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleDropdownFormPassword1">Password</label>
+                  <input required type="password" placeholder="Enter Password" name="credentials[password]" />
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheckSignIn">
+                  <label class="form-check-label" for="dropdownCheck">
+                    Remember me
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign In</button>
+              </form>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item sign-in-page my-1">
+          <div class="dropdown">
+            <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButtonSignUp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Sign Up
+            </button>
+            <div class="dropdown-menu">
+              <form class="px-4 py-3" id="sign-up-form">
+                <div class="form-group">
+                  <label for="exampleDropdownFormEmail1">Email address</label>
+                  <input required type="email" placeholder="Enter Email" name="credentials[email]" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleDropdownFormPassword1">Password</label>
+                  <input required type="password" placeholder="Enter Password" name="credentials[password]" />
+                </div>
+                <div class="form-group">
+                  <label for="exampleDropdownFormPassword1">Password</label>
+                  <input required type="password" placeholder="Enter Password Confirmation" name="credentials[password_confirmation]" />
+                </div>
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="dropdownCheckSignUp">
+                  <label class="form-check-label" for="dropdownCheck">
+                    Remember me
+                  </label>
+                </div>
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+              </form>
+            </div>
+          </div>
+        </li>
+        <li class="nav-item settings my-1">
+          <button class="btn btn-light dropdown-toggle" type="button" id="dropdownMenuButtonSignUp" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Change Password
+          </button>
+          <div class="dropdown-menu">
+            <form class="px-4 py-3" id="change-password-form">
+              <div class="form-group">
+                <label for="exampleDropdownFormPassword1">Old Password</label>
+                <input type="password" placeholder="Old Password" name="passwords[old]" />
+              </div>
+              <div class="form-group">
+                <label for="exampleDropdownFormPassword1">New Password</label>
+                <input type="password" placeholder="New Password" name="passwords[new]" />
+              </div>
+              <button type="submit" class="btn btn-primary">Change Password</button>
+            </form>
+          </div>
+        </li>
+        <li class="nav-item settings my-1">
+          <button class="btn btn-light nav-link" id="new-game-button" style="color: black">New Game</button>
+        </li>
+        <li class="nav-item settings my-1">
+          <button class="btn btn-light nav-link" id="sign-out-button" style="color: black">Sign Out</button>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <h1 id="failure-feedback"></h1>
+
+  <div class="" id="game-page">
+    <div class="col-12 col-lg-6 col-xl-6" id="feedback-and-game-buttons">
+      <div class="col-12 p-0" id="feedback">
+        <h2 id="current-game"></h2>
+        <h2 id="current-player"></h2>
+        <h2 id="current-turn"></h2>
+        <h2 id="current-over"></h2>
+        <h2 id="game-state"></h2>
+      </div>
+
+      <div class="col-12 mt-5" id="game-buttons">
+        <form class="col-12 my-2" id="multiplayer-game-id-form">
+          <input class="game-button btn btn-primary col-12 p-0" id="previous-game-form-input" type="submit" value="Connect to Previous Game" />
+          <input required class="col-12 p-0" type="number" placeholder="Enter Previous Game ID" name="game[id]" />
+        </form>
+        <button class="game-button btn btn-primary col-12 my-2 p-0" id="get-games-button" value="Get Last 9 Games"> Get Last 9 Games </button>
+        <button class="game-button btn btn-primary col-12 my-2 p-0" id="get-last-game-button" value="Get Last Game"> Get A Previous Game </button>
+        <form class="col-12 my-2 p-0" id="secret-form">
+          <input required class="col-12 p-0" id="secret-word" type="text" placeholder="Type Something" name="secret" />
+          <input class="btn btn-primary game-button col-12 p-0" type="submit" value="Type the correct word and submit " />
+        </form>
+      </div>
+    </div>
+
+    <div class="col-12 col-lg-6 col-xl-6 p-0 mx-0" id="main-game">
+      <div class="p-0 my-5 justify-content-around flex-column" id="board-container-0">
+        <button class="game-button col-12 btn btn-primary btn-lg" id="undo-button">Undo</button>
+        <div class="d-inline-block">
+          <div class="row m-0" id="board-0"></div>
+        </div>
+        <h1 class="text-center" id="user-feedback"></h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="get-games my-5 flex-wrap" id="get-games"></div>
+
+  <div class="d-flex flex-column justify-content-around" id="code-page">
+
+    <div class="p-0 my-5 mx-1 justify-content-center flex-wrap" id="demo-container">
+      <div class="m-2 p-0 flex-wrap" id="demo-board"></div>
+      <div class="d-flex flex-column align-items-start" id="demo-output"></div>
+    </div>
+
+
+    <pre><code class="my-3" data-language="javascript" id="code" >
+    // Description: This file contains a function checkForWinner() which finds
+    // the winners of a tic tac toe for any size grid ie 3x3, 4x4, 9x9...
+    // The recusive function checkLine checks if all elements in a line
+    // are the same item and if true, pushes that value of the item
+    // into an array winners. It has a recursive call that calls itself again
+    // and changes the initial value by adding a jump which is the
+    // value from one initial starting index to the next line of the same axis
+    // array of 1D is stays as a 1D array with a 2D theoretical representation
+    // [0, 1, 2, 3, 4, 5, 6, 7, 8] -->
+    // ------------------------------> 0 1 2
+    // ------------------------------> 3 4 5
+    // ------------------------------> 6 7 8
+
+    const checkForWinner = (board = store.game.cells) => {
+      // checks for tic tac toe of any size square grid
+
+      const winners = []
+      // output array of that will contain the value X or O depending on the winner
+      const boardSize = Math.sqrt(board.length) | 0
+      // representation of the length of a side of the square made from the 1D array
+      const line = { boardStart: 0, boardIncrement: 1,  diagonal: boardSize - 1, boardSize: boardSize}
+      // object that contains relevant board information
+
+      const checkLine = function (initialValue, difference, jump = 0, cycle = 1) {
+        const check = []
+        // array that will hold the values to be checked if they are the same
+        cycle = cycle - 1
+        // de-increment cycle by one each time checkLine is called
+
+        for (let i = 0; i < boardSize; i++) { check.push(board[initialValue + difference * i]) }
+        // push values of board at indexes * difference onto check array
+        if (check.every(value => value === check[0])) { winners.push(check[0]) }
+        // if every value in line is the same, push that value onto winners array
+        if (initialValue === difference) { return checkLine(initialValue - difference, difference + 2) }
+        // if initialValue and difference are the same (its a diagonal), check the other diagonal
+        if (!cycle) { return }
+        // exit recursion when cycle = 0
+        return checkLine(initialValue + jump, difference, jump, cycle)
+        // recursively go through other lines until cycle = 0
+        // increase the initialValue by the jump to switch from one line to the next
+      }
+
+      const checkLines = board => {
+        checkLine(line.boardStart, line.boardIncrement, line.boardSize, line.boardSize)
+        // checks all horizontal line
+        checkLine(line.boardStart, line.boardSize, line.boardIncrement, line.boardSize)
+        // checks all vertical line
+        checkLine(line.diagonal, line.diagonal)
+        // checks both diagonal line
+      }
+
+      checkLines(board)
+      // invoke checkLines function
+      winner = winners.filter(winner => winner)[0]
+      // filter out empty strings
+      return winner
+    }
+  </code></pre>
+  </div>
+
+  <div id="footer-links" class="footer d-flex justify-content-around">
+    <a id="github-link" href="https://github.com/davidholyko/dko-tic-tac-toe-client" target="_blank">
+      <h2>Link to Github Repo</h2>
+    </a>
+    <div id="demo-link">
+      <h2>Demo Logic Code</h2>
+    </div>
+    <div id="logic-link">
+      <h2>Logic Code</h2>
+    </div>
+  </div>
+</body>
+
+
+
+</html>
