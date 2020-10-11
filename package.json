@@ -2,9 +2,10 @@
   "name": "ga-wdi-boston.browser-template",
   "version": "0.0.3",
   "private": true,
-  "license": {
-    "software": "GNU GPLv3",
-    "content": "CC­BY­NC­SA 4.0"
+  "license": "CC­BY­NC­SA 4.0",
+  "scripts": {
+    "start": "npx grunt serve",
+    "deploy":"npx grunt deploy"
   },
   "dependencies": {
     "babel-polyfill": "^6.26.0",
